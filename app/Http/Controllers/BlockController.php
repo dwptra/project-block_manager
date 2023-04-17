@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProjectManager;
 use App\Models\Block;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class BlockController extends Controller
 {
@@ -13,6 +16,21 @@ class BlockController extends Controller
     public function index()
     {
         return view('index');
+    }
+
+    public function auth(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required|min:3',
+        ]);
+
+        $user = ProjectManager::where('email', $request->email)->first();
+        if ($user && Hash::check($request->password, $user->password)) {
+            Auth::login($user);
+            return redirect('/dashboard');
+        }
+        return redirect('/')->with('fail', 'Periksa Email atau Password!');
     }
 
     /**

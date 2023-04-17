@@ -34,15 +34,14 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                                 <a class="text-center" href="index.html"> <h4>SIGN IN</h4></a>
-        
-                                <form class="mt-5 mb-5 login-input">
+                                <form class="mt-5 mb-5 login-input" method="post" action="">
                                     <div class="form-group">
                                         <input name="email" type="email" class="form-control" placeholder="Email">
                                     </div>
                                     <div class="form-group">
                                         <input name="password" type="password" class="form-control" placeholder="Password">
                                     </div>
-                                    <button class="btn login-form__btn submit w-100">Sign In</button>
+                                    <button class="btn login-form__btn submit w-100" type="submit">Sign In</button>
                                 </form>
                             </div>
                         </div>
