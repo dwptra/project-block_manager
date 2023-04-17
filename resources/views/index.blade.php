@@ -34,7 +34,8 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                                 <a class="text-center" href="index.html"> <h4>SIGN IN</h4></a>
-                                <form class="mt-5 mb-5 login-input" method="post" action="">
+                                <form class="mt-5 mb-5 login-input" method="post" action="{{ route('login.auth') }}">
+                                    @csrf
                                     <div class="form-group">
                                         <input name="email" type="email" class="form-control" placeholder="Email">
                                     </div>
