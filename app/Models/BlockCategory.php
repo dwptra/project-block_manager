@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BlockCategory extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'category_name'
+    ];
 }
