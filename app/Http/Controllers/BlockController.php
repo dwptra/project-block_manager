@@ -25,9 +25,9 @@ class BlockController extends Controller
 
     public function page($id)
     {
-        $projectDB = Project::all();
-        $pageDB = Page::all();
-        return view('page', compact('projectDB', 'pageDB'));
+        $project = Project::findOrFail($id); // Mengambil data proyek berdasarkan ID
+        $pageDB = Page::where('project_id', $id)->get(); // Mengambil data halaman berdasarkan ID proyek
+        return view('page', compact('project', 'pageDB')); // Mengirimkan data proyek dan data halaman ke view
     }
 
     // Login dan Logout

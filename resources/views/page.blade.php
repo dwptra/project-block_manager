@@ -1,7 +1,6 @@
 @extends('layout')
 @section('content')
 <div class="container-fluid mt-3">
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -10,10 +9,8 @@
                     <div class="card-body">
                         <h4 class="card-title">Page List</h4>
                         <hr>
-                        @foreach ($projectDB as $project)
                         <p><b class="pr-4">Project Name</b>: {{ $project->project_name }}</p>
                         <p><b class="pr-2">Project Manager</b>: {{ $project->project_manager }}</p>
-                        @endforeach
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
@@ -51,8 +48,5 @@
             </div>
         </div>
     </div>
-    <!-- #/ container -->
-</div>
-
 </div>
 @endsection
