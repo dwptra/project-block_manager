@@ -23,11 +23,12 @@ class BlockController extends Controller
         return view('dashboard', compact('projectDB'));
     }
 
+    // Page
     public function page($id)
     {
         $project = Project::findOrFail($id); // Mengambil data proyek berdasarkan ID
         $pageDB = Page::where('project_id', $id)->get(); // Mengambil data halaman berdasarkan ID proyek
-        return view('page', compact('project', 'pageDB')); // Mengirimkan data proyek dan data halaman ke view
+        return view('pages.page', compact('project', 'pageDB')); // Mengirimkan data proyek dan data halaman ke view
     }
 
     // Login dan Logout
