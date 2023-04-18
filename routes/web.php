@@ -18,9 +18,13 @@ use App\Http\Controllers\BlockController;
 // Route::get('/', function () {
 //     return view('index');
 // });
+Route::middleware('cekAuth')->group(function () {
+    Route::get('/dashboard', [BlockController::class, 'dashboard'])->name('dashboard');
+    Route::get('/page', [BlockController::class, 'page'])->name('page');
+    Route::get('/logout', [BlockController::class, 'logout'])->name('logout');
+});
 
-Route::get('/', [BlockController::class, 'index'])->name('index');
-Route::post('/', [BlockController::class, 'auth'])->name('login.auth');
-Route::get('/logout', [BlockController::class, 'logout'])->name('logout');
-Route::get('/dashboard', [BlockController::class, 'dashboard'])->name('dashboard');
-Route::get('/page', [BlockController::class, 'page'])->name('page');
+route::middleware('isGuest')->group(function () {
+    Route::get('/', [BlockController::class, 'index'])->name('index');
+    Route::post('/', [BlockController::class, 'auth'])->name('login.auth');
+});
