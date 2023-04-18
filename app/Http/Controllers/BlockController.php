@@ -13,14 +13,15 @@ class BlockController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('index');
-    }
-
     public function dashboard()
     {
         return view('dashboard');
+    }
+
+    // Login dan Logout
+    public function index()
+    {
+        return view('index');
     }
 
     public function auth(Request $request)
@@ -36,6 +37,11 @@ class BlockController extends Controller
             return redirect('/dashboard');
         }
         return redirect('/')->with('fail', 'Periksa Email atau Password!');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/')->with('successLogout', 'Berhasil keluar akun.');
     }
 
     /**

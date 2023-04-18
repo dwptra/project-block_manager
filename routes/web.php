@@ -22,3 +22,4 @@ use App\Http\Controllers\BlockController;
 Route::get('/', [BlockController::class, 'index'])->name('index');
 Route::post('/', [BlockController::class, 'auth'])->name('login.auth');
 Route::get('/dashboard', [BlockController::class, 'dashboard'])->name('dashboard');
+Route::get('/logout', [BlockController::class, 'logout'])->name('logout');

@@ -33,6 +33,27 @@
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
+                                @if (Session::get('fail'))
+                                <div class="alert alert-warning alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                    </button> <strong>Fail</strong> {{ Session::get('fail')}}
+                                </div>
+                                @endif
+                                @if (Session::get('successLogout'))
+                                <div class="alert alert-primary alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                    </button> <strong>Fail</strong> {{ Session::get('successLogout')}}
+                                </div>
+                                @endif
+                                @if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                    </button> <strong>Error:</strong>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </div>
+                                @endif
                                 <a class="text-center" href="index.html"> <h4>SIGN IN</h4></a>
                                 <form class="mt-5 mb-5 login-input" method="post" action="{{ route('login.auth') }}">
                                     @csrf
