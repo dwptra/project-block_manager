@@ -5,7 +5,14 @@
     <div class="alert alert-primary alert-dismissible fade show">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
-        </button> <strong>Fail</strong> {{ Session::get('isGuest')}}
+        </button> <strong>Fail!</strong> {{ Session::get('isGuest')}}
+    </div>
+    @endif
+    @if (Session::get('createProject'))
+    <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span>
+        </button> <strong>Success!</strong> {{ Session::get('createProject')}}
     </div>
     @endif
     <div class="container-fluid">
@@ -14,6 +21,9 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Project List</h4>
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-primary" href="{{ route('project.create') }}">Create New Project</a>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>

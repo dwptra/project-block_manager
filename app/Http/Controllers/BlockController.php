@@ -23,6 +23,26 @@ class BlockController extends Controller
         return view('dashboard', compact('projectDB'));
     }
 
+    public function createProject()
+    {
+        return view('project.project_create');
+    }
+
+    public function projectPost(Request $request)
+    {
+        $request->validate([
+            'project_name' => 'required',
+            'project_manager' => 'required'
+        ]);
+
+        Project::create([
+            'project_name' => $request->project_name,
+            'project_manager' => $request->project_manager
+        ]);
+
+        return redirect('/dashboard')->with('createProject', 'Berhasil membuat projek baru!');
+    }
+
     // Page
     public function page($id)
     {
