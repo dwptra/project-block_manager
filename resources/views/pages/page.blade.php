@@ -37,7 +37,7 @@
                                         <td>{{ $page->status }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-warning text-white mr-1" href="/page{{ $project->id }}">See Pages</a> 
+                                                <a class="btn btn-warning text-white mr-1" href="/page{{ $project->id }}">See Blocks</a> 
                                                 <a class="btn btn-primary mr-1" href="/page{{ $project->id }}">Edit</a>
                                                 <form action="{{ route('page.delete', $page['id']) }}" method="post">
                                                     @csrf
