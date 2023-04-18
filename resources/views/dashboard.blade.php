@@ -43,7 +43,7 @@
                                         <td>
                                             <div class="d-flex">
                                                 <a href="/page{{ $project->id }}">See Pages  |</a> 
-                                                <a class="ml-1" href="{{ route('') }}">Edit  |</a>
+                                                <a class="ml-1" href="{{ route('project.edit', $project['id']) }}">Edit  |</a>
                                                 <form action="">
                                                     <a class="ml-1" href="">Delete</a>
                                                 </form>
