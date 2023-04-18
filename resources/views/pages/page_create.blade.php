@@ -6,12 +6,14 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-validation">
+                        <h4>Page Create</h4>
+                        <hr>
                         <form class="form-valide" action="#" method="post">
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-username">Username <span class="text-danger">*</span>
+                                <label class="col-lg-4 col-form-label" for="val-project-name">Project Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Enter a username..">
+                                    <input type="text" class="form-control" id="val-project-name" name="val-project-name" value="{{ $pages->projects->project_name }}" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">

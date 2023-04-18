@@ -26,14 +26,19 @@ class BlockController extends Controller
     // Page
     public function page($id)
     {
-        $project = Project::findOrFail($id); // Mengambil data proyek berdasarkan ID
-        $pageDB = Page::where('project_id', $id)->get(); // Mengambil data halaman berdasarkan ID proyek
-        return view('pages.page', compact('project', 'pageDB')); // Mengirimkan data proyek dan data halaman ke view
+        // Menggunakan findOrFail() untuk menemukan project berdasarkan id
+        $project = Project::findOrFail($id);
+
+        // Menggunakan eager loading untuk mengambil relasi pageDB
+        $pageDB = $project->pages;
+
+        return view('pages.page', compact('project', 'pageDB'));
     }
     
     public function createPage($id)
     {
-        return view('pages.page_create');
+        $pages = Page::with('projects')->find($id);
+        return view('pages.page_create', compact('pages'));
     }
 
     // Login dan Logout

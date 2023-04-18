@@ -24,7 +24,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($pageDB as $page)
+                                    @forelse ($pageDB as $page)
                                     <tr>
                                         <td>{{ $page->page_name }}</td>
                                         <td>{{ $page->status }}</td>
@@ -35,7 +35,11 @@
                                             </form>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    @empty
+                                    <tr>
+                                        <td colspan="3">No pages found.</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                                 <tfoot>
                                     <tr>

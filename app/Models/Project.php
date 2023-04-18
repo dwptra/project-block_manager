@@ -12,4 +12,9 @@ class Project extends Model
         'project_name',
         'project_manager'
     ];
+
+    public function pages()
+    {
+        return $this->hasMany(Page::class);
+    }
 }
