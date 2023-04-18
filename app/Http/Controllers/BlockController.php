@@ -43,6 +43,28 @@ class BlockController extends Controller
         return redirect('/dashboard')->with('createProject', 'Berhasil membuat projek baru!');
     }
 
+    public function editProject($id)
+    {
+        $project = Project::findOrFail($id);
+
+        return view('project.project_edit', compact('project'));
+    }
+
+    public function updateProject(Request $request, $id)
+    {
+        $request->validate([
+            'project_name' => 'required',
+            'project_manager' => 'required'
+        ]);
+
+        Project::find($id)->update([
+            'project_name' => $request->project_name,
+            'project_manager' => $request->project_manager
+        ]);
+
+        return redirect('/dashboard')->with('updateProject', 'Berhasil mengubah projek!');
+    }
+
     // Page
     public function page($id)
     {
