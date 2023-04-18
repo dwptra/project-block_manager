@@ -92,6 +92,7 @@ class BlockController extends Controller
 
     public function postPage(Request $request, $id)
     {
+        $project = Project::findOrFail($id);
         $request->validate([
             'project_id' => 'required',
             'page_name' => 'required|min:3',
@@ -112,15 +113,40 @@ class BlockController extends Controller
 
     public function editPage($id)
     {
-        $pageDB = Page::findOrFail($id);
-
+        $pageDB = Page::with('projects')->findOrFail($id);
         return view('pages.page_edit', compact('pageDB'));
+    }
+    
+    public function updatePage(Request $request, $id)
+    {
+        $request->validate([
+            'project_id' => 'required',
+            'page_name' => 'required|min:3',
+            'status' => 'required|in:On Progress,On Review,Approved,Declined', // Menambahkan validasi untuk enum status
+        ]);
+
+        $page = Page::findOrFail($id);
+        $page->update([
+            'project_id' => $request->project_id,
+            'page_name' => $request->page_name,
+            'note' => $request->note,
+            'status' => $request->status,
+        ]);
+
+        // Dapatkan project_id dari halaman yang diupdate
+        $project_id = $page->project_id;
+
+        // kalau berhasil, arahin ke halaman proyek dengan pemberitahuan berhasil
+        return redirect('/page' . $project_id)->with('updatePage', 'Berhasil mengubah page!');
     }
 
     public function deletePage($id)
     {
-        Page::where('id', '=', $id)->delete();
-        return redirect('/page' . $id)->with('deletePage', 'Berhasil menghapus data!');
+        $page = Page::findOrFail($id); // Menggunakan findOrFail untuk mendapatkan data halaman berdasarkan ID
+        $project_id = $page->project_id; // Mendapatkan project_id dari halaman yang akan dihapus
+        $page->delete(); // Menghapus data halaman dari database
+
+        return redirect('/page' . $project_id)->with('deletePage', 'Berhasil menghapus data!'); // Mengarahkan pengguna kembali ke halaman proyek dengan ID yang sesuai
     }
 
     // Blocks
