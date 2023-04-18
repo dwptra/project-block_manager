@@ -11,8 +11,11 @@
                         <hr>
                         <p><b class="pr-4">Project Name</b>: {{ $project->project_name }}</p>
                         <p><b class="pr-2">Project Manager</b>: {{ $project->project_manager }}</p>
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-primary" href="/createPage">Create Page</a>
+                        </div>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered zero-configuration">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Page Name</th>
@@ -26,7 +29,7 @@
                                         <td>{{ $page->page_name }}</td>
                                         <td>{{ $page->status }}</td>
                                         <td>
-                                            <a href="">See Pages</a> | 
+                                            <a href="">See Blocks</a> | 
                                             <form action="">
                                                 <a href="">Delete</a>
                                             </form>
