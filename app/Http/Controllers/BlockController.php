@@ -110,10 +110,22 @@ class BlockController extends Controller
         return redirect('/page' . $id)->with('createPage', 'Berhasil membuat page!');
     }
 
+    public function editPage($id)
+    {
+        $pageDB = Page::findOrFail($id);
+
+        return view('pages.page_edit', compact('pageDB'));
+    }
+
     public function deletePage($id)
     {
         Page::where('id', '=', $id)->delete();
         return redirect('/page' . $id)->with('deletePage', 'Berhasil menghapus data!');
+    }
+
+    // Blocks
+    public function blocksPrint(){
+        return view('print.block.print');
     }
 
     // Login dan Logout
