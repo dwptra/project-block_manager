@@ -23,10 +23,11 @@ class BlockController extends Controller
         return view('dashboard', compact('projectDB'));
     }
 
-    public function page()
+    public function page($id)
     {
         $projectDB = Project::all();
-        return view('page', compact('projectDB'));
+        $pageDB = Page::all();
+        return view('page', compact('projectDB', 'pageDB'));
     }
 
     // Login dan Logout

@@ -20,7 +20,7 @@ use App\Http\Controllers\BlockController;
 // });
 Route::middleware('cekAuth')->group(function () {
     Route::get('/dashboard', [BlockController::class, 'dashboard'])->name('dashboard');
-    Route::get('/page', [BlockController::class, 'page'])->name('page');
+    Route::get('/page{id}', [BlockController::class, 'page'])->name('page');
     Route::get('/logout', [BlockController::class, 'logout'])->name('logout');
 });
 

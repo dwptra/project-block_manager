@@ -31,7 +31,7 @@
                                         <td>{{ $project->project_name }}</td>
                                         <td>{{ $project->project_manager }}</td>
                                         <td>
-                                            <a href="/page">See Pages</a> | 
+                                            <a href="/page{{ $project->id }}">See Pages</a> | 
                                             <form action="">
                                                 <a href="">Delete</a>
                                             </form>

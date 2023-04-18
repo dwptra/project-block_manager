@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <a class="btn btn-primary ml-auto mr-3 mt-3" href="/dashboard">Back</a>
                     <div class="card-body">
                         <h4 class="card-title">Page List</h4>
                         <hr>
@@ -17,15 +18,16 @@
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th>Project Name</th>
-                                        <th>Project Manager</th>
+                                        <th>Page Name</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($pageDB as $page)
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
+                                        <td>{{ $page->page_name }}</td>
+                                        <td>{{ $page->status }}</td>
                                         <td>
                                             <a href="">See Pages</a> | 
                                             <form action="">
@@ -33,6 +35,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                                 <tfoot>
                                     <tr>
