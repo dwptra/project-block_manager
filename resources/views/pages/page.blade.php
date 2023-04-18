@@ -4,6 +4,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                @if (Session::get('createPage'))
+                <div class="alert alert-primary alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button> <strong>Fail</strong> {{ Session::get('createPage')}}
+                </div>
+                @endif
                 <div class="card">
                     <a class="btn btn-primary ml-auto mr-3 mt-3" href="/dashboard">Back</a>
                     <div class="card-body">
@@ -41,13 +48,6 @@
                                     </tr>
                                     @endforelse
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Project Name</th>
-                                        <th>Project Manager</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
