@@ -37,8 +37,29 @@ class BlockController extends Controller
     
     public function createPage($id)
     {
+        $project = Project::findOrFail($id);
         $pages = Page::with('projects')->find($id);
-        return view('pages.page_create', compact('pages'));
+        return view('pages.page_create', compact('pages', 'project'));
+    }
+
+    public function postPage(Request $request, $id)
+    {
+        $request->validate([
+            'project_id' => 'required',
+            'page_name' => 'required|min:3',
+            'status' => 'required|in:On Progress,On Review,Approved,Declined', // Menambahkan validasi untuk enum status
+        ]);
+
+        // bikin data baru dengan isian dari request
+        Page::create([
+            'project_id' => $request->project_id,
+            'page_name' => $request->page_name,
+            'note' => $request->note,
+            'status' => $request->status,
+        ]);
+
+        // kalau berhasil, arahin ke halaman /user dengan pemberitahuan berhasil
+        return redirect('/page' . $id)->with('createPage', 'Berhasil membuat page!');
     }
 
     // Login dan Logout

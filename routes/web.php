@@ -22,6 +22,7 @@ Route::middleware('cekAuth')->group(function () {
     Route::get('/dashboard', [BlockController::class, 'dashboard'])->name('dashboard');
     Route::get('/page{id}', [BlockController::class, 'page'])->name('page');
     Route::get('/createPage{id}', [BlockController::class, 'createPage'])->name('page.create');
+    Route::post('/createPage{id}', [BlockController::class, 'postPage'])->name('page_create.post');
     Route::get('/logout', [BlockController::class, 'logout'])->name('logout');
 });
 

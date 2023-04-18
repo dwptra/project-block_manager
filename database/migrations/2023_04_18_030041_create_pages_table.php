@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('project_id');
             $table->char('page_name');
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->enum('status', ['On Progress', 'On Review', 'Approved', 'Declined']);
             $table->timestamps();
 
