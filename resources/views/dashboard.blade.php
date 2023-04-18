@@ -41,10 +41,13 @@
                                         <td>{{ $project->project_name }}</td>
                                         <td>{{ $project->project_manager }}</td>
                                         <td>
-                                            <a href="/page{{ $project->id }}">See Pages</a> |
-                                            <form action="">
-                                                <a href="">Delete</a>
-                                            </form>
+                                            <div class="d-flex">
+                                                <a href="/page{{ $project->id }}">See Pages  |</a> 
+                                                <a class="ml-1" href="/page{{ $project->id }}">Edit  |</a>
+                                                <form action="">
+                                                    <a class="ml-1" href="">Delete</a>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
