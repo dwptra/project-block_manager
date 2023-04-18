@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class PageDetails extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'page_id',
+        'section_name',
+        'block_id',
+        'note',
+        'sort'
+    ];
+
+    public function pages()
+    {
+        return $this->belongsTo(Page::class); 
+    }
+    public function block()
+    {
+        return $this->belongsTo(Block::class); 
+    }
 }
