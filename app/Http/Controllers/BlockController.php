@@ -18,6 +18,11 @@ class BlockController extends Controller
         return view('index');
     }
 
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
+
     public function auth(Request $request)
     {
         $request->validate([
