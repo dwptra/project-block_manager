@@ -45,6 +45,12 @@
                                     </button> <strong>Fail</strong> {{ Session::get('successLogout')}}
                                 </div>
                                 @endif
+                                @if (Session::get('cekAuth'))
+                                <div class="alert alert-primary alert-dismissible fade show">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                    </button> <strong>Fail</strong> {{ Session::get('cekAuth')}}
+                                </div>
+                                @endif
                                 @if ($errors->any())
                                 <div class="alert alert-danger alert-dismissible fade show">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
