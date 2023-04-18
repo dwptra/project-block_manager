@@ -19,7 +19,8 @@ class BlockController extends Controller
      */
     public function dashboard()
     {
-        return view('dashboard');
+        $projectDB = Project::all();
+        return view('dashboard', compact('projectDB'));
     }
 
     public function page()

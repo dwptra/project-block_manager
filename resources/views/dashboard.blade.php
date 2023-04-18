@@ -12,15 +12,18 @@
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
+                                        <th>#</th>
                                         <th>Project Name</th>
                                         <th>Project Manager</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($projectDB as $project)
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
+                                        <td>{{ $project->id }}</td>
+                                        <td>{{ $project->project_name }}</td>
+                                        <td>{{ $project->project_manager }}</td>
                                         <td>
                                             <a href="/page">See Pages</a> | 
                                             <form action="">
@@ -28,6 +31,7 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                                 <tfoot>
                                     <tr>
