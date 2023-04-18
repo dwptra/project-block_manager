@@ -36,11 +36,16 @@
                                         <td>{{ $page->page_name }}</td>
                                         <td>{{ $page->status }}</td>
                                         <td>
-                                            <a href="">See Blocks</a> |
-                                            <form action="">
-                                                <a href="">Delete</a>
-                                            </form>
-                                        </td>
+                                            <div class="d-flex">
+                                                <a href="/page{{ $project->id }}" class="mr-1">See Pages | </a>
+                                                <a href="/page{{ $project->id }}" class="mr-1">Edit | </a>
+                                                <form action="{{ route('page.delete', $page['id']) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-link p-0">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>                                                                               
                                     </tr>
                                     @empty
                                     <tr>

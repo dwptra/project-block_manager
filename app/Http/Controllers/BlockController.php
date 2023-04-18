@@ -77,9 +77,15 @@ class BlockController extends Controller
             'note' => $request->note,
             'status' => $request->status,
         ]);
-
+        
         // kalau berhasil, arahin ke halaman /user dengan pemberitahuan berhasil
         return redirect('/page' . $id)->with('createPage', 'Berhasil membuat page!');
+    }
+
+    public function deletePage($id)
+    {
+        Page::where('id', '=', $id)->delete();
+        return redirect('/page' . $id)->with('deletePage', 'Berhasil menghapus data!');
     }
 
     // Login dan Logout
