@@ -22,6 +22,13 @@
         </button> <strong>Success!</strong> {{ Session::get('updateProject')}}
     </div>
     @endif
+    @if (Session::get('deleteProject'))
+    <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span>
+        </button> <strong>Success!</strong> {{ Session::get('deleteProject')}}
+    </div>
+    @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -49,10 +56,12 @@
                                         <td>{{ $project->project_manager }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="/page{{ $project->id }}">See Pages  |</a> 
-                                                <a class="ml-1" href="{{ route('project.edit', $project['id']) }}">Edit  |</a>
-                                                <form action="">
-                                                    <a class="ml-1" href="">Delete</a>
+                                                <a class="btn btn-warning text-white mr-1" href="/page{{ $project->id }}">See Pages</a> 
+                                                <a class="btn btn-primary mr-1" href="{{ route('project.edit', $project['id']) }}">Edit</a>
+                                                <form action="{{ route('project.delete', $project['id']) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
                                                 </form>
                                             </div>
                                         </td>

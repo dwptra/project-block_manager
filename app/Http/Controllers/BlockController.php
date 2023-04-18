@@ -65,6 +65,12 @@ class BlockController extends Controller
         return redirect('/dashboard')->with('updateProject', 'Berhasil mengubah projek!');
     }
 
+    public function deleteProject($id)
+    {
+        Project::where('id', '=', $id)->delete();
+        return redirect('/dashboard')->with('deleteProject', 'Berhasil menghapus projek!');
+    }
+
     // Page
     public function page($id)
     {
