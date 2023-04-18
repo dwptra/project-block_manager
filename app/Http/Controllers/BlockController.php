@@ -30,6 +30,11 @@ class BlockController extends Controller
         $pageDB = Page::where('project_id', $id)->get(); // Mengambil data halaman berdasarkan ID proyek
         return view('pages.page', compact('project', 'pageDB')); // Mengirimkan data proyek dan data halaman ke view
     }
+    
+    public function createPage($id)
+    {
+        return view('pages.page_create');
+    }
 
     // Login dan Logout
     public function index()
