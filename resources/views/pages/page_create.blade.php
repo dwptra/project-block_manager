@@ -8,7 +8,7 @@
                     <div class="form-validation">
                         <h4>Page Create</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="/page{{ $project->id }}">Back</a>
+                            <a class="btn btn-danger" href="/page{{ $project->id }}">Back</a>
                         </div>
                         <hr>
                         <form class="form-valide" action="{{ route('page_create.post', $project->id) }}" method="post">
@@ -50,7 +50,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-lg-8 ml-auto">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Create</button>
                                 </div>
                             </div>
                         </form>

@@ -16,7 +16,7 @@
                         <h4 class="card-title">Page List</h4>
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-primary" href="/createPage{{ $project->id }}">Create Page</a>
-                            <a class="btn btn-primary ml-1" href="/dashboard">Back</a>
+                            <a class="btn btn-danger ml-1" href="/dashboard">Back</a>
                         </div>
                         <hr>
                         <p><b class="pr-4">Project Name</b>: {{ $project->project_name }}</p>
@@ -37,15 +37,15 @@
                                         <td>{{ $page->status }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a href="/page{{ $project->id }}" class="mr-1">See Pages | </a>
-                                                <a href="/page{{ $project->id }}" class="mr-1">Edit | </a>
+                                                <a class="btn btn-warning text-white mr-1" href="/page{{ $project->id }}">See Pages</a> 
+                                                <a class="btn btn-primary mr-1" href="/page{{ $project->id }}">Edit</a>
                                                 <form action="{{ route('page.delete', $page['id']) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-link p-0">Delete</button>
+                                                    <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
                                                 </form>
                                             </div>
-                                        </td>                                                                               
+                                        </td>
                                     </tr>
                                     @empty
                                     <tr>
