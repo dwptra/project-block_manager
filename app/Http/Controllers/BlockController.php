@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProjectManager;
+use App\Models\Project;
 use App\Models\Block;
+use App\Models\BlockCategory;
+use App\Models\Page;
+use App\Models\PageDetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +20,12 @@ class BlockController extends Controller
     public function dashboard()
     {
         return view('dashboard');
+    }
+
+    public function page()
+    {
+        $projectDB = Project::all();
+        return view('page', compact('projectDB'));
     }
 
     // Login dan Logout
