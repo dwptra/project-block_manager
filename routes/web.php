@@ -46,6 +46,7 @@ Route::middleware('cekAuth')->group(function () {
 
     Route::get('/createBlock/{id}', [BlockController::class, 'blockCreate'])->name('block.create');
     Route::get('/block/{id}', [BlockController::class, 'block'])->name('block');
+    Route::get('/createBlock{id}', [BlockController::class, 'blockPost'])->name('block.post');
 });
 
 route::middleware('isGuest')->group(function () {
