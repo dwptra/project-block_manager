@@ -228,6 +228,30 @@ class BlockController extends Controller
 
         return redirect('/user')->with('createUser', 'Berhasil membuat user baru!');
     }
+    
+    public function editUser($id)
+    {
+        $project = ProjectManager::findOrFail($id);
+
+        return view('users.user_edit', compact('project'));
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:3'
+        ]);
+
+        Project::find($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+        return redirect('/dashboard')->with('updateProject', 'Berhasil mengubah projek!');
+    }
 
     /**
      * Show the form for creating a new resource.

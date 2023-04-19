@@ -53,7 +53,7 @@
                                         <td>{{ $project->updated_at->format('Y-m-d H:i:s') }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-primary mr-1" href="{{ route('project.edit', $project['id']) }}">Edit</a>
+                                                <a class="btn btn-primary mr-1" href="{{ route('user.edit', $project['id']) }}">Edit</a>
                                                 @if (Auth::user()->id == $project->id)
                                                 @else
                                                 <form action="{{ route('user.delete', $project->id) }}" method="post">

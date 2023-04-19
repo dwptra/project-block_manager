@@ -17,14 +17,14 @@
                                 <label class="col-lg-4 col-form-label" for="val-name">Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="text" name="name" class="form-control" id="val-name" placeholder="Enter a Name">
+                                    <input type="text" name="name" class="form-control" id="val-name" placeholder="Enter a Name" value="{{ $project->name }}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-email">Email <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="email" name="email" class="form-control" id="val-email" placeholder="Enter a Email">
+                                    <input type="email" name="email" class="form-control" id="val-email" placeholder="Enter a Email" value="{{ $project->email }}">
                                 </div>
                             </div>
                             <div class="form-group row">
