@@ -159,22 +159,53 @@ class BlockController extends Controller
 
     public function block($id)
     {
-        $pageDB = Page::with('projects')->findOrFail($id);
+        $pageDB = Page::findOrFail($id);
         $blockList = PageDetails::where('page_id', $id)->get();
         
         return view('blocks.block', compact('pageDB', 'blockList'));
     }
-    
-    
-    
-    
-    
 
     public function blockCreate($id)
     {
         $pageDB = Page::with('projects')->findOrFail($id);
+        $blockCategory = BlockCategory::all();
 
-        return view('blocks.block_create', compact('pageDB'));
+        return view('blocks.block_create', compact('pageDB', 'blockCategory'));
+    }
+
+    public function postBlock(Request $request, $id)
+    {
+        $page = Page::findOrFail($id);
+        $request->validate([
+            'category_id' => 'required',
+            'block_name' => 'required|min:3',
+            'description' => 'required',
+            'main_image' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'mobile_image' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'sample_image_1' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'sample_image_2' => 'required|image|mimes:jpeg,png,jpg,gif',
+        ]);
+
+        // Menggunakan store() untuk menyimpan file gambar ke lokal
+        $mainImage = $request->file('main_image')->store('public/images/main_image');
+        $mobileImage = $request->file('mobile_image')->store('public/images/mobile_image');
+        $sampleImage1 = $request->file('sample_image_1')->store('public/images/sample_image_1');
+        $sampleImage2 = $request->file('sample_image_2')->store('public/images/sample_image_2');
+
+        // Membuat data baru dengan isian dari request
+        Page::create([
+            'category_id' => $request->category_id,
+            'block_name' => $request->block_name,
+            'note' => $request->note,
+            'status' => $request->status,
+            'main_image' => $mainImage,
+            'mobile_image' => $mobileImage,
+            'sample_image_1' => $sampleImage1,
+            'sample_image_2' => $sampleImage2,
+        ]);
+
+        // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
+        return redirect('/block' . $id)->with('createblock', 'Berhasil membuat page!');
     }
 
     // Login dan Logout

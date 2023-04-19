@@ -41,17 +41,75 @@
                             <div class="col-md-4"><b>Project Manager:</b></div>
                             <div class="col-md-8">{{ $pageDB->projects->project_manager }}</div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><b>Section Name:</b></div>
-                            <div class="col"><input type="text" name="block_name" class="form-control"/></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><b>Section Note:</b></div>
-                            <div class="col-md-8"><textarea name="description" class="form-control"></textarea></div>
-                        </div>
-                        <div class="mt-3">
-                            <button type="submit" class="btn btn-primary">Save Block</button>
-                        </div>
+                        <hr>
+                        <form action="" method="post">
+                            @csrf
+                            <div class="row mt-3">
+                                <div class="col-md-4"><b>Category ID:</b></div>
+                                <div class="col">
+                                    <select name="category_id" class="form-control">
+                                        @foreach ($blockCategory as $category)
+                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4"><b>Block Name:</b></div>
+                                <div class="col-md-8"><input type="text" name="block_name" class="form-control" placeholder="Enter Block Name"></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4"><b>Description:</b></div>
+                                <div class="col-md-8"><textarea name="block_name" class="form-control"></textarea></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4"><b>Main Image:</b></div>
+                                <div class="input-group mb-3 col-md-8">
+                                    <div class="input-group-prepend"><span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input name="main_image" type="file" class="custom-file-input">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4"><b>Mobile Image:</b></div>
+                                <div class="input-group mb-3 col-md-8">
+                                    <div class="input-group-prepend"><span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input name="mobile_image" type="file" class="custom-file-input">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4"><b>Sample Image 1:</b></div>
+                                <div class="input-group mb-3 col-md-8">
+                                    <div class="input-group-prepend"><span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input name="sample_image_1" type="file" class="custom-file-input">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4"><b>Main Image:</b></div>
+                                <div class="input-group mb-3 col-md-8">
+                                    <div class="input-group-prepend"><span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input name="sample_image_2" type="file" class="custom-file-input">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-primary">Save Block</button>
+                            </div>
+                        </form>
                         <hr>                                                                   
                     </div>
                 </div>
