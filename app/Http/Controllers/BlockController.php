@@ -154,6 +154,22 @@ class BlockController extends Controller
         return view('print.block.print');
     }
 
+    public function block($id)
+    {
+        $project = Project::findOrFail($id);
+        $pageDB = Page::findOrFail($id);
+
+        return view('blocks.block', compact('project', 'pageDB'));
+    }
+
+    public function blockCreate($id)
+    {
+        $project = Project::findOrFail($id);
+        $pageDB = Page::findOrFail($id);
+
+        return view('blocks.block_create', compact('project', 'pageDB'));
+    }
+
     // Login dan Logout
     public function index()
     {
