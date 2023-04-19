@@ -47,18 +47,30 @@
                                         <th>Note</th>
                                         <th>Action</th>
                                     </tr>
+
                                 </thead>
                                 <tbody>
-                                    
+                                    @forelse ($blockList as $block)
                                     <tr>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $block->sort }}</td>
+                                        <td>{{ $block->block_id }}</td>
                                         <td>
-                                        
+                                            {{-- <div class="d-flex">
+                                                <a class="btn btn-warning text-white mr-1" href="{{ route('block', $page['id']) }}">See Blocks</a> 
+                                                <a class="btn btn-primary mr-1" href="{{ route('page.edit', $page['id']) }}">Edit</a>
+                                                <form action="{{ route('page.delete', $page['id']) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
+                                                </form>
+                                            </div> --}}
                                         </td>
                                     </tr>
-                                   
-                                
+                                    @empty
+                                        <tr>
+                                            <td colspan="5" class="text-center">No pages found.</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
