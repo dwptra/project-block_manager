@@ -1,6 +1,11 @@
 @extends('layout')
 @section('content')
-
+<style>
+    .row p b {
+        display: inline-block;
+        min-width: 125px;
+    }
+</style>
 <div class="container-fluid mt-3">
     <div class="container-fluid">
         <div class="row">
@@ -35,8 +40,8 @@
                             <a class="btn btn-danger ml-1" href="/page{{ $pageDB->project_id }}">Back</a>
                         </div>
                         <hr>
-                        <p><b class="pr-4">Project Name</b>: {{  $pageDB->projects->project_name }}</p>
-                        <p><b class="pr-2">Page Name</b>: {{ $pageDB->page_name }}</p>
+                        <p class="col"><b class="">Project Name :</b>   {{ $pageDB->projects->project_name }}</p>
+                        <p class="col"><b class="">Page Manager :</b> {{ $pageDB->page_name }}</p>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>

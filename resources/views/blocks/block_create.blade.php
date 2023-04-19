@@ -52,25 +52,7 @@
                         <div class="mt-3">
                             <button type="submit" class="btn btn-primary">Save Block</button>
                         </div>
-                        <hr>
-                        
-                                                                         
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Page Name</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tbody>
-                            </table>
-                        </div>
+                        <hr>                                                                   
                     </div>
                 </div>
             </div>
