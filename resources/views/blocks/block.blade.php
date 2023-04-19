@@ -1,6 +1,11 @@
 @extends('layout')
 @section('content')
-
+<style>
+    .row p b {
+        display: inline-block;
+        min-width: 125px;
+    }
+</style>
 <div class="container-fluid mt-3">
     <div class="container-fluid">
         <div class="row">
@@ -34,9 +39,12 @@
                             <a class="btn btn-primary ml-1" href="#">Export Block List</a>
                             <a class="btn btn-danger ml-1" href="/page{{ $pageDB->project_id }}">Back</a>
                         </div>
-                        <hr>
-                        <p><b class="pr-4">Project Name</b>: {{  $pageDB->projects->project_name }}</p>
-                        <p><b class="pr-2">Page Name</b>: {{ $pageDB->page_name }}</p>
+ 
+                        <p class="col"><b class="">Project Name :</b> {{ $pageDB->projects->project_name }}</p>
+                        <p class="col"><b class="">Page Name :</b> {{ $blockList[0]->pages->page_name }}</p>
+
+
+                        
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -53,7 +61,9 @@
                                     @forelse ($blockList as $block)
                                     <tr>
                                         <td>{{ $block->sort }}</td>
-                                        <td>{{ $block->block_id }}</td>
+                                        <td>{{ $block->block->block_name }}</td>
+                                        <td>{{ $block->section_name }}</td>
+                                        <td>{{ $block->note }}</td>
                                         <td>
                                             {{-- <div class="d-flex">
                                                 <a class="btn btn-warning text-white mr-1" href="{{ route('block', $page['id']) }}">See Blocks</a> 
