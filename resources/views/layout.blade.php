@@ -107,6 +107,12 @@
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
+                    <li class="nav-label">Data</li>
+                    <li>
+                        <a href="/user" aria-expanded="false">
+                            <i class="icon-user menu-icon"></i><span class="nav-text">User</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
