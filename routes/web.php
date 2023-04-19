@@ -44,8 +44,8 @@ Route::middleware('cekAuth')->group(function () {
     Route::delete('/deletePage/{id}', [BlockController::class, 'deletePage'])->name('page.delete');
     Route::get('/logout', [BlockController::class, 'logout'])->name('logout');
 
-    Route::get('/createBlock{id}', [BlockController::class, 'blockCreate'])->name('block.create');
-    Route::get('/block{id}', [BlockController::class, 'block'])->name('block');
+    Route::get('/createBlock/{id}', [BlockController::class, 'blockCreate'])->name('block.create');
+    Route::get('/block/{id}', [BlockController::class, 'block'])->name('block');
 });
 
 route::middleware('isGuest')->group(function () {

@@ -41,7 +41,9 @@
                         </div>
  
                         <p class="col"><b class="">Project Name :</b> {{ $pageDB->projects->project_name }}</p>
-                        <p class="col"><b class="">Page Name :</b> {{ $blockList[0]->pages->page_name }}</p>
+                        @foreach ($blockList as $block)
+                            <p class="col"><b class="">Page Name :</b> {{ $block->pages->page_name }}</p>
+                        @endforeach
 
 
                         

@@ -156,12 +156,12 @@ class BlockController extends Controller
 
     public function block($id)
     {
-        $pageDB = Page::with('projects')->findOrFail($id);
-        $blockList = PageDetails::where('page_id', $id)->get();
+        $blockList = PageDetails::with('pages')->where('page_id', $id)->get();
+        dd($blockList);
         
-        return view('blocks.block', compact('pageDB', 'blockList'));
+        return view('blocks.block', compact( 'blockList'));
     }
-    
+
     
     
     
