@@ -41,7 +41,11 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
+                                    <?php
+                                        $i = 1;
+                                    ?>
                                     <tr>
+                                        <th>NO</th>
                                         <th>#</th>
                                         <th>Project Name</th>
                                         <th>Project Manager</th>
@@ -51,6 +55,7 @@
                                 <tbody>
                                     @foreach ($projectDB as $project)
                                     <tr>
+                                        <td>{{ $i++ }}</td>
                                         <td>{{ $project->id }}</td>
                                         <td>{{ $project->project_name }}</td>
                                         <td>{{ $project->project_manager }}</td>
