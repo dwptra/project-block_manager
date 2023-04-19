@@ -164,7 +164,7 @@ class BlockController extends Controller
         $blockList = PageDetails::with('pages')->where('page_id', $id)->get();
 
         
-        return view('blocks.block', compact( 'blockList'));
+        return view('blocks.block', compact( 'blockList', 'pageDB'));
     }
 
     public function blockCreate($id)

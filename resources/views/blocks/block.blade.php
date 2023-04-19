@@ -41,9 +41,7 @@
                         </div>
  
                         <p class="col"><b class="">Project Name :</b> {{ $pageDB->projects->project_name }}</p>
-                        @foreach ($blockList as $block)
-                            <p class="col"><b class="">Page Name :</b> {{ $block->pages->page_name }}</p>
-                        @endforeach
+                        <p class="col"><b class="">Page Name :</b> {{ $blockList->pages->page_name }}</p>
 
 
                         
@@ -63,7 +61,7 @@
                                     @forelse ($blockList as $block)
                                     <tr>
                                         <td>{{ $block->sort }}</td>
-                                        <td>{{ $block->block->block_name }}</td>
+                                        <td>}</td>
                                         <td>{{ $block->section_name }}</td>
                                         <td>{{ $block->note }}</td>
                                         <td>
