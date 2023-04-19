@@ -195,16 +195,39 @@ class BlockController extends Controller
         return redirect('/')->with('successLogout', 'Berhasil keluar akun.');
     }
 
+    // User
     public function user()
     {
         $projectMDB = ProjectManager::all();
-        return view('user', compact('projectMDB'));
+        return view('users.user', compact('projectMDB'));
     }
 
     public function deleteUser($id)
     {
         ProjectManager::where('id', '=', $id)->delete();
         return redirect('/user')->with('deleteUser', 'Berhasil menghapus data');
+    }
+
+    public function createUser()
+    {
+        return view('users.user_create');
+    }
+
+    public function userPost(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:3'
+        ]);
+
+        ProjectManager::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+        return redirect('/user')->with('createUser', 'Berhasil membuat user baru!');
     }
 
     /**

@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <h4 class="card-title">User List</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="{{ route('project.create') }}">Create Users</a>
+                            <a class="btn btn-primary" href="{{ route('user.create') }}">Create Users</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
@@ -53,13 +53,15 @@
                                         <td>{{ $project->updated_at->format('Y-m-d H:i:s') }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-warning text-white mr-1" href="/page{{ $project->id }}">See Pages</a> 
                                                 <a class="btn btn-primary mr-1" href="{{ route('project.edit', $project['id']) }}">Edit</a>
+                                                @if (Auth::user()->id == $project->id)
+                                                @else
                                                 <form action="{{ route('user.delete', $project->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
                                                 </form>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
