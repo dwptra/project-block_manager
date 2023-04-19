@@ -156,10 +156,9 @@ class BlockController extends Controller
 
     public function block($id)
     {
-        $project = Project::findOrFail($id);
-        $pageDB = Page::findOrFail($id);
+        $pageDB = Page::with('projects')->findOrFail($id);
 
-        return view('blocks.block', compact('project', 'pageDB'));
+        return view('blocks.block', compact('pageDB'));
     }
 
     public function blockCreate($id)
