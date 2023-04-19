@@ -30,11 +30,11 @@
                     <div class="card-body">
                         <h4 class="card-title">Page List</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="/createPage{{ $project->id }}">Create Page</a>
+                            <a class="btn btn-primary" href="#">Create Page</a>
                             <a class="btn btn-danger ml-1" href="/dashboard">Back</a>
                         </div>
                         <hr>
-                        <p><b class="pr-4">Project Name</b>: {{ $project->project_name }}</p>
+                        <p><b class="pr-4">Project Name</b>: {{  $pageDB->projects->project_name }}</p>
                         <p><b class="pr-2">Page Name</b>: {{ $pageDB->page_name }}</p>
                         <div class="table-responsive">
                             <table class="table table-hover">
