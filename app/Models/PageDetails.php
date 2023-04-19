@@ -18,7 +18,7 @@ class PageDetails extends Model
 
     public function pages()
     {
-        return $this->belongsTo(Page::class); 
+        return $this->belongsTo(Page::class, 'page_id'); 
     }
     public function block()
     {
