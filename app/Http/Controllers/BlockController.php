@@ -77,7 +77,10 @@ class BlockController extends Controller
         // Menggunakan findOrFail() untuk menemukan project berdasarkan id
         $project = Project::findOrFail($id);
 
-        // Menggunakan eager loading untuk mengambil relasi pageDB
+        // Menggunakan eager loading untuk mengambil relasi pages
+        $project->load('pages');
+
+        // Mengambil data pages dari relasi yang sudah dimuat
         $pageDB = $project->pages;
 
         return view('pages.page', compact('project', 'pageDB'));
