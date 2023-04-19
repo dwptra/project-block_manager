@@ -28,10 +28,11 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Page List</h4>
+                        <h4 class="card-title">Block List</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="#">Create Page</a>
-                            <a class="btn btn-danger ml-1" href="/dashboard">Back</a>
+                            <a class="btn btn-primary" href="/createBlock{{ $pageDB->id }}">Create Block</a>
+                            <a class="btn btn-primary ml-1" href="#">Export Block List</a>
+                            <a class="btn btn-danger ml-1" href="/page{{ $pageDB->project_id }}">Back</a>
                         </div>
                         <hr>
                         <p><b class="pr-4">Project Name</b>: {{  $pageDB->projects->project_name }}</p>
