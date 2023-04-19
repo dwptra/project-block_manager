@@ -1,32 +1,25 @@
 @extends('layout')
 @section('content')
 <div class="container-fluid mt-3">
-    @if (Session::get('isGuest'))
-    <div class="alert alert-primary alert-dismissible fade show">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                aria-hidden="true">&times;</span>
-        </button> <strong>Fail!</strong> {{ Session::get('isGuest')}}
-    </div>
-    @endif
-    @if (Session::get('createProject'))
+    @if (Session::get('createUser'))
     <div class="alert alert-success alert-dismissible fade show">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
-        </button> <strong>Success!</strong> {{ Session::get('createProject')}}
+        </button> <strong>Success!</strong> {{ Session::get('createUser')}}
     </div>
     @endif
-    @if (Session::get('updateProject'))
+    @if (Session::get('updateUser'))
     <div class="alert alert-success alert-dismissible fade show">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
-        </button> <strong>Success!</strong> {{ Session::get('updateProject')}}
+        </button> <strong>Success!</strong> {{ Session::get('updateUser')}}
     </div>
     @endif
-    @if (Session::get('deleteProject'))
+    @if (Session::get('deleteUser'))
     <div class="alert alert-success alert-dismissible fade show">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
-        </button> <strong>Success!</strong> {{ Session::get('deleteProject')}}
+        </button> <strong>Success!</strong> {{ Session::get('deleteUser')}}
     </div>
     @endif
     <div class="container-fluid">
@@ -62,7 +55,7 @@
                                             <div class="d-flex">
                                                 <a class="btn btn-warning text-white mr-1" href="/page{{ $project->id }}">See Pages</a> 
                                                 <a class="btn btn-primary mr-1" href="{{ route('project.edit', $project['id']) }}">Edit</a>
-                                                <form action="{{ route('project.delete', $project['id']) }}" method="post">
+                                                <form action="{{ route('user.delete', $project->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
@@ -74,8 +67,11 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Project Name</th>
-                                        <th>Project Manager</th>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Created at</th>
+                                        <th>Updated at</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>

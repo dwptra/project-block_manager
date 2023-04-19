@@ -20,8 +20,10 @@ use App\Http\Controllers\BlockController;
 // });
 Route::middleware('cekAuth')->group(function () {
     Route::get('/dashboard', [BlockController::class, 'dashboard'])->name('dashboard');
-    Route::get('/user', [BlockController::class, 'user'])->name('user');
     Route::get('/print', [BlockController::class, 'blocksPrint'])->name('blocks.print');
+    // User
+    Route::get('/user', [BlockController::class, 'user'])->name('user');
+    Route::delete('/user/delete{id}', [BlockController::class, 'deleteUser'])->name('user.delete');
     //Project
     Route::get('/createProject', [BlockController::class, 'createProject'])->name('project.create');
     Route::post('/createProject', [BlockController::class, 'projectPost'])->name('project.post');

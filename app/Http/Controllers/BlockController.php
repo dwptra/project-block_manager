@@ -202,6 +202,12 @@ class BlockController extends Controller
         return view('user', compact('projectMDB'));
     }
 
+    public function deleteUser($id)
+    {
+        ProjectManager::where('id', '=', $id)->delete();
+        return redirect('/user')->with('deleteUser', 'Berhasil menghapus data');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
