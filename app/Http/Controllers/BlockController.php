@@ -180,6 +180,12 @@ class BlockController extends Controller
         return redirect('/')->with('successLogout', 'Berhasil keluar akun.');
     }
 
+    public function user()
+    {
+        $projectMDB = ProjectManager::all();
+        return view('user', compact('projectMDB'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
