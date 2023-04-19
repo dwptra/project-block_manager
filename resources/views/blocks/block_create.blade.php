@@ -30,13 +30,31 @@
                     <div class="card-body">
                         <h4 class="card-title">Create Block</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="/createPage{{ $project->id }}">Create Page</a>
-                            <a class="btn btn-danger ml-1" href="/dashboard">Back</a>
+                            <a class="btn btn-danger ml-1" href="{{ route('block', $pageDB['id']) }}">Back</a>
                         </div>
                         <hr>
-                        <p><b class="pr-4">Project Name</b>   : {{ $project->project_name }}</p>
-                        <p><b class="pr-2">Project Manager</b>: {{ $project->project_manager }}</p>
-                        <p><b class="pr-2">Section Name</b>   : input</p>
+                        <div class="row mt-3">
+                            <div class="col-md-4"><b>Project Name:</b></div>
+                            <div class="col">{{ $pageDB->projects->project_name }}</div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4"><b>Project Manager:</b></div>
+                            <div class="col-md-8">{{ $pageDB->projects->project_manager }}</div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4"><b>Section Name:</b></div>
+                            <div class="col"><input type="text" name="block_name" class="form-control"/></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4"><b>Section Note:</b></div>
+                            <div class="col-md-8"><textarea name="description" class="form-control"></textarea></div>
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary">Save Block</button>
+                        </div>
+                        <hr>
+                        
+                                                                         
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
