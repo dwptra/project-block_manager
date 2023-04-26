@@ -153,9 +153,15 @@ class BlockController extends Controller
     }
 
     // Blocks
-    public function blocksPrint(){
-        return view('print.block_print');
+    public function print($id)
+    {
+        $pageDB = Page::find($id);
+        $project = Project::findOrFail($id);
+        $blockList = PageDetails::with('pages')->where('page_id', $id)->get();
+
+        return view('print.block_print', compact('pageDB', 'blockList', 'project'));
     }
+
 
     public function block($id)
     {
