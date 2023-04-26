@@ -21,8 +21,4 @@ class Page extends Model
         return $this->belongsTo(Project::class, 'project_id');
     }
 
-    public function pageDetails()
-    {
-        return $this->hasMany(PageDetails::class);
-    }
 }
