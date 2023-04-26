@@ -42,10 +42,10 @@
                             <div class="col-md-8">{{ $pageDB->projects->project_manager }}</div>
                         </div>
                         <hr>
-                        <form action="" method="post">
+                        <form action="{{ route('block.post', $pageDB->page_id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-3">
-                                <div class="col-md-4"><b>Category ID:</b></div>
+                                <div class="col-md-4"><b>Category:</b></div>
                                 <div class="col">
                                     <select name="category_id" class="form-control">
                                         @foreach ($blockCategory as $category)
