@@ -273,9 +273,9 @@ class BlockController extends Controller
     
     public function editUser($id)
     {
-        $project = ProjectManager::findOrFail($id);
+        $user = ProjectManager::findOrFail($id);
 
-        return view('users.user_edit', compact('project'));
+        return view('users.user_edit', compact('user'));
     }
 
     public function updateUser(Request $request, $id)
@@ -292,7 +292,7 @@ class BlockController extends Controller
             'password' => $request->password
         ]);
 
-        return redirect('/dashboard')->with('updateProject', 'Berhasil mengubah projek!');
+        return redirect('/user')->with('updateUser', 'Berhasil merubah User!');
     }
 
     /**

@@ -11,20 +11,21 @@
                     </div>
                     <hr>
                     <div class="form-validation">
-                        <form class="form-valide" action="{{ route('user.update', $project->id) }}" method="post">
+                        <form class="form-valide" action="{{ route('user.update', $user->id) }}" method="post">
                             @csrf
+                            @method('PATCH')
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-name">Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="text" name="name" class="form-control" id="val-name" placeholder="Enter a Name" value="{{ $project->name }}">
+                                    <input type="text" name="name" class="form-control" id="val-name" placeholder="Enter a Name" value="{{ $user->name }}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-email">Email <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="email" name="email" class="form-control" id="val-email" placeholder="Enter a Email" value="{{ $project->email }}">
+                                    <input type="email" name="email" class="form-control" id="val-email" placeholder="Enter a Email" value="{{ $user->email }}">
                                 </div>
                             </div>
                             <div class="form-group row">
