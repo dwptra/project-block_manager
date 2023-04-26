@@ -14,6 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/3665/3665896.png">
     <!-- Pignose Calender -->
     <link href="assets/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- Chartist -->
     <link rel="stylesheet" href="assets/plugins/chartist/css/chartist.min.css">
     <link rel="stylesheet" href="assets/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
@@ -47,7 +48,7 @@
         <!--**********************************
             Nav header start
         ***********************************-->
-        <div class="nav-header">
+        <div class="nav-header" style="position: fixed;">
             <div class="brand-logo">
                 <a href="index.html">
                     <b class="logo-abbr"><h3 class="text-white">B</h3></b>
@@ -98,7 +99,7 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="nk-sidebar">           
+        <div class="nk-sidebar" style="overflow-y: auto; position: fixed;">           
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
@@ -107,10 +108,15 @@
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-label">Data</li>
+                    <li class="nav-label">Master Data</li>
                     <li>
                         <a href="/user" aria-expanded="false">
                             <i class="icon-user menu-icon"></i><span class="nav-text">User</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/user" aria-expanded="false">
+                            <i class="icon-spine menu-icon"></i><span class="nav-text">Create Block</span>
                         </a>
                     </li>
                 </ul>
@@ -176,5 +182,8 @@
     <script src="assets/plugins/tables/js/jquery.dataTables.min.js"></script>
     <script src="assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
     <script src="assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>
