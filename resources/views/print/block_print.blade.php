@@ -7,6 +7,7 @@
                     <div class="form-validation">
                         <form class="form-valide" action="{{ route('project.post') }}" method="post">
                             @csrf
+                            <h1>Santet</h1>
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-username">Project Name <span class="text-danger">*</span>
                                 </label>
