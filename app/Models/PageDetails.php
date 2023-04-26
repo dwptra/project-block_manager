@@ -20,4 +20,9 @@ class PageDetails extends Model
     {
         return $this->belongsTo(Page::class, 'page_id'); 
     }
+
+    public function blocks()
+    {
+        return $this->belongsTo(Block::class, 'block_id'); 
+    }
 }

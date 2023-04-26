@@ -61,7 +61,7 @@
                                     @forelse ($blockList as $block)
                                     <tr>
                                         <td>{{ $block->sort }}</td>
-                                        <td>}</td>
+                                        <td>{{ $block->blocks->block_name }}</td>
                                         <td>{{ $block->section_name }}</td>
                                         <td>{{ $block->note }}</td>
                                         <td>

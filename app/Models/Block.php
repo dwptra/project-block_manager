@@ -22,4 +22,9 @@ class Block extends Model
     {
         return $this->belongsTo(BlockCategory::class);
     }
+
+    public function pageDetails()
+    {
+        return $this->hasMany(PageDetails::class);
+    }
 }
