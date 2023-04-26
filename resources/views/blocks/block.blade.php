@@ -41,7 +41,7 @@
                         </div>
  
                         <p class="col"><b class="">Project Name :</b> {{ $pageDB->projects->project_name }}</p>
-                        <p class="col"><b class="">Page Name :</b> {{ $blockList->pages->page_name }}</p>
+                        <p class="col"><b class="">Page Name :</b>{{ $pageDB->page_name }}</p>
 
 
                         
