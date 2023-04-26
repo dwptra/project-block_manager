@@ -167,19 +167,19 @@ class BlockController extends Controller
 
     public function blockCreate($id)
     {
+        $page = Page::findOrFail($id);
         $pageDB = Page::with('projects')->findOrFail($id);
         $blockCategory = BlockCategory::all();
 
-        return view('blocks.block_create', compact('pageDB', 'blockCategory'));
+        return view('blocks.block_create', compact('pageDB', 'blockCategory', 'page'));
     }
 
     public function postBlock(Request $request, $id)
     {
-        $page = Page::findOrFail($id);
+        // $page = Page::findOrFail($id);
         $request->validate([
             'category_id' => 'required',
             'block_name' => 'required|min:3',
-            'description' => 'required',
             'main_image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'mobile_image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'sample_image_1' => 'required|image|mimes:jpeg,png,jpg,gif',
@@ -193,7 +193,7 @@ class BlockController extends Controller
         $sampleImage2 = $request->file('sample_image_2')->store('public/images/sample_image_2');
 
         // Membuat data baru dengan isian dari request
-        Page::create([
+        Block::create([
             'category_id' => $request->category_id,
             'block_name' => $request->block_name,
             'note' => $request->note,
