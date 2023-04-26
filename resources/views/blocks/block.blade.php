@@ -10,25 +10,25 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                @if (Session::get('createPage'))
+                @if (Session::get('createBlock'))
                 <div class="alert alert-success alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('createPage')}}
+                    </button> <strong>Success!</strong> {{ Session::get('createBlock')}}
                 </div>
                 @endif
-                @if (Session::get('updatePage'))
+                @if (Session::get('updateBlock'))
                 <div class="alert alert-success alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('updatePage')}}
+                    </button> <strong>Success!</strong> {{ Session::get('updateBlock')}}
                 </div>
                 @endif
-                @if (Session::get('deletePage'))
+                @if (Session::get('deleteBlock'))
                 <div class="alert alert-success alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('deletePage')}}
+                    </button> <strong>Success!</strong> {{ Session::get('deleteBlock')}}
                 </div>
                 @endif
                 <div class="card">
@@ -65,15 +65,14 @@
                                         <td>{{ $block->section_name }}</td>
                                         <td>{{ $block->note }}</td>
                                         <td>
-                                            {{-- <div class="d-flex">
-                                                <a class="btn btn-warning text-white mr-1" href="{{ route('block', $page['id']) }}">See Blocks</a> 
-                                                <a class="btn btn-primary mr-1" href="{{ route('page.edit', $page['id']) }}">Edit</a>
-                                                <form action="{{ route('page.delete', $page['id']) }}" method="post">
+                                            <div class="d-flex">
+                                                <a class="btn btn-primary mr-1" href="#">Edit</a>
+                                                <form action="{{ route('block.delete', $block['id']) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
                                                 </form>
-                                            </div> --}}
+                                            </div>
                                         </td>
                                     </tr>
                                     @empty

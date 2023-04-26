@@ -165,6 +165,15 @@ class BlockController extends Controller
         return view('blocks.block', compact( 'blockList', 'pageDB'));
     }
 
+    public function deleteBlock($id)
+    {
+        $pageDetailsDelete = PageDetails::findOrFail($id);
+        $page_id = $pageDetailsDelete->page_id;
+        $pageDetailsDelete->delete(); 
+
+        return redirect('/block' . $page_id)->with('deleteBlock', 'Berhasil menghapus data!');
+    }
+
     public function blockCreate($id)
     {
         $page = Page::findOrFail($id);
