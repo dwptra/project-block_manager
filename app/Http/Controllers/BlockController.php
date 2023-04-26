@@ -189,6 +189,7 @@ class BlockController extends Controller
         $request->validate([
             'category_id' => 'required',
             'block_name' => 'required|min:3',
+            'description' => 'required',
             'main_image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'mobile_image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'sample_image_1' => 'required|image|mimes:jpeg,png,jpg,gif',
@@ -205,7 +206,7 @@ class BlockController extends Controller
         Block::create([
             'category_id' => $request->category_id,
             'block_name' => $request->block_name,
-            'note' => $request->note,
+            'description' => $request->description,
             'status' => $request->status,
             'main_image' => $mainImage,
             'mobile_image' => $mobileImage,
