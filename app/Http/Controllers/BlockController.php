@@ -154,7 +154,7 @@ class BlockController extends Controller
 
     // Blocks
     public function blocksPrint(){
-        return view('print.block.print');
+        return view('print.block_print');
     }
 
     public function block($id)
