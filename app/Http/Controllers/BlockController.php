@@ -23,6 +23,12 @@ class BlockController extends Controller
         return view('dashboard', compact('projectDB'));
     }
 
+    public function project()
+    {
+        $projectDB = Project::all();
+        return view('project.project', compact('projectDB'));
+    }
+
     public function createProject()
     {
         return view('project.project_create');
@@ -165,7 +171,6 @@ class BlockController extends Controller
 
     public function block($id)
     {
-
         $pageDB = Page::findOrFail($id);
         $blockList = PageDetails::with('pages')->where('page_id', $id)->get();
         return view('blocks.block', compact( 'blockList', 'pageDB'));

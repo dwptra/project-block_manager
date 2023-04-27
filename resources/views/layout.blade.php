@@ -102,10 +102,16 @@
         <div class="nk-sidebar" style="overflow-y: auto; position: fixed;">           
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li class="nav-label">Dashboard</li>
+    
                     <li>
                         <a href="/dashboard" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-label">Project</li>
+                    <li>
+                        <a href="{{ route('project') }}" aria-expanded="false">
+                            <i class="icon-user menu-icon"></i><span class="nav-text">Project</span>
                         </a>
                     </li>
                     <li class="nav-label">Master Data</li>
@@ -119,6 +125,7 @@
                             <i class="fa-sharp fa-regular fa-block"></i><span class="nav-text">Create Block</span>
                         </a>
                     </li>
+                    
                 </ul>
             </div>
         </div>

@@ -30,7 +30,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Page List</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="/createPage{{ $project->id }}">Create Page</a>
+                            <a class="btn btn-primary" href="{{ route('page.create', $project->id) }}">Create Page</a>
                             <a class="btn btn-danger ml-1" href="/dashboard">Back</a>
                         </div>
                         <hr>
