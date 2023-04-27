@@ -13,13 +13,13 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/3665/3665896.png">
     <!-- Pignose Calender -->
-    <link href="assets/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- Chartist -->
-    <link rel="stylesheet" href="assets/plugins/chartist/css/chartist.min.css">
-    <link rel="stylesheet" href="assets/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/chartist/css/chartist.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css') }}">
     <!-- Custom Stylesheet -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
 </head>
 
@@ -114,6 +114,11 @@
                             <i class="icon-user menu-icon"></i><span class="nav-text">User</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/createBlock" aria-expanded="false">
+                            <i class="fa-sharp fa-regular fa-block"></i><span class="nav-text">Create Block</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -150,35 +155,35 @@
     <!--**********************************
         Scripts
     ***********************************-->
-    <script src="assets/plugins/common/common.min.js"></script>
-    <script src="assets/js/custom.min.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/gleek.js"></script>
-    <script src="assets/js/styleSwitcher.js"></script>
+    <script src="{{ asset('assets/plugins/common/common.min.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.min.js') }}"></script>
+    <script src="{{ asset('assets/js/settings.js') }}"></script>
+    <script src="{{ asset('assets/js/gleek.js') }}"></script>
+    <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script>
     <!-- Chartjs -->
-    <script src="assets/plugins/chart.js/Chart.bundle.min.js"></script>
+    <script src="{{ asset('assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
     <!-- Circle progress -->
-    <script src="assets/plugins/circle-progress/circle-progress.min.js"></script>
+    <script src="{{ asset('assets/plugins/circle-progress/circle-progress.min.js') }}"></script>
     <!-- Datamap -->
-    <script src="assets/plugins/d3v3/index.js"></script>
-    <script src="assets/plugins/topojson/topojson.min.js"></script>
-    <script src="assets/plugins/datamaps/datamaps.world.min.js"></script>
+    <script src="{{ asset('assets/plugins/d3v3/index.js') }}"></script>
+    <script src="{{ asset('assets/plugins/topojson/topojson.min.js') }}"></script>
+    {{-- <script src="{{ asset('') }}/plugins/datamaps/datamaps.world.min.js"></script> --}}
     <!-- Morrisjs -->
-    <script src="assets/plugins/raphael/raphael.min.js"></script>
-    <script src="assets/plugins/morris/morris.min.js"></script>
+    <script src="{{ asset('assets/plugins/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/morris/morris.min.js') }}"></script>
     <!-- Pignose Calender -->
-    <script src="assets/plugins/moment/moment.min.js"></script>
-    <script src="assets/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+    <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/pg-calendar/js/pignose.calendar.min.js') }}"></script>
     <!-- ChartistJS -->
-    <script src="assets/plugins/chartist/js/chartist.min.js"></script>
-    <script src="assets/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
-    <script src="assets/js/dashboard/dashboard-1.js"></script>
+    <script src="{{ asset('assets/plugins/chartist/js/chartist.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js') }}"></script>
+    {{-- <script src="{{ asset('') }}/js/dashboard/dashboard-1.js"></script> --}}
     <!-- TableJS -->
-    <script src="assets/plugins/tables/js/jquery.dataTables.min.js"></script>
-    <script src="assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+    <script src="{{ asset('assets/plugins/tables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/tables/js/datatable-init/datatable-basic.min.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>

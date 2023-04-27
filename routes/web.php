@@ -36,7 +36,7 @@ Route::middleware('cekAuth')->group(function () {
     Route::patch('/updateProject/{id}', [BlockController::class, 'updateProject'])->name('project.update');
     Route::delete('/deleteProject/{id}', [BlockController::class, 'deleteProject'])->name('project.delete');
 
-    Route::get('/page{id}', [BlockController::class, 'page'])->name('page');
+    Route::get('/page/{id}', [BlockController::class, 'page'])->name('page');
     Route::get('/editPage{id}', [BlockController::class, 'editPage'])->name('page.edit');
     Route::patch('/editPage{id}', [BlockController::class, 'updatePage'])->name('page.update');
     Route::get('/createPage{id}', [BlockController::class, 'createPage'])->name('page.create');
