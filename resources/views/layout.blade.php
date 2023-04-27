@@ -127,6 +127,9 @@
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Block</span>
                         </a>
                         <ul aria-expanded="false">
+                            <li><a href="{{ route('block.categories') }}">Block</a></li>
+                        </ul>
+                        <ul aria-expanded="false">
                             <li><a href="{{ route('block.categories') }}">Block Categories</a></li>
                         </ul>
                     </li>
