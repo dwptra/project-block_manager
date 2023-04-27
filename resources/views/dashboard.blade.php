@@ -46,7 +46,7 @@
                                     ?>
                                     <tr>
                                         <th>NO</th>
-                                        <th>#</th>
+                                        <th>ID</th>
                                         <th>Project Name</th>
                                         <th>Project Manager</th>
                                         <th>Action</th>
@@ -75,6 +75,8 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th>NO</th>
+                                        <th>ID</th>
                                         <th>Project Name</th>
                                         <th>Project Manager</th>
                                         <th>Action</th>

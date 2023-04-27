@@ -56,6 +56,22 @@
             </div>
         </div>
     </div>
+    <div class="table-wrapper mt-5" style="text-align:center">
+        <table class="table table-bordered" style="max-width: 300px;">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">Dibuat Oleh</th>
+                <th scope="col">Disetujui Oleh</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center">
+                <td> {{ $projectPrint->project_manager }}</td>
+                <td> ... </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
     <!-- #/ container -->
     </div>
     <!--**********************************
@@ -86,5 +102,6 @@
 
     </script>
 </body>
+
 
 </html>
