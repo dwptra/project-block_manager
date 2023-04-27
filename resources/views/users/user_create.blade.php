@@ -21,7 +21,7 @@
                             @endforeach
                         </div>
                         @endif
-                        <form class="form-valide" action="{{ route('user.update', $project->id) }}" method="post">
+                        <form class="form-valide" action="{{ route('user.create') }}" method="post">
                             @csrf
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-name">Name <span

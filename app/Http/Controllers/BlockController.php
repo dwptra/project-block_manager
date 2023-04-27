@@ -265,7 +265,8 @@ class BlockController extends Controller
 
     public function createUser()
     {
-        return view('users.user_create');
+        $project = ProjectManager::all();
+        return view('users.user_create', compact('project'));
     }
 
     public function userPost(Request $request)
