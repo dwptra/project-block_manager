@@ -60,7 +60,7 @@
                                         <td>{{ $category->updated_at }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-primary mr-1" href="#">Edit</a>
+                                                <button class="btn btn-primary mr-1" data-toggle="modal" data-target="#editCategories{{ $category->id }}">Edit</button>
                                                 <form action="{{ route('category.delete', $category->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
@@ -87,6 +87,8 @@
 </div>
 
 {{-- Modal --}}
+
+{{-- create --}}
 <div class="modal fade" id="createCategories" tabindex="-1" role="dialog" aria-labelledby="createCategoriesLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -107,6 +109,35 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- edit --}}
+<div class="modal fade" id="editCategories{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="editCategoriesLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCategoriesLabel">Edit Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('category.update', $category->id) }}" method="post">
+                @csrf
+                @method('PATCH')
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Category Name:</label>
+                        <input name="category_name" type="text" class="form-control" id="recipient-name" value="{{ $category->category_name }}">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </form>
