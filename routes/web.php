@@ -16,11 +16,18 @@ use App\Http\Controllers\BlockController;
 */
 
 // Route::get('/', function () {
-//     return view('index');
-// });
+    //     return view('index');
+    // });
 Route::middleware('cekAuth')->group(function () {
     Route::get('/dashboard', [BlockController::class, 'dashboard'])->name('dashboard');
-    // User
+    Route::get('/logout', [BlockController::class, 'logout'])->name('logout');
+
+    // Masterdata
+    // Block (M)
+    Route::prefix('block')->group(function () {
+        Route::get('/categories', [BlockController::class, 'blockCategory'])->name('block.categories');
+    });
+    // User (M)
     Route::prefix('user')->group(function () {
         Route::get('/', [BlockController::class, 'user'])->name('user');
         Route::get('/create', [BlockController::class, 'createUser'])->name('user.create');
@@ -56,18 +63,10 @@ Route::middleware('cekAuth')->group(function () {
                 Route::get('/blocksprint/{id}', [BlockController::class, 'print'])->name('blocks.print');
             });
         });
-        Route::prefix('block')->group(function () {
-            Route::get('/categories', [BlockController::class, 'blockCategory'])->name('block.categories');
-        });
     });
-
-    
-    Route::get('/logout', [BlockController::class, 'logout'])->name('logout');
-
-    
 });
 
-route::middleware('isGuest')->group(function () {
+Route::middleware('isGuest')->group(function () {
     Route::get('/', [BlockController::class, 'index'])->name('index');
     Route::post('/', [BlockController::class, 'auth'])->name('login.auth');
 });
