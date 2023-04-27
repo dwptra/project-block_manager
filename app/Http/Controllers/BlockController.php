@@ -240,7 +240,7 @@ class BlockController extends Controller
         $user = ProjectManager::where('email', $request->email)->first();
         if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
-            return redirect('/dashboard');
+            return redirect('/dashboard')->with('successLogin', 'Welcome!');
         }
         return redirect('/')->with('fail', 'Periksa Email atau Password!');
     }
@@ -280,7 +280,7 @@ class BlockController extends Controller
         ProjectManager::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => Hash::make($request->password)
         ]);
 
         return redirect('/user')->with('createUser', 'Berhasil membuat user baru!');
@@ -301,10 +301,10 @@ class BlockController extends Controller
             'password' => 'required|min:3'
         ]);
 
-        Project::find($id)->update([
+        ProjectManager::find($id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => Hash::make($request->password)
         ]);
 
         return redirect('/user')->with('updateUser', 'Berhasil merubah User!');
