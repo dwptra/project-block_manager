@@ -56,6 +56,9 @@ Route::middleware('cekAuth')->group(function () {
                 Route::get('/blocksprint/{id}', [BlockController::class, 'print'])->name('blocks.print');
             });
         });
+        Route::prefix('block')->group(function () {
+            Route::get('/categories', [BlockController::class, 'blockCategory'])->name('block.categories');
+        });
     });
 
     

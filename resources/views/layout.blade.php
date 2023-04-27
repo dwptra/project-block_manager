@@ -120,12 +120,16 @@
                             <i class="icon-user menu-icon"></i><span class="nav-text">User</span>
                         </a>
                     </li>
+
+                    {{-- Block Dropdown --}}
                     <li>
-                        <a href="/createBlock" aria-expanded="false">
-                            <i class="fa-sharp fa-regular fa-block"></i><span class="nav-text">Create Block</span>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Block</span>
                         </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{ route('block.categories') }}">Block Categories</a></li>
+                        </ul>
                     </li>
-                    
                 </ul>
             </div>
         </div>

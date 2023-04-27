@@ -194,6 +194,12 @@ class BlockController extends Controller
         return view('blocks.block_create', compact('pageDB', 'blockCategory', 'page'));
     }
 
+    public function blockCategory()
+    {
+        $categoriesDB = BlockCategory::all();
+        return view('blocks.block_categories', compact('categoriesDB'));
+    }
+
     public function postBlock(Request $request, $id)
     {
         // $page = Page::findOrFail($id);
