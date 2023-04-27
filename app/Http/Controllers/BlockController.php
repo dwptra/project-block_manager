@@ -248,6 +248,12 @@ class BlockController extends Controller
         return redirect()->route('block.categories')->with('createCategory', 'Berhasil membuat Category baru!');
     }
 
+    public function deleteCategory(Request $request, $id)
+    {
+        BlockCategory::where('id', '=', $id)->delete();
+        return redirect()->route('block.categories')->with('deleteCategory', 'Berhasil menghapus Category.');
+    }
+
     // Login dan Logout
     public function index()
     {

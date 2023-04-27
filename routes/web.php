@@ -28,6 +28,7 @@ Route::middleware('cekAuth')->group(function () {
         Route::prefix('categories')->group(function () {
             Route::get('/', [BlockController::class, 'blockCategory'])->name('block.categories');
             Route::post('/create', [BlockController::class, 'postCategory'])->name('category.post');
+            Route::delete('/delete/{id}', [BlockController::class, 'deleteCategory'])->name('category.delete');
         });
     });
     // User (M)

@@ -61,7 +61,7 @@
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-primary mr-1" href="#">Edit</a>
-                                                <form action="" method="post">
+                                                <form action="{{ route('category.delete', $category->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger"
