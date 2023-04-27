@@ -50,7 +50,7 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Sort ID</th>
+                                        <th style="max-width: 30px;">Sort ID</th>
                                         <th>Block Name</th>
                                         <th>Section Name</th>
                                         <th>Note</th>
@@ -61,7 +61,7 @@
                                 <tbody>
                                     @forelse ($blockList as $block)
                                     <tr>
-                                        <td>{{ $block->sort }}</td>
+                                        <td class="text-center">{{ $block->sort }}</td>
                                         <td>{{ $block->blocks->block_name }}</td>
                                         <td>{{ $block->section_name }}</td>
                                         <td>{{ $block->note }}</td>
