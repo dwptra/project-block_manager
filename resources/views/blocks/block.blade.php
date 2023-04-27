@@ -42,7 +42,7 @@
                                 window.open('{{ route('blocks.print', $pageDB['id'])}}','Print','width='+w+',height='+h+',top='+top+',left='+left); 
                                 return false;">Export Block List
                             </a>
-                            <a class="btn btn-danger ml-1" href="/page{{ $pageDB->project_id }}">Back</a>
+                            <a class="btn btn-danger ml-1" href="{{ route('page', $pageDB->project_id) }}">Back</a>
                         </div>
                         <p class="col"><b class="">Project Name :</b> {{ $pageDB->projects->project_name }}</p>
                         <p class="col"><b class="">Page Name :</b>{{ $pageDB->page_name }}</p>

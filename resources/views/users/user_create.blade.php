@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h4>User Create</h4>
                     <div class="d-flex justify-content-end">
-                        <a class="btn btn-danger" href="/user">Back</a>
+                        <a class="btn btn-danger" href="{{ route('user') }}">Back</a>
                     </div>
                     <hr>
                     <div class="form-validation">
@@ -39,6 +39,16 @@
                                 <div class="col-lg-6">
                                     <input type="email" name="email" class="form-control" id="val-email"
                                         placeholder="Enter a Email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-skill">Role <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-6">
+                                    <select class="form-select" aria-label="Default select example" name="role">
+                                        <option value="Project Manager">Project Manager</option>
+                                        <option value="Admin">Admin</option>
+                                      </select>
                                 </div>
                             </div>
                             <div class="form-group row">

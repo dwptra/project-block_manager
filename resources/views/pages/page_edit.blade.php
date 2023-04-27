@@ -8,7 +8,7 @@
                     <div class="form-validation">
                         <h4>Page Edit</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-danger" href="/page{{ $pageDB->project_id }}">Back</a>
+                            <a class="btn btn-danger" href="{{ route('page', $pageDB->project_id) }}">Back</a>
                         </div>
                         <hr>
                         <form class="form-valide" action="{{ route('page.update', $pageDB['id']) }}" method="post">

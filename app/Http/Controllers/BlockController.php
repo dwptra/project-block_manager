@@ -25,13 +25,14 @@ class BlockController extends Controller
 
     public function project()
     {
-        $projectDB = Project::all();
+        $projectDB = Project::with('projectManager')->get();
         return view('project.project', compact('projectDB'));
     }
 
     public function createProject()
     {
-        return view('project.project_create');
+        $user = ProjectManager::all();
+        return view('project.project_create', compact('user'));
     }
 
     public function projectPost(Request $request)
@@ -52,8 +53,8 @@ class BlockController extends Controller
     public function editProject($id)
     {
         $project = Project::findOrFail($id);
-
-        return view('project.project_edit', compact('project'));
+        $user = ProjectManager::all();
+        return view('project.project_edit', compact('project', 'user'));
     }
 
     public function updateProject(Request $request, $id)
@@ -317,12 +318,14 @@ class BlockController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
             'password' => 'required|min:3'
         ]);
 
         ProjectManager::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => Hash::make($request->password)
         ]);
 
@@ -341,12 +344,14 @@ class BlockController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
             'password' => 'required|min:3'
         ]);
 
         ProjectManager::find($id)->update([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => Hash::make($request->password)
         ]);
 

@@ -20,6 +20,7 @@ class ProjectManager extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**

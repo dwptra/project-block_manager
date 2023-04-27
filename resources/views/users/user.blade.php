@@ -28,9 +28,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">User List</h4>
-                        <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="{{ route('user.create') }}">Create Users</a>
-                        </div>
+                        @if(Auth::user()->role == 'Admin')
+                            <div class="d-flex justify-content-end">
+                                <a class="btn btn-primary" href="{{ route('user.create') }}">Create Users</a>
+                            </div>
+                        @endif
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
@@ -38,9 +40,12 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th>Created at</th>
                                         <th>Updated at</th>
+                                        @if(Auth::user()->role == 'Admin')
                                         <th>Action</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,8 +54,10 @@
                                         <td>{{ $project->id }}</td>
                                         <td>{{ $project->name }}</td>
                                         <td>{{ $project->email }}</td>
+                                        <td>{{ $project->role }}</td>
                                         <td>{{ $project->created_at->format('Y-m-d H:i:s') }}</td>
                                         <td>{{ $project->updated_at->format('Y-m-d H:i:s') }}</td>
+                                        @if(Auth::user()->role == 'Admin')
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-primary mr-1" href="{{ route('user.edit', $project['id']) }}">Edit</a>
@@ -64,6 +71,7 @@
                                                 @endif
                                             </div>
                                         </td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -72,9 +80,12 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th>Created at</th>
                                         <th>Updated at</th>
+                                        @if(Auth::user()->role == 'Admin')
                                         <th>Action</th>
+                                        @endif
                                     </tr>
                                 </tfoot>
                             </table>
