@@ -18,22 +18,22 @@
         <div class="row justify-content-center">
             <div class="row">
                 <div class="col-lg-12 mt-4">
-                    <h1>{{ $pageDB->projects->project_name }}</h1>
+                    <h1>{{ $pagePrint->projects->project_name }}</h1>
                     <div class="mt-4 row">
-                        <p><strong>Project Name : </strong>{{$pageDB->projects->project_name}}</p>
+                        <p><strong>Project Name : </strong>{{$pagePrint->projects->project_name}}</p>
                     </div>
                     <div class="row">
-                        <p><strong>Project Manager : </strong>{{ $project->project_manager }}</p>
+                        <p><strong>Project Manager : </strong>{{ $projectPrint->project_manager }}</p>
                     </div>
                     <div class="row">
-                        <p><strong>Page Name : </strong>{{ $pageDB->page_name }}</p>
+                        <p><strong>Page Name : </strong>{{ $pagePrint->page_name }}</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 mt-4 ">
-                @forelse($blockList as $block)
+                @forelse($blockPrint as $block)
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col">
