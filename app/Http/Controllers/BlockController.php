@@ -194,12 +194,6 @@ class BlockController extends Controller
         return view('blocks.block_create', compact('pageDB', 'blockCategory', 'page'));
     }
 
-    public function blockCategory()
-    {
-        $categoriesDB = BlockCategory::all();
-        return view('blocks.block_categories', compact('categoriesDB'));
-    }
-
     public function postBlock(Request $request, $id)
     {
         // $page = Page::findOrFail($id);
@@ -233,6 +227,25 @@ class BlockController extends Controller
 
         // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
         return redirect()->route('block', $page_id)->with('createblock', 'Berhasil membuat page!');
+    }
+
+    public function blockCategory()
+    {
+        $categoriesDB = BlockCategory::all();
+        return view('blocks.block_categories', compact('categoriesDB'));
+    }
+
+    public function postCategory(Request $request)
+    {
+        $request->validate([
+            'category_name' => 'required|min:3',
+        ]);
+
+        // bikin data baru dengan isian dari request
+        BlockCategory::create([
+            'category_name' => $request->category_name,
+        ]);
+        return redirect()->route('block.categories')->with('createCategory', 'Berhasil membuat Category baru!');
     }
 
     // Login dan Logout

@@ -11,32 +11,33 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                @if (Session::get('createBlock'))
+                @if (Session::get('createCategory'))
                 <div class="alert alert-success alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('createBlock')}}
+                    </button> <strong>Success!</strong> {{ Session::get('createCategory')}}
                 </div>
                 @endif
-                @if (Session::get('updateBlock'))
+                @if (Session::get('updateCategory'))
                 <div class="alert alert-success alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('updateBlock')}}
+                    </button> <strong>Success!</strong> {{ Session::get('updateCategory')}}
                 </div>
                 @endif
-                @if (Session::get('deleteBlock'))
+                @if (Session::get('deleteCategory'))
                 <div class="alert alert-success alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('deleteBlock')}}
+                    </button> <strong>Success!</strong> {{ Session::get('deleteCategory')}}
                 </div>
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Block List</h4>
+                        <h4 class="card-title">Categories List</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="">Create Category</a>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#createCategories">Create
+                                Category</button>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-hover">
@@ -81,6 +82,34 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+{{-- Modal --}}
+<div class="modal fade" id="createCategories" tabindex="-1" role="dialog" aria-labelledby="createCategoriesLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createCategoriesLabel">Create Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('category.post') }}" method="post">
+                <div class="modal-body">
+                    @csrf
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Category Name:</label>
+                        <input name="category_name" type="text" class="form-control" id="recipient-name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
