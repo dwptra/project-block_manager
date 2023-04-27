@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Block List</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-primary" href="/createBlock{{ $pageDB->id }}">Create Block</a>
+                            <a class="btn btn-primary" href="{{ route('block.create', $pageDB->id) }}">Create Block</a>
                             <a class="btn btn-warning ml-1 text-white" href="{{ route('blocks.print', $pageDB['id'])}}"
                                 target="_blank" onclick="var w = 1000; var h = 750; var left = (screen.width/2)-(w/2); var top = 0; 
                                 window.open('{{ route('blocks.print', $pageDB['id'])}}','Print','width='+w+',height='+h+',top='+top+',left='+left); 

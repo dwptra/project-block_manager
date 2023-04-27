@@ -68,7 +68,7 @@
                                         <td>{{ $project->project_manager }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-warning text-white mr-1" href="/page/{{ $project->id }}">See Pages</a> 
+                                                <a class="btn btn-warning text-white mr-1" href="{{ route('page', $project->id)  }}">See Pages</a> 
                                                 <a class="btn btn-primary mr-1" href="{{ route('project.edit', $project['id']) }}">Edit</a>
                                                 <form action="{{ route('project.delete', $project['id']) }}" method="post">
                                                     @csrf
