@@ -38,6 +38,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th>Created at</th>
                                         <th>Updated at</th>
                                         <th>Action</th>
@@ -49,6 +50,7 @@
                                         <td>{{ $project->id }}</td>
                                         <td>{{ $project->name }}</td>
                                         <td>{{ $project->email }}</td>
+                                        <td>{{ $project->role }}</td>
                                         <td>{{ $project->created_at->format('Y-m-d H:i:s') }}</td>
                                         <td>{{ $project->updated_at->format('Y-m-d H:i:s') }}</td>
                                         <td>
@@ -72,6 +74,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th>Created at</th>
                                         <th>Updated at</th>
                                         <th>Action</th>

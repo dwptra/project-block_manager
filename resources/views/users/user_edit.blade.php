@@ -29,6 +29,16 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="val-skill">Role <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-6">
+                                    <select class="form-select" aria-label="Default select example" name="role">
+                                        <option value="Project Manager" {{ $user->role == 'Project Manager' ? 'selected' : '' }}>Project Manager</option>
+                                        <option value="Admin" {{ $user->role == 'Admin' ? 'selected' : ''}}>Admin</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-password">Password <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">

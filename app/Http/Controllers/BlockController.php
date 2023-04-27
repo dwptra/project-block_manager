@@ -304,12 +304,14 @@ class BlockController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
             'password' => 'required|min:3'
         ]);
 
         ProjectManager::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => Hash::make($request->password)
         ]);
 
@@ -328,12 +330,14 @@ class BlockController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
             'password' => 'required|min:3'
         ]);
 
         ProjectManager::find($id)->update([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => Hash::make($request->password)
         ]);
 
