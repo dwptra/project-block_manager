@@ -46,7 +46,7 @@ class BlockController extends Controller
             'project_manager' => $request->project_manager
         ]);
 
-        return redirect('/dashboard')->with('createProject', 'Berhasil membuat projek baru!');
+        return redirect()->route('project')->with('createProject', 'Berhasil membuat projek baru!');
     }
 
     public function editProject($id)
@@ -68,13 +68,13 @@ class BlockController extends Controller
             'project_manager' => $request->project_manager
         ]);
 
-        return redirect('/dashboard')->with('updateProject', 'Berhasil mengubah projek!');
+        return redirect()->route('project')->with('updateProject', 'Berhasil mengubah projek!');
     }
 
     public function deleteProject($id)
     {
         Project::where('id', '=', $id)->delete();
-        return redirect('/dashboard')->with('deleteProject', 'Berhasil menghapus projek!');
+        return redirect()->route('project')->with('deleteProject', 'Berhasil menghapus projek!');
     }
 
     // Page
@@ -117,7 +117,7 @@ class BlockController extends Controller
         ]);
         
         // kalau berhasil, arahin ke halaman /user dengan pemberitahuan berhasil
-        return redirect('/page' . $id)->with('createPage', 'Berhasil membuat page!');
+        return redirect()->route('page', $id)->with('createPage', 'Berhasil membuat page!');
     }
 
     public function editPage($id)
@@ -146,7 +146,7 @@ class BlockController extends Controller
         $project_id = $page->project_id;
 
         // kalau berhasil, arahin ke halaman proyek dengan pemberitahuan berhasil
-        return redirect('/page' . $project_id)->with('updatePage', 'Berhasil mengubah page!');
+        return redirect()->route('page', $project_id)->with('updatePage', 'Berhasil mengubah page!');
     }
 
     public function deletePage($id)
@@ -155,7 +155,7 @@ class BlockController extends Controller
         $project_id = $page->project_id; // Mendapatkan project_id dari halaman yang akan dihapus
         $page->delete(); // Menghapus data halaman dari database
 
-        return redirect('/page' . $project_id)->with('deletePage', 'Berhasil menghapus data!'); // Mengarahkan pengguna kembali ke halaman proyek dengan ID yang sesuai
+        return redirect()->route('page', $project_id)->with('deletePage', 'Berhasil menghapus data!'); // Mengarahkan pengguna kembali ke halaman proyek dengan ID yang sesuai
     }
 
     // Blocks
@@ -182,7 +182,7 @@ class BlockController extends Controller
         $page_id = $pageDetailsDelete->page_id;
         $pageDetailsDelete->delete(); 
 
-        return redirect('/block' . $page_id)->with('deleteBlock', 'Berhasil menghapus data!');
+        return redirect()->route('block', $page_id)->with('deleteBlock', 'Berhasil menghapus data!');
     }
 
     public function blockCreate($id)
@@ -226,7 +226,7 @@ class BlockController extends Controller
         ]);
 
         // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
-        return redirect('/block' . $id)->with('createblock', 'Berhasil membuat page!');
+        return redirect()->route('block', $page_id)->with('createblock', 'Berhasil membuat page!');
     }
 
     // Login dan Logout
@@ -265,7 +265,7 @@ class BlockController extends Controller
     public function deleteUser($id)
     {
         ProjectManager::where('id', '=', $id)->delete();
-        return redirect('/user')->with('deleteUser', 'Berhasil menghapus data');
+        return redirect()->route('user')->with('deleteUser', 'Berhasil menghapus data');
     }
 
     public function createUser()
@@ -288,7 +288,7 @@ class BlockController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect('/user')->with('createUser', 'Berhasil membuat user baru!');
+        return redirect()->route('user')->with('createUser', 'Berhasil membuat user baru!');
     }
     
     public function editUser($id)
@@ -312,7 +312,7 @@ class BlockController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect('/user')->with('updateUser', 'Berhasil merubah User!');
+        return redirect()->route('user')->with('updateUser', 'Berhasil merubah User!');
     }
 
     /**
