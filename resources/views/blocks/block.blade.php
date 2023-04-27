@@ -5,6 +5,7 @@
         display: inline-block;
         min-width: 125px;
     }
+
 </style>
 <div class="container-fluid mt-3">
     <div class="container-fluid">
@@ -36,19 +37,15 @@
                         <h4 class="card-title">Block List</h4>
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-primary" href="/createBlock{{ $pageDB->id }}">Create Block</a>
-                            <a class="btn btn-warning ml-1 text-white" href="{{ route('blocks.print', $pageDB['id'])}}" target="_blank" 
-                                onclick="var w = 1000; var h = 750; var left = (screen.width/2)-(w/2); var top = 0; 
+                            <a class="btn btn-warning ml-1 text-white" href="{{ route('blocks.print', $pageDB['id'])}}"
+                                target="_blank" onclick="var w = 1000; var h = 750; var left = (screen.width/2)-(w/2); var top = 0; 
                                 window.open('{{ route('blocks.print', $pageDB['id'])}}','Print','width='+w+',height='+h+',top='+top+',left='+left); 
                                 return false;">Export Block List
                             </a>
                             <a class="btn btn-danger ml-1" href="/page{{ $pageDB->project_id }}">Back</a>
                         </div>
- 
                         <p class="col"><b class="">Project Name :</b> {{ $pageDB->projects->project_name }}</p>
                         <p class="col"><b class="">Page Name :</b>{{ $pageDB->page_name }}</p>
-
-
-                        
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -74,15 +71,17 @@
                                                 <form action="{{ route('block.delete', $block['id']) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
+                                                    <button class="btn btn-danger"
+                                                        onclick="return confirm('Yakin ingin menghapus?')"
+                                                        type="submit">Delete</button>
                                                 </form>
                                             </div>
                                         </td>
                                     </tr>
                                     @empty
-                                        <tr>
-                                            <td colspan="5" class="text-center">No pages found.</td>
-                                        </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-center">No pages found.</td>
+                                    </tr>
                                     @endforelse
                                 </tbody>
                             </table>
