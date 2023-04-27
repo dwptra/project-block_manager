@@ -114,11 +114,6 @@
                             <i class="icon-user menu-icon"></i><span class="nav-text">User</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="/user" aria-expanded="false">
-                            <i class="icon-spine menu-icon"></i><span class="nav-text">Create Block</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
