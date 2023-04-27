@@ -17,4 +17,9 @@ class Project extends Model
     {
         return $this->hasMany(Page::class);
     }
+
+    public function projectManager()
+    {
+        return $this->belongsTo(ProjectManager::class, 'project_manager');
+    }
 }

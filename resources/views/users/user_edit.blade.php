@@ -5,9 +5,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4>User Create</h4>
+                    <h4>User Edit</h4>
                     <div class="d-flex justify-content-end">
-                        <a class="btn btn-danger" href="/user">Back</a>
+                        <a class="btn btn-danger" href="{{ route('user') }}">Back</a>
                     </div>
                     <hr>
                     <div class="form-validation">
