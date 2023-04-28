@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class BlockController extends Controller
 {
@@ -182,13 +184,13 @@ class BlockController extends Controller
 
         return view('blocks.block_master_create', compact('blockCategoryCreate'));
     }
-
+    
     public function blockMasterPost(Request $request)
     {
         $request->validate([
             'block_name' => 'required',
             'category_id' => 'required',
-            'main_image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'main_image' => 'image|mimes:jpeg,png,jpg',
         ]);
         
         $mainImage = $request->file('main_image')->store('public/images/main_image');
@@ -201,7 +203,7 @@ class BlockController extends Controller
             'main_image' => $mainImage,
         ]);
 
-        return redirect()->route('block.master')->with('createBlockMaster', 'Berhasil mambuat block');
+        return redirect()->route('block.master')->with('createBlockMaster', 'Berhasil membuat block');
     }
 
     public function blockMasterEdit($id)
@@ -210,6 +212,37 @@ class BlockController extends Controller
         $blockCategoryEdit = BlockCategory::all();
         
         return view('blocks.block_master_edit', compact('blockEdit', 'blockCategoryEdit'));
+    }
+
+    public function blockMasterUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'block_name' => 'required',
+            'category_id' => 'required',
+            'main_image' => 'image|mimes:jpeg,png,jpg',
+        ]);
+        
+        $block = Block::findOrFail($id);
+
+        $mainImage = $request->file('main_image')->store('public/images/main_image');
+
+        Storage::delete('public/images/main_image/'. $block->mainImage);
+
+        $block->update([
+            'block_name' => $request->block_name,
+            'category_id' => $request->category_id,
+            'description' => $request->description,
+            'status' => $request->status,
+            'main_image' => $mainImage,
+        ]);
+
+        return redirect()->route('block.master')->with('updateBlockMaster', 'Berhasil mengubah block');
+    }
+
+    public function blockMasterDelete($id)
+    {
+        Block::where('id', '=', $id)->delete();
+        return redirect()->route('block.master')->with('deleteBlockMaster', 'Berhasil menghapus block');
     }
 
     public function block($id)

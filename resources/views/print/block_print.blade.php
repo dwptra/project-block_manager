@@ -23,7 +23,7 @@
                         <p><strong>Project Name : </strong>{{$pagePrint->projects->project_name}}</p>
                     </div>
                     <div class="row">
-                        <p><strong>Project Manager : </strong>{{ $projectPrint->project_manager }}</p>
+                        <p><strong>Project Manager : </strong>{{ $projectPrint->projectManager->name }}</p>
                     </div>
                     <div class="row">
                         <p><strong>Page Name : </strong>{{ $pagePrint->page_name }}</p>
@@ -66,7 +66,7 @@
             </thead>
             <tbody>
               <tr class="text-center">
-                <td> {{ $projectPrint->project_manager }}</td>
+                <td> {{ $projectPrint->projectManager->name }}</td>
                 <td> ... </td>
               </tr>
             </tbody>

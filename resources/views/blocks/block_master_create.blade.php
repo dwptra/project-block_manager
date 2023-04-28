@@ -77,7 +77,7 @@
                             <div class="row mt-3" style="display: none" id="preview-container">
                                 <div class="col-md-4" for="preview"><b>Preview Image <span class="text-danger"></span></b></div>
                                 <div class="col-lg-8 offset-md-4"> 
-                                    <img id="preview" src="#" alt="image preview" style="max-width: 200px; max-height: 300px;"> 
+                                    <img class="text-center" id="preview" src="#" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
                                 </div>
                             </div>                                         
                             <script>

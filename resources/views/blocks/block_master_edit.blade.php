@@ -11,8 +11,9 @@
                             <a class="btn btn-danger ml-1" href="{{ route('block.master') }}">Back</a>
                         </div>
                         <hr>
-                        <form action="{{ route('blockmaster.post') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('blockmaster.update', $blockEdit['id']) }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('PATCH')
                             <div class="row mt-3">
                                 <div class="col-md-4"><b>Block Name <span class="text-danger">*</span></b></div>
                                 <div class="col-md-8"><input type="text" name="block_name" class="form-control"
@@ -37,11 +38,31 @@
                                 <div class="col-md-4"><b>Main Image <span class="text-danger">*</span></b></div>
                                 <div class="input-group col-lg-8">   
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="main_image">
+                                        <input type="file" class="custom-file-input" name="main_image" onchange="previewImage(event)">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
-                            </div>                           
+                            </div>        
+                            <div class="row mt-3"  id="preview-container">
+                                <div class="col-md-4" for="preview"><b>Preview Image <span class="text-danger"></span></b></div>
+                                <div class="col-lg-8 offset-md-4"> 
+                                    <img id="preview" src="{{ asset('storage/images/main_image/' . basename($blockEdit->main_image)) }}" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
+                                </div>
+                            </div>                             
+                            <script>
+                                function previewImage(event) {
+                                    var input = event.target;
+                                    if (input.files && input.files[0]) {
+                                        var reader = new FileReader();
+                                        reader.onload = function (e) {
+                                            var preview = document.getElementById("preview");
+                                            preview.src = e.target.result;
+                                            document.getElementById("preview-container").style.display = "block";
+                                        }
+                                        reader.readAsDataURL(input.files[0]);
+                                    }
+                                }
+                            </script>                       
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>
                             </div>
