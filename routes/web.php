@@ -47,7 +47,7 @@ Route::middleware('cekAuth')->group(function () {
     // User (M)
     Route::prefix('user')->group(function () {
         Route::get('/', [BlockController::class, 'user'])->name('user');
-        Route::middleware('cekRole:admin')->group(function () {
+        Route::middleware('cekRole:Admin')->group(function () {
             Route::get('/create', [BlockController::class, 'createUser'])->name('user.create');
             Route::post('/create', [BlockController::class, 'userPost'])->name('user.post');
             Route::get('/edit/{id}', [BlockController::class, 'editUser'])->name('user.edit');
