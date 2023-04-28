@@ -1,18 +1,11 @@
 @extends('layout')
 @section('content')
 <div class="container-fluid mt-3">
-    @if (Session::get('isGuest'))
-    <div class="alert alert-primary alert-dismissible fade show">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                aria-hidden="true">&times;</span>
-        </button> <strong>Fail!</strong> {{ Session::get('isGuest')}}
-    </div>
-    @endif
-    @if (Session::get('createProject'))
+    @if (Session::get('createBlockMaster'))
     <div class="alert alert-success alert-dismissible fade show">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
-        </button> <strong>Success!</strong> {{ Session::get('createProject')}}
+        </button> <strong>Success!</strong> {{ Session::get('createBlockMaster')}}
     </div>
     @endif
     @if (Session::get('updateProject'))
@@ -52,14 +45,11 @@
                                         $i = 1;
                                     ?>
                                     <tr>
-                                        <th>NO</th>
+                                        <th style="max-width: 60px;">NO</th>
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Category</th>
-                                        <th>Main Image</th>
-                                        <th>Mobile Image</th>
-                                        <th>Sample Image 1</th>
-                                        <th>Sample Image 2</th>
+                                        <th class="text-center">Main Image</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -70,10 +60,7 @@
                                         <td>{{ $block->id }}</td>
                                         <td>{{ $block->block_name }}</td>
                                         <td>{{ $block->categories->category_name }}</td>
-                                        <td><img src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" style="width: 170px; height: 200px;" alt="image"></td>
-                                        <td><img src="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" style="width: 170px; height: 200px;" alt="image"></td>
-                                        <td><img src="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" style="width: 170px; height: 200px;" alt="image"></td>
-                                        <td><img src="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" style="width: 170px; height: 200px;" alt="image"></td>
+                                        <td class="text-center"><img src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" style="width: 200px; height: 200px;" alt="image"></td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-primary mr-1" href="{{ route('blockmaster.edit', $block->id) }}">Edit</a>
@@ -94,9 +81,6 @@
                                         <th>Name</th>
                                         <th>Category</th>
                                         <th>Main Image</th>
-                                        <th>Mobile Image</th>
-                                        <th>Sample Image 1</th>
-                                        <th>Sample Image 2</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>

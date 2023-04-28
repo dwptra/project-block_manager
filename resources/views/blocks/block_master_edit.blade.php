@@ -41,35 +41,7 @@
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-4"><b>Mobile Image <span class="text-danger">*</span></b></div>
-                                <div class="input-group col-lg-8">   
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="mobile_image">
-                                        <label class="custom-file-label">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-4"><b>Sample Image 1<span class="text-danger">*</span></b></div>
-                                <div class="input-group col-lg-8">   
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="sample_image_1">
-                                        <label class="custom-file-label">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-4"><b>Sample Image 2<span class="text-danger">*</span></b></div>
-                                <div class="input-group col-lg-8">   
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="sample_image_2">
-                                        <label class="custom-file-label">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                            </div>                           
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>
                             </div>
