@@ -42,7 +42,7 @@
                             <a class="btn btn-danger ml-1" href="{{ route('block.master') }}">Back</a>
                         </div>
                         <hr>
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('blockmaster.post') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-3">
                                 <div class="col-md-4"><b>Block Name <span class="text-danger">*</span></b></div>
@@ -53,13 +53,13 @@
                                 <div class="col-md-4"><b>Category <span class="text-danger">*</span></b></div>
                                 <div class="col-lg-8">
                                     <select class="form-select" aria-label="Default select example" name="category_id">
-                                        <option value="Project Manager" selected disabled>Select Category Block</option>
+                                        <option value="" selected disabled>Select Category Block</option>
                                         @foreach($blockCategoryCreate as $category)
-                                        <option value="{{$category->Id}}">{{$category->category_name}}</option>
+                                            <option value="{{$category->id}}">{{$category->category_name}}</option>
                                         @endforeach
-                                      </select>
+                                    </select>
                                 </div>
-                            </div>
+                            </div>                                                       
                             <div class="row mt-3">
                                 <div class="col-md-4"><b>Description <span class="text-danger"></span></b></div>
                                 <div class="col-md-8"><textarea name="description" class="form-control" id="val-note" rows="5" placeholder="Not Required"></textarea></div>
