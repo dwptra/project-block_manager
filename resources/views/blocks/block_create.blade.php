@@ -86,7 +86,7 @@
                                                     <div class="card-body">
                                                         <input type="radio" class="btn-check" name="options"
                                                             id="option1" autocomplete="off" checked />
-                                                        <label class="btn btn-primary align-center w-100 mb-0"
+                                                        <label class="btn btn-light align-center w-100 mb-0"
                                                             for="option1">01-Full-Slide</label>
                                                     </div>
                                                 </div>
@@ -97,7 +97,7 @@
                                                     <div class="card-body">
                                                         <input type="radio" class="btn-check" name="options"
                                                             id="option2" autocomplete="off" />
-                                                        <label class="btn btn-primary align-center w-100 mb-0"
+                                                        <label class="btn btn-light align-center w-100 mb-0"
                                                             for="option2">02-Half-Banner</label>
                                                     </div>
                                                 </div>
@@ -108,7 +108,7 @@
                                                     <div class="card-body">
                                                         <input type="radio" class="btn-check" name="options"
                                                             id="option3" autocomplete="off" />
-                                                        <label class="btn btn-primary align-center w-100 mb-0"
+                                                        <label class="btn btn-light align-center w-100 mb-0"
                                                             for="option3">03-Left-Content-Slide</label>
                                                     </div>
                                                 </div>
