@@ -8,11 +8,11 @@
         </button> <strong>Success!</strong> {{ Session::get('createBlockMaster')}}
     </div>
     @endif
-    @if (Session::get('updateProject'))
+    @if (Session::get('updateBlockMaster'))
     <div class="alert alert-success alert-dismissible fade show">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
-        </button> <strong>Success!</strong> {{ Session::get('updateProject')}}
+        </button> <strong>Success!</strong> {{ Session::get('updateBlockMaster')}}
     </div>
     @endif
     @if (Session::get('deleteProject'))
