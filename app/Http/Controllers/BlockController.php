@@ -11,6 +11,7 @@ use App\Models\PageDetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BlockController extends Controller
 {
@@ -204,8 +205,13 @@ class BlockController extends Controller
         $page = Page::findOrFail($id);
         $pageDB = Page::with('projects')->findOrFail($id);
         $blockCategory = BlockCategory::all();
+        $projectManager = DB::table('projects')
+            ->join('project_managers', 'projects.project_manager', '=', 'project_managers.id')
+            ->where('projects.id', $pageDB->projects->id)
+            ->select('project_managers.name')
+            ->first();
 
-        return view('blocks.block_create', compact('pageDB', 'blockCategory', 'page'));
+        return view('blocks.block_create', compact('pageDB', 'blockCategory', 'page', 'projectManager'));
     }
 
     public function postBlock(Request $request, $id)

@@ -48,7 +48,7 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-4"><b>Project Manager:</b></div>
-                            <div class="col-md-8">{{ $pageDB->projects->project_manager }}</div>
+                            <div class="col-md-8">{{ $projectManager->name }}</div>
                         </div>
                         <hr>
                         <form action="{{ route('block.post', $page->id) }}" method="post" enctype="multipart/form-data">
