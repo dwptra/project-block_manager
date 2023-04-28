@@ -26,6 +26,11 @@ class BlockController extends Controller
         return view('dashboard', compact('projectDB'));
     }
 
+    public function error()
+    {
+        return view('404');
+    }
+
     public function project()
     {
         $projectDB = Project::with('projectManager')->get();

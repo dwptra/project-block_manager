@@ -20,6 +20,7 @@ use App\Http\Controllers\BlockController;
     // });
 Route::middleware('cekAuth')->group(function () {
     Route::get('/dashboard', [BlockController::class, 'dashboard'])->name('dashboard');
+    Route::get('/error', [BlockController::class, 'error'])->name('error');
     Route::get('/logout', [BlockController::class, 'logout'])->name('logout');
 
     // Masterdata
@@ -46,11 +47,13 @@ Route::middleware('cekAuth')->group(function () {
     // User (M)
     Route::prefix('user')->group(function () {
         Route::get('/', [BlockController::class, 'user'])->name('user');
-        Route::get('/create', [BlockController::class, 'createUser'])->name('user.create');
-        Route::post('/create', [BlockController::class, 'userPost'])->name('user.post');
-        Route::get('/edit/{id}', [BlockController::class, 'editUser'])->name('user.edit');
-        Route::patch('/update/{id}', [BlockController::class, 'updateUser'])->name('user.update');
-        Route::delete('/delete/{id}', [BlockController::class, 'deleteUser'])->name('user.delete');
+        Route::middleware('cekRole:admin')->group(function () {
+            Route::get('/create', [BlockController::class, 'createUser'])->name('user.create');
+            Route::post('/create', [BlockController::class, 'userPost'])->name('user.post');
+            Route::get('/edit/{id}', [BlockController::class, 'editUser'])->name('user.edit');
+            Route::patch('/update/{id}', [BlockController::class, 'updateUser'])->name('user.update');
+            Route::delete('/delete/{id}', [BlockController::class, 'deleteUser'])->name('user.delete');
+        });
     });
     
 
