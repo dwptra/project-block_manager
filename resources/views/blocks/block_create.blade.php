@@ -79,39 +79,19 @@
                                         aria-labelledby="panelsStayOpen-headingOne">
                                         <div class="accordion-body">
                                             <div class="d-flex justify-content-center">
-                                                <div class="card" style="width: 18rem;">
-                                                    <img class="card-img-top"
-                                                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1"
-                                                        alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <input type="radio" class="btn-check" name="options"
-                                                            id="option1" autocomplete="off" checked />
-                                                        <label class="btn btn-light align-center w-100 mb-0"
-                                                            for="option1">01-Full-Slide</label>
-                                                    </div>
-                                                </div>
+                                                @foreach ($blockDB as $block)
                                                 <div class="card mx-4" style="width: 18rem;">
                                                     <img class="card-img-top"
-                                                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1"
-                                                        alt="Card image cap">
+                                                    src="{{ $block->main_image }}"
+                                                    alt="Card image cap">
                                                     <div class="card-body">
                                                         <input type="radio" class="btn-check" name="options"
-                                                            id="option2" autocomplete="off" />
+                                                        id="option{{ $block->id }}" autocomplete="off" />
                                                         <label class="btn btn-light align-center w-100 mb-0"
-                                                            for="option2">02-Half-Banner</label>
+                                                        for="option{{ $block->id }}">{{ $block->block_name }}</label>
                                                     </div>
                                                 </div>
-                                                <div class="card" style="width: 18rem;">
-                                                    <img class="card-img-top"
-                                                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=-1&s=1"
-                                                        alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <input type="radio" class="btn-check" name="options"
-                                                            id="option3" autocomplete="off" />
-                                                        <label class="btn btn-light align-center w-100 mb-0"
-                                                            for="option3">03-Left-Content-Slide</label>
-                                                    </div>
-                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

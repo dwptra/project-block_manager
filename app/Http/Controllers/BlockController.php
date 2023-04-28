@@ -47,7 +47,7 @@ class BlockController extends Controller
 
         Project::create([
             'project_name' => $request->project_name,
-            'project_manager' => $request->project_manager
+            'project_manager' => $request->project_manager,
         ]);
 
         return redirect()->route('project')->with('createProject', 'Berhasil membuat projek baru!');
@@ -265,14 +265,15 @@ class BlockController extends Controller
     {
         $page = Page::findOrFail($id);
         $pageDB = Page::with('projects')->findOrFail($id);
-        $blockCategory = BlockCategory::all();
         $projectManager = DB::table('projects')
             ->join('project_managers', 'projects.project_manager', '=', 'project_managers.id')
             ->where('projects.id', $pageDB->projects->id)
             ->select('project_managers.name')
             ->first();
 
-        return view('blocks.block_create', compact('pageDB', 'blockCategory', 'page', 'projectManager'));
+
+        $blockDB = Block::all();
+        return view('blocks.block_create', compact('pageDB', 'page', 'projectManager', 'blockDB'));
     }
 
     public function postBlock(Request $request, $id)
