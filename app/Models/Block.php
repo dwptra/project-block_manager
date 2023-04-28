@@ -13,9 +13,6 @@ class Block extends Model
         'block_name',
         'description',
         'main_image',
-        'mobile_image',
-        'sample_image_1',
-        'sample_image_2'
     ];
 
     public function categories()

@@ -17,9 +17,6 @@ return new class extends Migration
             $table->char('block_name');
             $table->text('description')->nullable();
             $table->char('main_image');
-            $table->char('mobile_image');
-            $table->char('sample_image_1');
-            $table->char('sample_image_2');
             $table->timestamps();
             
             $table->foreign('category_id')->references('id')->on('block_categories')->onDelete('cascade');
