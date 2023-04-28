@@ -35,7 +35,7 @@
                         </div>
                         <hr>
                         <p><b class="pr-4">Project Name</b>: {{ $project->project_name }}</p>
-                        <p><b class="pr-2">Project Manager</b>: {{ $project->project_manager }}</p>
+                        <p><b class="pr-2">Project Manager</b>: {{ $project->projectManager->name }}</p>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>

@@ -57,7 +57,7 @@
                                         class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <select class="form-control" id="val-skill" name="status">
+                                    <select class="form-select" aria-label="Default select example" name="status">
                                         <option value="On Progress"
                                             {{ $pageDB->status == 'On Progress' ? 'selected' : '' }}>On Progress
                                         </option>
