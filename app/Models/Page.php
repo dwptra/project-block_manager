@@ -21,9 +21,4 @@ class Page extends Model
         return $this->belongsTo(Project::class, 'project_id');
     }
 
-    public function projectManager()
-    {
-        return $this->belongsTo(ProjectManager::class, 'project_manager_id');
-    }
-
 }
