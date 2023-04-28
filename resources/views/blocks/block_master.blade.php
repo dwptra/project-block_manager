@@ -69,10 +69,11 @@
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $block->id }}</td>
                                         <td>{{ $block->name }}</td>
-                                        <td>{{ $block->main_image}}</td>
-                                        <td>{{ $block->mobile_image }}</td>
-                                        <td>{{ $block->sample_image_1 }}</td>
-                                        <td>{{ $block->sample_image_2 }}</td>
+                                        <td>{{ $block->categories->category_name }}</td>
+                                        <td><img src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" style="width: 170px; height: 200px;" alt="image"></td>
+                                        <td><img src="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" style="width: 170px; height: 200px;" alt="image"></td>
+                                        <td><img src="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" style="width: 170px; height: 200px;" alt="image"></td>
+                                        <td><img src="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" style="width: 170px; height: 200px;" alt="image"></td>
                                         <td>
                                             {{-- <div class="d-flex">
                                                 <a class="btn btn-warning text-white mr-1" href="{{ route('page', $project->id)  }}">See Pages</a> 

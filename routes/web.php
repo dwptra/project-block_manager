@@ -28,6 +28,7 @@ Route::middleware('cekAuth')->group(function () {
         Route::prefix('blocks')->group(function () {
             Route::get('/', [BlockController::class, 'blockMaster'])->name('block.master');
             Route::get('/create', [BlockController::class, 'blockMasterCreate'])->name('blockmaster.create');
+            Route::post('/create', [BlockController::class, 'blockMasterPost'])->name('blockmaster.post');
         });
 
         Route::prefix('categories')->group(function () {

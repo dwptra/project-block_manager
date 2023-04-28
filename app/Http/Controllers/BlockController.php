@@ -173,7 +173,6 @@ class BlockController extends Controller
     public function blockMaster()
     {
         $blockCategory = Block::with('categories')->get();
-
         return view('blocks.block_master', compact('blockCategory'));
     }
 
@@ -182,6 +181,36 @@ class BlockController extends Controller
         $blockCategoryCreate = BlockCategory::all();
 
         return view('blocks.block_master_create', compact('blockCategoryCreate'));
+    }
+
+    public function blockMasterPost(Request $request)
+    {
+        $request->validate([
+            'block_name' => 'required',
+            'category_id' => 'required',
+            'main_image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'mobile_image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'sample_image_1' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'sample_image_2' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+        
+        $mainImage = $request->file('main_image')->store('public/images/main_image');
+        $mobileImage = $request->file('mobile_image')->store('public/images/mobile_image');
+        $sampleImage1 = $request->file('sample_image_1')->store('public/images/sample_image_1');
+        $sampleImage2 = $request->file('sample_image_2')->store('public/images/sample_image_2');
+
+        Block::create([
+            'block_name' => $request->block_name,
+            'category_id' => $request->category_id,
+            'description' => $request->description,
+            'status' => $request->status,
+            'main_image' => $mainImage,
+            'mobile_image' => $mobileImage,
+            'sample_image_1' => $sampleImage1,
+            'sample_image_2' => $sampleImage2,
+        ]);
+
+        return redirect()->route('block.master')->with('createBlockMaster', 'Berhasil mambuat block');
     }
 
     public function block($id)
