@@ -175,7 +175,7 @@ class BlockController extends Controller
         $blockCategory = Block::with('categories')->get();
         return view('blocks.block_master', compact('blockCategory'));
     }
-
+    
     public function blockMasterCreate()
     {
         $blockCategoryCreate = BlockCategory::all();
@@ -211,6 +211,14 @@ class BlockController extends Controller
         ]);
 
         return redirect()->route('block.master')->with('createBlockMaster', 'Berhasil mambuat block');
+    }
+
+    public function blockMasterEdit($id)
+    {
+        $blockEdit = Block::findOrFail($id);
+        $blockCategoryEdit = BlockCategory::all();
+        
+        return view('blocks.block_master_edit', compact('blockEdit', 'blockCategoryEdit'));
     }
 
     public function block($id)

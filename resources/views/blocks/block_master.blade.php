@@ -68,22 +68,21 @@
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $block->id }}</td>
-                                        <td>{{ $block->name }}</td>
+                                        <td>{{ $block->block_name }}</td>
                                         <td>{{ $block->categories->category_name }}</td>
                                         <td><img src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" style="width: 170px; height: 200px;" alt="image"></td>
                                         <td><img src="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" style="width: 170px; height: 200px;" alt="image"></td>
                                         <td><img src="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" style="width: 170px; height: 200px;" alt="image"></td>
                                         <td><img src="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" style="width: 170px; height: 200px;" alt="image"></td>
                                         <td>
-                                            {{-- <div class="d-flex">
-                                                <a class="btn btn-warning text-white mr-1" href="{{ route('page', $project->id)  }}">See Pages</a> 
-                                                <a class="btn btn-primary mr-1" href="{{ route('project.edit', $project['id']) }}">Edit</a>
-                                                <form action="{{ route('project.delete', $project['id']) }}" method="post">
+                                            <div class="d-flex">
+                                                <a class="btn btn-primary mr-1" href="{{ route('blockmaster.edit', $block->id) }}">Edit</a>
+                                                {{-- <form action="{{ route('project.delete', $project['id']) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
-                                                </form>
-                                            </div> --}}
+                                                </form> --}}
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
