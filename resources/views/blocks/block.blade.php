@@ -47,10 +47,10 @@
                         <p class="col"><b class="">Project Name :</b> {{ $pageDB->projects->project_name }}</p>
                         <p class="col"><b class="">Page Name :</b>{{ $pageDB->page_name }}</p>
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th style="max-width: 30px;">Sort ID</th>
+                                        <th style="max-width: 60px;">Sort ID</th>
                                         <th>Block Name</th>
                                         <th>Section Name</th>
                                         <th>Note</th>
