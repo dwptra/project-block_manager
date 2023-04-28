@@ -15,18 +15,11 @@
         </button> <strong>Success!</strong> {{ Session::get('updateBlockMaster')}}
     </div>
     @endif
-    @if (Session::get('deleteProject'))
+    @if (Session::get('deleteBlockMaster'))
     <div class="alert alert-success alert-dismissible fade show">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
-        </button> <strong>Success!</strong> {{ Session::get('deleteProject')}}
-    </div>
-    @endif
-    @if (Session::get('successLogin'))
-    <div class="alert alert-success alert-dismissible fade show">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                aria-hidden="true">&times;</span>
-        </button> <strong>Success!</strong> {{ Session::get('successLogin')}}
+        </button> <strong>Success!</strong> {{ Session::get('deleteBlockMaster')}}
     </div>
     @endif
     <div class="container-fluid">
@@ -64,11 +57,11 @@
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-primary mr-1" href="{{ route('blockmaster.edit', $block->id) }}">Edit</a>
-                                                {{-- <form action="{{ route('project.delete', $project['id']) }}" method="post">
+                                                <form action="{{ route('blockmaster.delete', $block['id']) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
-                                                </form> --}}
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>

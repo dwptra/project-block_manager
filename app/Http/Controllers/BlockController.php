@@ -239,6 +239,12 @@ class BlockController extends Controller
         return redirect()->route('block.master')->with('updateBlockMaster', 'Berhasil mengubah block');
     }
 
+    public function blockMasterDelete($id)
+    {
+        Block::where('id', '=', $id)->delete();
+        return redirect()->route('block.master')->with('deleteBlockMaster', 'Berhasil menghapus block');
+    }
+
     public function block($id)
     {
         $pageDB = Page::findOrFail($id);

@@ -31,6 +31,7 @@ Route::middleware('cekAuth')->group(function () {
             Route::post('/create', [BlockController::class, 'blockMasterPost'])->name('blockmaster.post');
             Route::get('/edit/{id}', [BlockController::class, 'blockMasterEdit'])->name('blockmaster.edit');
             Route::patch('/update/{id}', [BlockController::class, 'blockMasterUpdate'])->name('blockmaster.update');
+            Route::delete('/delete/{id}', [BlockController::class, 'blockMasterDelete'])->name('blockmaster.delete');
         });
 
         Route::prefix('categories')->group(function () {
