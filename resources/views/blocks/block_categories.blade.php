@@ -40,10 +40,10 @@
                                 Category</button>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th style="max-width: 30px;">#</th>
+                                        <th style="max-width: 60px;">#</th>
                                         <th>Category Name</th>
                                         <th>Created_at</th>
                                         <th>Updated_at</th>
