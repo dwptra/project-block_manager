@@ -20,7 +20,7 @@ class Block extends Model
 
     public function categories()
     {
-        return $this->belongsTo(BlockCategory::class);
+        return $this->belongsTo(BlockCategory::class, 'category_id');
     }
 
     public function pageDetails()

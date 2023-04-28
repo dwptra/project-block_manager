@@ -25,6 +25,11 @@ Route::middleware('cekAuth')->group(function () {
     // Masterdata
     // Block (M)
     Route::prefix('block')->group(function () {
+        Route::prefix('blocks')->group(function () {
+            Route::get('/', [BlockController::class, 'blockMaster'])->name('block.master');
+            Route::get('/create', [BlockController::class, 'blockMasterCreate'])->name('blockmaster.create');
+        });
+
         Route::prefix('categories')->group(function () {
             Route::get('/', [BlockController::class, 'blockCategory'])->name('block.categories');
             Route::post('/create', [BlockController::class, 'postCategory'])->name('category.post');
@@ -32,6 +37,8 @@ Route::middleware('cekAuth')->group(function () {
             Route::patch('/update/{id}', [BlockController::class, 'updateCategory'])->name('category.update');
         });
     });
+
+
     // User (M)
     Route::prefix('user')->group(function () {
         Route::get('/', [BlockController::class, 'user'])->name('user');
@@ -42,6 +49,7 @@ Route::middleware('cekAuth')->group(function () {
         Route::delete('/delete/{id}', [BlockController::class, 'deleteUser'])->name('user.delete');
     });
     
+
     //Project
     Route::prefix('project')->group(function () {
         Route::get('/', [BlockController::class, 'project'])->name('project');
@@ -51,6 +59,7 @@ Route::middleware('cekAuth')->group(function () {
         Route::patch('/update/{id}', [BlockController::class, 'updateProject'])->name('project.update');
         Route::delete('/delete/{id}', [BlockController::class, 'deleteProject'])->name('project.delete');
         
+
         //page
         Route::prefix('page')->group(function () {
             Route::get('/{id}', [BlockController::class, 'page'])->name('page');
@@ -60,6 +69,7 @@ Route::middleware('cekAuth')->group(function () {
             Route::patch('/edit/{id}', [BlockController::class, 'updatePage'])->name('page.update');
             Route::delete('/delete/{id}', [BlockController::class, 'deletePage'])->name('page.delete');
 
+        //block
             Route::prefix('block')->group(function () {
                 Route::get('/{id}', [BlockController::class, 'block'])->name('block');
                 Route::get('/create/{id}', [BlockController::class, 'blockCreate'])->name('block.create');
