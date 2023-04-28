@@ -168,7 +168,20 @@ class BlockController extends Controller
     
         return view('print.block_print', compact('pagePrint', 'blockPrint', 'projectPrint'));
     }    
+    
+    public function blockMaster()
+    {
+        $blockCategory = Block::with('categories')->get();
 
+        return view('blocks.block_master', compact('blockCategory'));
+    }
+
+    public function blockMasterCreate()
+    {
+        $blockCategoryCreate = BlockCategory::all();
+
+        return view('blocks.block_master_create', compact('blockCategoryCreate'));
+    }
 
     public function block($id)
     {

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->char('block_name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->char('main_image');
             $table->char('mobile_image');
             $table->char('sample_image_1');
