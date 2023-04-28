@@ -5,7 +5,6 @@
         display: inline-block;
         min-width: 125px;
     }
-
 </style>
 <div class="container-fluid mt-3">
     <div class="container-fluid">
@@ -36,8 +35,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Categories List</h4>
                         <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#createCategories">Create
-                                Category</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#createCategories">Create Category</button>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
@@ -49,7 +47,6 @@
                                         <th>Updated_at</th>
                                         <th>Action</th>
                                     </tr>
-
                                 </thead>
                                 <tbody>
                                     @forelse ($categoriesDB as $category)
