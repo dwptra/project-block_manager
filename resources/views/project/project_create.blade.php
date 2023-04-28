@@ -1,5 +1,17 @@
 @extends('layout')
 @section('content')
+<style>
+    select {
+    pointer-events: none;
+    appearance: none;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 5px 10px;
+    width: 200px;
+    cursor: not-allowed;
+    color: #999;
+    }
+</style>
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-lg-12">
@@ -38,8 +50,8 @@
                                 <label class="col-lg-4 col-form-label" for="val-email">Project Manager <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <select class="form-select" aria-label="Default select example" name="project_manager">
-                                        <option value="{{ Auth::user()->id }}" selected readonly>{{ Auth::user()->name }}</option>                                                                    
+                                    <select class="form-control" aria-label="Default select example" name="project_manager">
+                                        <option value="{{ Auth::user()->id }}" selected>{{ Auth::user()->name }}</option>                                                                    
                                     </select> 
                                 </div>
                             </div>
