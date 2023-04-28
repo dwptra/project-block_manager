@@ -117,6 +117,7 @@
 </div>
 
 {{-- edit --}}
+@foreach ($categoriesDB as $category)
 <div class="modal fade" id="editCategories{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="editCategoriesLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -144,4 +145,5 @@
         </div>
     </div>
 </div>
+@endforeach
 @endsection
