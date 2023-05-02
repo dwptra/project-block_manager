@@ -295,7 +295,7 @@ class BlockController extends Controller
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
-            'page_id' => $page->id, //mengambil id dari object page
+            'page_id' => $page->id, //mengambil id dari objek page
             'sort' => $sort,
         ]);
     
