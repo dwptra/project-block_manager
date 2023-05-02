@@ -276,45 +276,32 @@ class BlockController extends Controller
             ->select('project_managers.name')
             ->first();
 
-
         $blockDB = Block::all();
         return view('blocks.block_create', compact('pageDB', 'page', 'projectManager', 'blockDB'));
     }
 
     public function postBlock(Request $request, $id)
     {
-        // $page = Page::findOrFail($id);
+        $i = 1;
+        $sort = $i++;
+        $page = Page::findOrFail($id);
         $request->validate([
-            'category_id' => 'required',
-            'block_name' => 'required|min:3',
-            'description' => 'required',
-            'main_image' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'mobile_image' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'sample_image_1' => 'required|image|mimes:jpeg,png,jpg,gif',
-            'sample_image_2' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'section_name' => 'required|min:3',
+            'block_id' => 'required',
         ]);
-
-        // Menggunakan store() untuk menyimpan file gambar ke lokal
-        $mainImage = $request->file('main_image')->store('public/images/main_image');
-        $mobileImage = $request->file('mobile_image')->store('public/images/mobile_image');
-        $sampleImage1 = $request->file('sample_image_1')->store('public/images/sample_image_1');
-        $sampleImage2 = $request->file('sample_image_2')->store('public/images/sample_image_2');
-
+    
         // Membuat data baru dengan isian dari request
-        Block::create([
-            'category_id' => $request->category_id,
-            'block_name' => $request->block_name,
-            'description' => $request->description,
-            'status' => $request->status,
-            'main_image' => $mainImage,
-            'mobile_image' => $mobileImage,
-            'sample_image_1' => $sampleImage1,
-            'sample_image_2' => $sampleImage2,
+        PageDetails::create([
+            'section_name' => $request->section_name,
+            'note' => $request->note,
+            'block_id' => $request->block_id,
+            'page_id' => $page->id, //mengambil id dari objek page
+            'sort' => $sort,
         ]);
-
+    
         // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
-        return redirect()->route('block', $page_id)->with('createblock', 'Berhasil membuat page!');
-    }
+        return redirect()->route('block', $page->id)->with('createblock', 'Berhasil membuat block!');
+    }    
 
     public function blockCategory()
     {

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('block_categories', function (Blueprint $table) {
             $table->id();
-            $table->char('category_name');
+            $table->char('category_name')->unique();
             $table->timestamps();
         });
     }
