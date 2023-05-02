@@ -42,6 +42,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Category</th>
+                                        <th>Description</th>
                                         <th class="text-center">Main Image</th>
                                         <th>Action</th>
                                     </tr>
@@ -53,6 +54,7 @@
                                         <td>{{ $block->id }}</td>
                                         <td>{{ $block->block_name }}</td>
                                         <td>{{ $block->categories->category_name }}</td>
+                                        <td>{{ $block->description }}</td>
                                         <td class="text-center"><img src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" style="width: 200px; height: 200px;" alt="image"></td>
                                         <td>
                                             <div class="d-flex">
