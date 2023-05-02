@@ -14700,3 +14700,10 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Custom */
+.btn-check-custom:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show {
+  color: #222222 !important;
+  background-color: #00aff0 !important;
+  border-color: #00aff0 !important;
+}
