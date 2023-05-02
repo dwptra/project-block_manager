@@ -39,19 +39,19 @@
                     <div class="card-body">
                         <h4 class="card-title">Create Block</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-danger ml-1" href="{{ route('block', $pageDB['id']) }}">Back</a>
+                            {{-- <a class="btn btn-danger ml-1" href="{{ route('block', $pageDB['id']) }}">Back</a> --}}
                         </div>
                         <hr>
-                        <div class="row mt-3">
+                        {{-- <div class="row mt-3">
                             <div class="col-md-4"><b>Project Name:</b></div>
                             <div class="col">{{ $pageDB->projects->project_name }}</div>
-                        </div>
-                        <div class="row mt-3">
+                        </div> --}}
+                        {{-- <div class="row mt-3">
                             <div class="col-md-4"><b>Project Manager:</b></div>
-                            <div class="col-md-8">{{ $projectManager->name }}</div>
-                        </div>
+                            <div class="col-md-8">{{ $blockEdit->name }}</div>
+                        </div> --}}
                         <hr>
-                        <form action="{{ route('block.post', $page->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-3">
                                 <div class="col-md-4"><b>Section Name:</b></div>
@@ -61,7 +61,7 @@
                             <div class="row mt-3">
                                 <div class="col-md-4"><b>Section Note:</b></div>
                                 <div class="col-md-8"><textarea type="text" name="note" class="form-control"
-                                        placeholder="Enter Note"></textarea></div>
+                                        placeholder="Enter Note">{{ $blockEdit->note}}</textarea></div>
                             </div>
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>
@@ -82,16 +82,18 @@
                                                 @foreach ($blockDB as $block)
                                                 <div class="card mx-4" style="width: 18rem;">
                                                     <img class="card-img-top"
-                                                    src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}"
-                                                    alt="Card image cap">
+                                                        src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}"
+                                                        alt="Card image cap">
                                                     <div class="card-body">
                                                         <input type="radio" class="btn-check" name="block_id"
-                                                        id="option{{ $block->id }}" autocomplete="off" value="{{ $block->id }}" />
+                                                            id="option{{ $block->id }}" autocomplete="off"
+                                                            value="{{ $block->id }}" {{ $block->id == $blockEdit->block_id ? 'checked' : '' }} />
                                                         <label class="btn btn-light align-center w-100 mb-0"
-                                                        for="option{{ $block->id }}">{{ $block->block_name }}</label>
+                                                            for="option{{ $block->id }}">{{ $block->block_name }}</label>
                                                     </div>
                                                 </div>
                                                 @endforeach
+
                                             </div>
                                         </div>
                                     </div>

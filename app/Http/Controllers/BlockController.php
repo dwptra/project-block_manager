@@ -282,7 +282,8 @@ class BlockController extends Controller
 
     public function postBlock(Request $request, $id)
     {
-        $sort = 1;
+        $i = 1;
+        $sort = $i++;
         $page = Page::findOrFail($id);
         $request->validate([
             'section_name' => 'required|min:3',
@@ -295,7 +296,7 @@ class BlockController extends Controller
             'note' => $request->note,
             'block_id' => $request->block_id,
             'page_id' => $page->id, //mengambil id dari objek page
-            'sort' => $sort++,
+            'sort' => $i++,
         ]);
     
         // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
@@ -304,17 +305,10 @@ class BlockController extends Controller
 
     public function blockEdit($id)
     {
-        $page = Page::findOrFail($id);
-        $pageDB = Page::with('projects')->findOrFail($id);
-        $projectManager = DB::table('projects')
-            ->join('project_managers', 'projects.project_manager', '=', 'project_managers.id')
-            ->where('projects.id', $pageDB->projects->id)
-            ->select('project_managers.name')
-            ->first();
         $blockEdit = PageDetails::findOrFail($id);
-
         $blockDB = Block::all();
-        return view('blocks.block_edit', compact('pageDB', 'page', 'projectManager', 'blockDB', 'blockEdit'));
+        
+        return view('blocks.block_edit', compact('blockDB', 'blockEdit'));
     }
 
     public function blockCategory()
