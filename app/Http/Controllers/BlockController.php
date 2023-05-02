@@ -323,6 +323,30 @@ class BlockController extends Controller
         return view('blocks.block_edit', compact('blockDB', 'blockEdit'));
     }
 
+    public function updateBlock(Request $request, $id)
+    {
+        $pageDetails = PageDetails::findOrFail($id);
+        $request->validate([
+            'section_name' => 'required|min:3',
+            'block_id' => 'required',
+        ]);
+    
+    
+        PageDetails::find($id)->update([
+            'section_name' => $request->section_name,
+            'note' => $request->note,
+            'block_id' => $request->block_id,
+            // 'page_id' => $request->page_id,
+            'sort' => $request->sort,
+        ]);
+    
+    
+        // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
+        return redirect()->route('block', $pageDetails->id)->with('updateBlock', 'Berhasil mengubah block!');
+    }
+    
+    
+
     public function blockCategory()
     {
         $categoriesDB = BlockCategory::all();

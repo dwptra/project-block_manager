@@ -51,8 +51,9 @@
                             <div class="col-md-8">{{ $blockEdit->name }}</div>
                         </div> --}}
                         <hr>
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('block.update', $blockEdit['id'])}}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('PATCH')
                             <div class="row mt-3">
                                 <div class="col-md-4"><b>Section Name:</b></div>
                                 <div class="col-md-8"><input type="text" name="section_name" class="form-control"
@@ -62,6 +63,11 @@
                                 <div class="col-md-4"><b>Section Note:</b></div>
                                 <div class="col-md-8"><textarea type="text" name="note" class="form-control"
                                         placeholder="Enter Note">{{ $blockEdit->note}}</textarea></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4"><b>Sort:</b></div>
+                                <div class="col-md-8"><input type="number" name="sort" class="form-control"
+                                        placeholder="Enter Section Name" value="{{ $blockEdit->sort}}"></div>
                             </div>
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>

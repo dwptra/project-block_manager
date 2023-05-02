@@ -82,6 +82,7 @@ Route::middleware('cekAuth')->group(function () {
                 Route::get('/create/{id}', [BlockController::class, 'blockCreate'])->name('block.create');
                 Route::post('/create/{id}', [BlockController::class, 'postBlock'])->name('block.post');
                 Route::get('/edit/{id}', [BlockController::class, 'blockEdit'])->name('block.edit');
+                Route::patch('/update/{id}', [BlockController::class, 'updateBlock'])->name('block.update');
                 Route::delete('/delete/{id}', [BlockController::class, 'deleteBlock'])->name('block.delete');
                 Route::get('/blocksprint/{id}', [BlockController::class, 'print'])->name('blocks.print');
             });
