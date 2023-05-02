@@ -16,7 +16,8 @@ class ProjectSeeder extends Seeder
         ProjectManager::create([
             'name' => 'Dwi',
             'email' => 'dwi@gmail.com',
-            'password' => bcrypt('123'),   
+            'password' => bcrypt('123'),
+            'role' => 'admin',
         ]);
     }
 }

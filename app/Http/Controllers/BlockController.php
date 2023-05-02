@@ -325,27 +325,40 @@ class BlockController extends Controller
 
     public function updateBlock(Request $request, $id)
     {
-        $pageDetails = PageDetails::findOrFail($id);
+        $page = Page::findOrFail($request->page_id);
         $request->validate([
             'section_name' => 'required|min:3',
             'block_id' => 'required',
         ]);
-    
-    
-        PageDetails::find($id)->update([
+
+        // Periksa bahwa data yang akan diperbarui adalah milik halaman yang benar
+        $pageDetails = PageDetails::findOrFail($id);
+        if ($pageDetails->page_id != $request->page_id) {
+            return redirect()->route('block', $page->id)->withErrors(['msg' => 'Data yang diperbarui tidak valid!']);
+        }
+
+        // Perbarui nomor urutan data
+        $newSort = $request->sort;
+        $oldSort = $pageDetails->sort;
+        if ($newSort != $oldSort) {
+            if ($newSort < $oldSort) {
+                PageDetails::where('page_id', $request->page_id)->whereBetween('sort', [$newSort, $oldSort - 1])->increment('sort');
+            } else {
+                PageDetails::where('page_id', $request->page_id)->whereBetween('sort', [$oldSort + 1, $newSort])->decrement('sort');
+            }
+        }
+
+        // Perbarui data
+        $pageDetails->update([
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
-            // 'page_id' => $request->page_id,
-            'sort' => $request->sort,
+            'sort' => $newSort,
         ]);
-    
-    
-        // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
-        return redirect()->route('block', $pageDetails->id)->with('updateBlock', 'Berhasil mengubah block!');
-    }
-    
-    
+
+        // Jika berhasil, arahkan ke halaman /block dengan pemberitahuan berhasil
+        return redirect()->route('block', $page->id)->with('updateBlock', 'Berhasil mengubah block!');
+    }    
 
     public function blockCategory()
     {
