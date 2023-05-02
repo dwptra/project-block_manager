@@ -28,7 +28,9 @@
                                     <select class="form-select" aria-label="Default select example" name="project_manager">
                                         <option value="" selected disabled>Select Project Manager</option>                                                                    
                                         @foreach ($user as $pm)
-                                            <option value="{{ $pm->id }}">{{ $pm->name }}</option>
+                                            @if($pm['role'] == 'Project Manager')
+                                                <option value="{{ $pm->id }}">{{ $pm->name }}</option>
+                                            @endif
                                         @endforeach
                                     </select>       
                                 </div>
