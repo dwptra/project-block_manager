@@ -38,7 +38,7 @@
                                 <div class="col-md-4"><b>Main Image <span class="text-danger">*</span></b></div>
                                 <div class="input-group col-lg-8">   
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="main_image" onchange="previewImage(event)">
+                                        <input type="file" class="custom-file-input" name="main_image" onchange="previewImage(event)" value="{{$blockEdit->main_image}}">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
