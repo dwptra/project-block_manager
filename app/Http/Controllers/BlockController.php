@@ -322,8 +322,9 @@ class BlockController extends Controller
     {
         $blockEdit = PageDetails::findOrFail($id);
         $blockDB = Block::all();
+        $page_id = $blockEdit->page_id;
         
-        return view('blocks.block_edit', compact('blockDB', 'blockEdit'));
+        return view('blocks.block_edit', compact('blockDB', 'blockEdit', 'page_id'));
     } 
 
     public function updateBlock(Request $request, $id)
@@ -334,19 +335,32 @@ class BlockController extends Controller
         ]);
 
         $page = PageDetails::findOrFail($id);
+        $oldSort = $page->sort;
+        $newSort = $request->sort;
+
+        // Cek apakah sort yang diinginkan sebelumnya sudah ada di database
+        $existingPage = PageDetails::where('sort', $newSort)->where('block_id', $request->block_id)->first();
+
+        if ($existingPage) {
+            // Jika sudah ada, ubah sort dari item tersebut menjadi sort yang awalnya diinginkan
+            $existingPage->update(['sort' => $oldSort]);
+        }
+
+        // Ubah sort dari item yang sedang diedit menjadi sort yang baru diinputkan
         $page->update([
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
-            'sort' => $request->sort,
+            'sort' => $newSort,
         ]);
 
         // Dapatkan project_id dari halaman yang diupdate
         $page_id = $page->page_id;
 
-        // kalau berhasil, arahin ke halaman proyek dengan pemberitahuan berhasil
+        // Kalau berhasil, arahkan ke halaman proyek dengan pemberitahuan berhasil
         return redirect()->route('block', $page_id)->with('updatePage', 'Berhasil mengubah page!');
     }
+
 
     public function blockCategory()
     {
