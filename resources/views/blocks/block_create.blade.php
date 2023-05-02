@@ -39,16 +39,16 @@
                     <div class="card-body">
                         <h4 class="card-title">Create Block</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-danger ml-1" href="{{ route('block', $pageDB['id']) }}">Back</a>
+                            <a class="btn btn-danger ml-1" href="{{ route('block', $page['id']) }}">Back</a>
                         </div>
                         <hr>
                         <div class="row mt-3">
                             <div class="col-md-4"><b>Project Name:</b></div>
-                            <div class="col">{{ $pageDB->projects->project_name }}</div>
+                            <div class="col">{{ $page->projects->project_name }}</div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-4"><b>Project Manager:</b></div>
-                            <div class="col-md-8">{{ $projectManager->name }}</div>
+                            <div class="col-md-8">{{ $page->projects->projectManager->name }}</div>
                         </div>
                         <hr>
                         <form action="{{ route('block.post', $page->id) }}" method="post" enctype="multipart/form-data">

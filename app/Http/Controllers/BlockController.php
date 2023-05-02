@@ -59,7 +59,7 @@ class BlockController extends Controller
                 'project_name' => 'required',
             ]);
 
-            $projectManager = Auth::user()->name;
+            $projectManager = Auth::user()->id;
         }
 
         Project::create([
@@ -104,8 +104,8 @@ class BlockController extends Controller
         // Menggunakan findOrFail() untuk menemukan project berdasarkan id
         $project = Project::findOrFail($id);
 
-        // Menggunakan eager loading untuk mengambil relasi pages
-        $project->load('pages');
+        // Menggunakan eager loading untuk mengambil relasi pages dan projectManager
+        $project->load(['pages', 'projectManager']);
 
         // Mengambil data pages dari relasi yang sudah dimuat
         $pageDB = $project->pages;
@@ -292,16 +292,9 @@ class BlockController extends Controller
 
     public function blockCreate($id)
     {
-        $page = Page::findOrFail($id);
-        $pageDB = Page::with('projects')->findOrFail($id);
-        $projectManager = DB::table('projects')
-            ->join('project_managers', 'projects.project_manager', '=', 'project_managers.id')
-            ->where('projects.id', $pageDB->projects->id)
-            ->select('project_managers.name')
-            ->first();
-
+        $page = Page::with('projects.projectManager')->findOrFail($id);
         $blockDB = Block::all();
-        return view('blocks.block_create', compact('pageDB', 'page', 'projectManager', 'blockDB'));
+        return view('blocks.block_create', compact('page', 'blockDB'));
     }
 
     public function postBlock(Request $request, $id)

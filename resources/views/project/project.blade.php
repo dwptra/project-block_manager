@@ -65,7 +65,7 @@
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $project->id }}</td>
                                         <td>{{ $project->project_name }}</td>
-                                        <td>{{ $project->project_manager }}</td>
+                                        <td>{{ $project->projectManager->name }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-warning text-white mr-1" href="{{ route('page', $project->id)  }}">See Pages</a> 
