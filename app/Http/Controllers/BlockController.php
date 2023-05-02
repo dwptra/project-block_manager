@@ -180,14 +180,14 @@ class BlockController extends Controller
     public function blockMaster()
     {
         $blockCategory = Block::with('categories')->get();
-        return view('blocks.block_master', compact('blockCategory'));
+        return view('block_master.block_master', compact('blockCategory'));
     }
     
     public function blockMasterCreate()
     {
         $blockCategoryCreate = BlockCategory::all();
 
-        return view('blocks.block_master_create', compact('blockCategoryCreate'));
+        return view('block_master.block_master_create', compact('blockCategoryCreate'));
     }
     
     public function blockMasterPost(Request $request)
@@ -216,7 +216,7 @@ class BlockController extends Controller
         $blockEdit = Block::findOrFail($id);
         $blockCategoryEdit = BlockCategory::all();
         
-        return view('blocks.block_master_edit', compact('blockEdit', 'blockCategoryEdit'));
+        return view('block_master.block_master_edit', compact('blockEdit', 'blockCategoryEdit'));
     }
 
     public function blockMasterUpdate(Request $request, $id)
@@ -282,8 +282,7 @@ class BlockController extends Controller
 
     public function postBlock(Request $request, $id)
     {
-        $i = 1;
-        $sort = $i++;
+        $sort = 1;
         $page = Page::findOrFail($id);
         $request->validate([
             'section_name' => 'required|min:3',
@@ -296,12 +295,27 @@ class BlockController extends Controller
             'note' => $request->note,
             'block_id' => $request->block_id,
             'page_id' => $page->id, //mengambil id dari objek page
-            'sort' => $sort,
+            'sort' => $sort++,
         ]);
     
         // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
         return redirect()->route('block', $page->id)->with('createblock', 'Berhasil membuat block!');
     }    
+
+    public function blockEdit($id)
+    {
+        $page = Page::findOrFail($id);
+        $pageDB = Page::with('projects')->findOrFail($id);
+        $projectManager = DB::table('projects')
+            ->join('project_managers', 'projects.project_manager', '=', 'project_managers.id')
+            ->where('projects.id', $pageDB->projects->id)
+            ->select('project_managers.name')
+            ->first();
+        $blockEdit = PageDetails::findOrFail($id);
+
+        $blockDB = Block::all();
+        return view('blocks.block_edit', compact('pageDB', 'page', 'projectManager', 'blockDB', 'blockEdit'));
+    }
 
     public function blockCategory()
     {
