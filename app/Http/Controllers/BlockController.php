@@ -324,44 +324,29 @@ class BlockController extends Controller
         $blockDB = Block::all();
         
         return view('blocks.block_edit', compact('blockDB', 'blockEdit'));
-    }
+    } 
 
     public function updateBlock(Request $request, $id)
     {
-        $page = Page::findOrFail($id);
         $request->validate([
             'section_name' => 'required|min:3',
             'block_id' => 'required',
         ]);
 
-        // Periksa bahwa data yang akan diperbarui adalah milik halaman yang benar
-        $pageDetails = PageDetails::findOrFail($id);
-        if ($pageDetails->page_id != $request->page_id) {
-            return redirect()->route('block', $page->id)->withErrors(['msg' => 'Data yang diperbarui tidak valid!']);
-        }
-
-        // Perbarui nomor urutan data
-        $newSort = $request->sort;
-        $oldSort = $pageDetails->sort;
-        if ($newSort != $oldSort) {
-            if ($newSort < $oldSort) {
-                PageDetails::where('page_id', $request->page_id)->whereBetween('sort', [$newSort, $oldSort - 1])->increment('sort');
-            } else {
-                PageDetails::where('page_id', $request->page_id)->whereBetween('sort', [$oldSort + 1, $newSort])->decrement('sort');
-            }
-        }
-
-        // Perbarui data
-        $pageDetails->update([
+        $page = PageDetails::findOrFail($id);
+        $page->update([
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
-            'sort' => $newSort,
+            'sort' => $request->sort,
         ]);
 
-        // Jika berhasil, arahkan ke halaman /block dengan pemberitahuan berhasil
-        // return redirect()->route('dashboard')->with('updateBlock', 'Berhasil mengubah block!');
-    }    
+        // Dapatkan project_id dari halaman yang diupdate
+        $page_id = $page->page_id;
+
+        // kalau berhasil, arahin ke halaman proyek dengan pemberitahuan berhasil
+        return redirect()->route('block', $page_id)->with('updatePage', 'Berhasil mengubah page!');
+    }
 
     public function blockCategory()
     {
