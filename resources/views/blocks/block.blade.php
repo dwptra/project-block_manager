@@ -50,7 +50,7 @@
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th style="max-width: 60px;">Sort ID</th>
+                                        <th style="max-width: 60px;">Sort</th>
                                         <th>Block Name</th>
                                         <th>Section Name</th>
                                         <th>Note</th>
@@ -67,7 +67,7 @@
                                         <td>{{ $block->note }}</td>
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-primary mr-1" href="#">Edit</a>
+                                                <a class="btn btn-primary mr-1" href="{{ route('block.edit', $block->id) }}">Edit</a>
                                                 <form action="{{ route('block.delete', $block['id']) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')

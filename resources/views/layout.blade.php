@@ -14,9 +14,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/3665/3665896.png">
     <!-- Pignose Calender -->
     <link href="{{ asset('assets/plugins/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- Chartist -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/chartist/css/chartist.min.css') }}">
+    <link href="{{ asset('assets/plugins/toastr/css/toastr.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css') }}">
     <!-- Custom Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -111,7 +113,7 @@
                     <li class="nav-label">Project</li>
                     <li>
                         <a href="{{ route('project') }}" aria-expanded="false">
-                            <i class="icon-user menu-icon"></i><span class="nav-text">Project</span>
+                            <i class="icon-list menu-icon"></i><span class="nav-text">Project</span>
                         </a>
                     </li>
                     <li class="nav-label">Master Data</li>
@@ -124,7 +126,7 @@
                     {{-- Block Dropdown --}}
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Block</span>
+                            <i class="icon-grid menu-icon"></i><span class="nav-text">Block</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('block.master') }}">Blocks</a></li>
