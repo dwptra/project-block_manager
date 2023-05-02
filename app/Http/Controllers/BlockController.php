@@ -261,8 +261,17 @@ class BlockController extends Controller
     {
         $pageDetailsDelete = PageDetails::findOrFail($id);
         $page_id = $pageDetailsDelete->page_id;
+
+        // Hapus data
         $pageDetailsDelete->delete(); 
 
+        // Perbarui nomor urutan data
+        $pageDetails = PageDetails::where('page_id', $page_id)->orderBy('sort')->get();
+        foreach ($pageDetails as $key => $detail) {
+            $detail->update(['sort' => $key + 1]);
+        }
+
+        // Berhasil menghapus data, arahkan kembali ke halaman /block dengan pemberitahuan
         return redirect()->route('block', $page_id)->with('deleteBlock', 'Berhasil menghapus data!');
     }
 
@@ -282,25 +291,31 @@ class BlockController extends Controller
 
     public function postBlock(Request $request, $id)
     {
-        $sort = 1;
+        $i = 1;
+        $pageDetails = PageDetails::all();
         $page = Page::findOrFail($id);
         $request->validate([
             'section_name' => 'required|min:3',
             'block_id' => 'required',
         ]);
-    
+
+        // Menghitung urutan data
+        $lastSort = PageDetails::where('page_id', $page->id)->max('sort');
+        $sort = $lastSort + 1;
+
+
         // Membuat data baru dengan isian dari request
         PageDetails::create([
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
-            'page_id' => $page->id, //mengambil id dari objek page
-            'sort' => $sort++,
+            'page_id' => $page->id,
+            'sort' => $sort,
         ]);
-    
+        
         // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
         return redirect()->route('block', $page->id)->with('createblock', 'Berhasil membuat block!');
-    }    
+    }
 
     public function blockEdit($id)
     {
