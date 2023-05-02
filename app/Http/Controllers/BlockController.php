@@ -229,9 +229,12 @@ class BlockController extends Controller
         
         $block = Block::findOrFail($id);
 
-        $mainImage = $request->file('main_image')->store('public/images/main_image');
+        $mainImage = $block->main_image;
 
-        Storage::delete('public/images/main_image/'. $block->mainImage);
+        if ($request->hasFile('main_image')) {
+            $mainImage = $request->file('main_image')->store('public/images/main_image');
+            Storage::delete('public/images/main_image/' . $block->main_image);
+        }
 
         $block->update([
             'block_name' => $request->block_name,
@@ -240,7 +243,7 @@ class BlockController extends Controller
             'status' => $request->status,
             'main_image' => $mainImage,
         ]);
-
+        
         return redirect()->route('block.master')->with('updateBlockMaster', 'Berhasil mengubah block');
     }
 
@@ -325,7 +328,7 @@ class BlockController extends Controller
 
     public function updateBlock(Request $request, $id)
     {
-        $page = Page::findOrFail($request->page_id);
+        $page = Page::findOrFail($id);
         $request->validate([
             'section_name' => 'required|min:3',
             'block_id' => 'required',
@@ -357,7 +360,7 @@ class BlockController extends Controller
         ]);
 
         // Jika berhasil, arahkan ke halaman /block dengan pemberitahuan berhasil
-        return redirect()->route('block', $page->id)->with('updateBlock', 'Berhasil mengubah block!');
+        // return redirect()->route('dashboard')->with('updateBlock', 'Berhasil mengubah block!');
     }    
 
     public function blockCategory()

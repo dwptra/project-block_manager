@@ -51,7 +51,7 @@
                             <div class="col-md-8">{{ $blockEdit->name }}</div>
                         </div> --}}
                         <hr>
-                        <form action="{{ route('block.update', $blockEdit['id'])}}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('block.update', $blockEdit['id'])}}" method="post">
                             @csrf
                             @method('PATCH')
                             <div class="row mt-3">
