@@ -299,7 +299,7 @@ class BlockController extends Controller
 
         // Menghitung urutan data
         $lastSort = PageDetails::where('page_id', $page->id)->max('sort');
-        $sort = $lastSort + 1;
+        $sort = $lastSort + 1; 
 
 
         // Membuat data baru dengan isian dari request
