@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('page_id');
             $table->char('section_name');
             $table->unsignedBigInteger('block_id');
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->integer('sort');
             $table->timestamps();
 
