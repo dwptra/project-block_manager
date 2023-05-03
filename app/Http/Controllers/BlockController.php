@@ -292,7 +292,7 @@ class BlockController extends Controller
 
     public function blockCreate($id)
     {
-        $page = Page::with('projects.projectManager')->findOrFail($id);
+        $page    = Page::with('projects', 'projects.projectManager')->findOrFail($id);
         $blockDB = Block::all();
         return view('blocks.block_create', compact('page', 'blockDB'));
     }
@@ -326,10 +326,15 @@ class BlockController extends Controller
     public function blockEdit($id)
     {
         $blockEdit = PageDetails::findOrFail($id);
-        $blockDB = Block::all();
-        $page_id = $blockEdit->page_id;
+        $blockDB   = Block::all();
+        $page      = Page::with('projects', 'projects.projectManager', 'projects.projectManager.creator', 'projects.projectManager.creator.publisher')->findOrFail($blockEdit->page_id);
         
-        return view('blocks.block_edit', compact('blockDB', 'blockEdit', 'page_id'));
+        // $pageSec = Page::select('pages.*', 'projects.project_name as project_name', 'project_managers.name as project_manager')
+        //                 ->join('projects', 'projects.id', '=', 'pages.project_id')
+        //                 ->join('project_managers', 'project_managers.id', '=', 'projects.project_manager')
+        //                 ->find($blockEdit->page_id);
+        
+        return view('blocks.block_edit', compact('blockDB', 'blockEdit', 'page'));
     } 
 
     public function updateBlock(Request $request, $id)
@@ -340,23 +345,13 @@ class BlockController extends Controller
         ]);
 
         $page = PageDetails::findOrFail($id);
-        $oldSort = $page->sort;
-        $newSort = $request->sort;
-
-        // Cek apakah sort yang diinginkan sebelumnya sudah ada di database
-        $existingPage = PageDetails::where('sort', $newSort)->where('block_id', $request->block_id)->first();
-
-        if ($existingPage) {
-            // Jika sudah ada, ubah sort dari item tersebut menjadi sort yang awalnya diinginkan
-            $existingPage->update(['sort' => $oldSort]);
-        }
 
         // Ubah sort dari item yang sedang diedit menjadi sort yang baru diinputkan
         $page->update([
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
-            'sort' => $newSort,
+            'sort' => $request->sort,
         ]);
 
         // Dapatkan project_id dari halaman yang diupdate

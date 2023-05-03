@@ -37,7 +37,7 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col">
-                            <img src="https://ps.w.org/full-width-responsive-slider-wp/assets/icon-256x256.png?rev=1784180"
+                            <img src="{{ asset('storage/images/main_image/' . basename($block->blocks->main_image)) }}"
                                 class="img-fluid rounded-start" style="max-width: 180px;">
                         </div>
                         <div class="col -ml-6">

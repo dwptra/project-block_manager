@@ -4,27 +4,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                @if (Session::get('createPage'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('createPage')}}
-                </div>
-                @endif
-                @if (Session::get('updatePage'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('updatePage')}}
-                </div>
-                @endif
-                @if (Session::get('deletePage'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('deletePage')}}
-                </div>
-                @endif
                 @if ($errors->any())
                 <div class="alert alert-danger alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
@@ -37,19 +16,19 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Create Block</h4>
+                        <h4 class="card-title">Edit Block</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-danger ml-1" href="{{ route('block', $page_id) }}">Back</a>
+                            <a class="btn btn-danger ml-1" href="{{ route('block', $page->id) }}">Back</a>
                         </div>
                         <hr>
-                        {{-- <div class="row mt-3">
+                        <div class="row mt-3">
                             <div class="col-md-4"><b>Project Name:</b></div>
-                            <div class="col">{{ $pageDB->projects->project_name }}</div>
-                        </div> --}}
-                        {{-- <div class="row mt-3">
+                            <div class="col">{{ $page->projects->project_name }}</div>
+                        </div>
+                        <div class="row mt-3">
                             <div class="col-md-4"><b>Project Manager:</b></div>
-                            <div class="col-md-8">{{ $blockEdit->name }}</div>
-                        </div> --}}
+                            <div class="col-md-8">{{ $page->projects->projectManager->name }}</div>
+                        </div>
                         <hr>
                         <form action="{{ route('block.update', $blockEdit['id'])}}" method="post">
                             @csrf
@@ -91,7 +70,7 @@
                                                         src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}"
                                                         alt="Card image cap">
                                                     <div class="card-body">
-                                                        <input type="radio" class="btn-check" name="block_id"
+                                                        <input type="radio" class="btn-check btn-check-custom" name="block_id"
                                                             id="option{{ $block->id }}" autocomplete="off"
                                                             value="{{ $block->id }}" {{ $block->id == $blockEdit->block_id ? 'checked' : '' }} />
                                                         <label class="btn btn-light align-center w-100 mb-0"
