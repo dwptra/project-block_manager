@@ -37,7 +37,7 @@
                         <div class="d-flex justify-content-end">
                             <button class="btn btn-primary" data-toggle="modal" data-target="#createCategories">Create Category</button>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive mt-3">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>

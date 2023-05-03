@@ -31,7 +31,7 @@
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-primary" href="{{ route('blockmaster.create') }}">Create New Block</a>
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive mt-3">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <?php
