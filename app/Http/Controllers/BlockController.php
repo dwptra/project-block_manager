@@ -47,10 +47,10 @@ class BlockController extends Controller
         $request->validate([
             'block_name' => 'required',
             'category_id' => 'required',
-            'main_image' => 'image|mimes:jpeg,png,jpg',
-            'mobile_image' => 'image|mimes:jpeg,png,jpg',
-            'sample_image_1' => 'image|mimes:jpeg,png,jpg',
-            'sample_image_2' => 'image|mimes:jpeg,png,jpg',
+            'main_image' => 'required|image|mimes:jpeg,png,jpg',
+            'mobile_image' => 'required|image|mimes:jpeg,png,jpg',
+            'sample_image_1' => 'required|image|mimes:jpeg,png,jpg',
+            'sample_image_2' => 'required|image|mimes:jpeg,png,jpg',
         ]);
         
         $mainImage = $request->file('main_image')->store('public/images/main_image');
