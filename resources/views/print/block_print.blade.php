@@ -38,7 +38,7 @@
                     <div class="row g-0">
                         <div class="col">
                             <img src="{{ asset('storage/images/main_image/' . basename($block->blocks->main_image)) }}"
-                                class="img-fluid rounded-start" style="max-width: 180px;">
+                                class="img-fluid rounded-start" style="max-width: 313px;">
                         </div>
                         <div class="col -ml-6">
                             <div class="card-body">

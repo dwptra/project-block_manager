@@ -86,15 +86,33 @@ class BlockController extends Controller
             'block_name' => 'required',
             'category_id' => 'required',
             'main_image' => 'image|mimes:jpeg,png,jpg',
+            'mobile_image' => 'required|image|mimes:jpeg,png,jpg',
+            'sample_image_1' => 'required|image|mimes:jpeg,png,jpg',
+            'sample_image_2' => 'required|image|mimes:jpeg,png,jpg',
         ]);
         
         $block = Block::findOrFail($id);
 
         $mainImage = $block->main_image;
+        $mobileImage = $block->mobile_image;
+        $sampelImage1 = $block->sample_image_1;
+        $sampelImage2 = $block->sample_image_2;
 
         if ($request->hasFile('main_image')) {
             $mainImage = $request->file('main_image')->store('public/images/main_image');
             Storage::delete('public/images/main_image/' . $block->main_image);
+        }
+        if ($request->hasFile('mobile_image')) {
+            $mobileImage = $request->file('mobile_image')->store('public/images/mobile_image');
+            Storage::delete('public/images/mobile_image/' . $block->mobile_image);
+        }
+        if ($request->hasFile('sample_image_1')) {
+            $sampelImage1 = $request->file('sample_image_1')->store('public/images/sample_image_1');
+            Storage::delete('public/images/sample_image_1/' . $block->sample_image_1);
+        }
+        if ($request->hasFile('sample_image_2')) {
+            $sampelImage2 = $request->file('sample_image_2')->store('public/images/sample_image_2');
+            Storage::delete('public/images/sample_image_2/' . $block->sample_image_2);
         }
 
         $block->update([
@@ -103,6 +121,9 @@ class BlockController extends Controller
             'description' => $request->description,
             'status' => $request->status,
             'main_image' => $mainImage,
+            'mobile_image' => $mobileImage,
+            'sample_image_1' => $sampelImage1,
+            'sample_image_2' => $sampelImage2,
         ]);
         
         return redirect()->route('block.master')->with('updateBlockMaster', 'Berhasil mengubah block');
