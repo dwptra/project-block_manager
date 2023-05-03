@@ -59,7 +59,7 @@
 
                                 </thead>
                                 <tbody>
-                                    @forelse ($blockList as $block)
+                                    @forelse ($blockList->sortBy('sort') as $block)
                                     <tr>
                                         <td class="text-center">{{ $block->sort }}</td>
                                         <td>{{ $block->blocks->block_name }}</td>
