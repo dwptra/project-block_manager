@@ -11,6 +11,16 @@
                     </div>
                     <hr>
                     <div class="form-validation">
+                        @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span>
+                            </button> <strong>Error:</strong>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </div>
+                        @endif
                         <form class="form-valide" action="{{ route('user.update', $user->id) }}" method="post">
                             @csrf
                             @method('PATCH')
@@ -39,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-password">Password <span class="text-danger">*</span>
+                                <label class="col-lg-4 col-form-label" for="val-password">Password</span>
                                 </label>
                                 <div class="col-lg-6">
                                     <input type="password" name="password" class="form-control" id="val-password" placeholder="Enter a Password">
