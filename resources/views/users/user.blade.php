@@ -33,7 +33,7 @@
                                 <a class="btn btn-primary" href="{{ route('user.create') }}">Create Users</a>
                             </div>
                         @endif
-                        <div class="table-responsive">
+                        <div class="table-responsive mt-3">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
