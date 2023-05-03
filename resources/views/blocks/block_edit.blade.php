@@ -74,9 +74,20 @@
                                             <div class="d-flex justify-content-center">
                                                 @foreach ($blocks as $block)
                                                 <div class="card mx-4" style="width: 18rem;">
-                                                    <img class="card-img-top"
-                                                        src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}"
-                                                        alt="Card image cap">
+                                                    <a class="main-image" href="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" data-fancybox="{{ $block->id }}">
+                                                        <img class="card-img-top" src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" alt="Card image cap">
+                                                      </a>
+                                                      <div style="display: none;">
+                                                        <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" title="Mobile Image">
+                                                          <img src="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" alt="Mobile Image" />
+                                                        </a>
+                                                        <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" title="Sample Image 1">
+                                                          <img src="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" alt="Sample Image 1" />
+                                                        </a>
+                                                        <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" title="Sample Image 2">
+                                                          <img src="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" alt="Sample Image 2" />
+                                                        </a>
+                                                      </div>       
                                                     <div class="card-body">
                                                         <input type="radio" class="btn-check btn-check-custom" name="block_id"
                                                             id="option{{ $block->id }}" autocomplete="off"
@@ -100,4 +111,5 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('assets/js/slide.js')}}"></script>
 @endsection

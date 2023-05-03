@@ -97,7 +97,7 @@
                                                             </a>
                                                           </div>                                                                                                                                                                   
                                                         <div class="card-body">
-                                                            <input type="radio" class="btn-check" name="block_id"
+                                                            <input type="radio" class="btn-check btn-check-custom" name="block_id"
                                                                 id="option{{ $block->id }}" autocomplete="off"
                                                                 value="{{ $block->id }}" />
                                                             <label class="btn btn-light align-center w-100 mb-0"
