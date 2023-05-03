@@ -67,28 +67,30 @@
                                 <button type="submit" class="btn btn-primary">Save Block</button>
                             </div>
                             <div class="accordion" id="accordionPanelsStayOpenExample">
+                                @foreach ($blockDB->groupBy('categories.category_name') as $categoryName => $blocks)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                        aria-controls="panelsStayOpen-collapseOne">
-                                        Hero Banner
-                                    </button>
-                                </h2>
-                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                aria-labelledby="panelsStayOpen-headingOne">
-                                <div class="accordion-body">
-                                    <div class="d-flex justify-content-center">
-                                                @foreach ($blockDB as $block)
+                                            data-bs-target="#{{ Str::slug($categoryName) }}" aria-expanded="true"
+                                            aria-controls="{{ Str::slug($categoryName) }}">
+                                            {{ $categoryName }}
+                                        </button>
+                                    </h2>
+                                    <div id="{{ Str::slug($categoryName) }}" class="accordion-collapse collapse show"
+                                        aria-labelledby="panelsStayOpen-headingOne">
+                                        <div class="accordion-body">
+                                            <div class="d-flex justify-content-center">
+                                                @foreach ($blocks as $block)
                                                 <div class="card mx-4" style="width: 18rem;">
                                                     <img class="card-img-top"
-                                                    src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}"
-                                                    alt="Card image cap">
+                                                        src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}"
+                                                        alt="Card image cap">
                                                     <div class="card-body">
                                                         <input type="radio" class="btn-check" name="block_id"
-                                                        id="option{{ $block->id }}" autocomplete="off" value="{{ $block->id }}" />
+                                                            id="option{{ $block->id }}" autocomplete="off"
+                                                            value="{{ $block->id }}" />
                                                         <label class="btn btn-light align-center w-100 mb-0"
-                                                        for="option{{ $block->id }}">{{ $block->block_name }}</label>
+                                                            for="option{{ $block->id }}">{{ $block->block_name }}</label>
                                                     </div>
                                                 </div>
                                                 @endforeach
@@ -96,6 +98,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </form>
                         <hr>
