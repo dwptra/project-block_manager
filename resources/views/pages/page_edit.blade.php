@@ -25,16 +25,6 @@
                             </div>
                             @endif
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-project-id">Project Name <span
-                                        class="text-danger">*</span>
-                                </label>
-                                <div class="col-lg-6">
-                                    <select name="project_id" class="form-control" id="val-project-id">
-                                        <option value="{{ $pageDB->project_id }}">{{ $pageDB->projects->project_name }}</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-page-name">Page Name <span
                                         class="text-danger">*</span>
                                 </label>
