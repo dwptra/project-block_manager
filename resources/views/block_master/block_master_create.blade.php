@@ -73,6 +73,9 @@
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                 </div>
+                                <div class="col-8 offset-md-4"> 
+                                    <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 1920 x 1080 )</i></p>
+                                </div>
                             </div>    
                             <div class="row mt-3" style="display: none" id="preview-container">
                                 <div class="col-md-4" for="preview"><b>Main Image Preview <span class="text-danger"></span></b></div>
@@ -80,13 +83,16 @@
                                     <img class="text-center" id="preview" src="#" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
                                 </div>
                             </div>   
-                            <div class="row mt-3">
+                            <div class="row mt-1">
                                 <div class="col-md-4"><b>Mobile Image <span class="text-danger">*</span></b></div>
                                 <div class="input-group col-lg-8">   
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="mobile_image" onchange="previewMobileImage(event)">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
+                                </div>
+                                <div class="col-8 offset-md-4"> 
+                                    <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 360 x 640 )</i></p>
                                 </div>
                             </div>    
                             <div class="row mt-3" style="display: none" id="mobile-preview-container">
@@ -95,13 +101,16 @@
                                     <img class="text-center" id="mobile_preview" src="#" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
                                 </div>
                             </div>
-                            <div class="row mt-3">
+                            <div class="row mt-1">
                                 <div class="col-md-4"><b>Sample Image 1<span class="text-danger">*</span></b></div>
                                 <div class="input-group col-lg-8">   
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="sample_image_1" onchange="previewSample1(event)">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
+                                </div>
+                                <div class="col-8 offset-md-4"> 
+                                    <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 1920 x 1080 )</i></p>
                                 </div>
                             </div>    
                             <div class="row mt-3" style="display: none" id="sample1-preview-container">
@@ -110,13 +119,16 @@
                                     <img class="text-center" id="sample1_preview" src="#" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
                                 </div>
                             </div>     
-                            <div class="row mt-3">
+                            <div class="row mt-1">
                                 <div class="col-md-4"><b>Sample Image 2 <span class="text-danger">*</span></b></div>
                                 <div class="input-group col-lg-8">   
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="sample_image_2" onchange="previewSample2(event)">
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
+                                </div>
+                                <div class="col-8 offset-md-4"> 
+                                    <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 360 x 640 )</i></p>
                                 </div>
                             </div>    
                             <div class="row mt-3" style="display: none" id="sample2-preview-container">
@@ -125,7 +137,6 @@
                                     <img class="text-center" id="sample2_preview" src="#" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
                                 </div>
                             </div>                                             
-                                    
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>
                             </div>
