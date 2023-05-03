@@ -38,12 +38,15 @@
                                         $i = 1;
                                     ?>
                                     <tr>
-                                        <th style="max-width: 60px;">NO</th>
+                                        <th style="max-width: 70px;">NO</th>
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Category</th>
                                         <th>Description</th>
                                         <th class="text-center">Main Image</th>
+                                        <th class="text-center">Mobile Image</th>
+                                        <th class="text-center">Sample Image 1</th>
+                                        <th class="text-center">Sample Image 2</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -55,7 +58,10 @@
                                         <td>{{ $block->block_name }}</td>
                                         <td>{{ $block->categories->category_name }}</td>
                                         <td>{{ $block->description }}</td>
-                                        <td class="text-center"><img src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" style="width: 200px; height: 200px;" alt="image"></td>
+                                        <td class="text-center"><img src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" style="width: 200px; height: 200px; border-radius: 4px;" alt="image"></td>
+                                        <td class="text-center"><img src="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" style="width: 200px; height: 200px; border-radius: 4px;" alt="image"></td>
+                                        <td class="text-center"><img src="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" style="width: 200px; height: 200px; border-radius: 4px;" alt="image"></td>
+                                        <td class="text-center"><img src="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" style="width: 200px; height: 200px; border-radius: 4px;" alt="image"></td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-primary mr-1" href="{{ route('blockmaster.edit', $block->id) }}">Edit</a>
@@ -77,6 +83,9 @@
                                         <th>Category</th>
                                         <th>Description</th>
                                         <th>Main Image</th>
+                                        <th>Mobile Image</th>
+                                        <th>Sample Image 1</th>
+                                        <th>Sample Image 2</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
