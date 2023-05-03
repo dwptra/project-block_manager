@@ -176,7 +176,7 @@ class BlockController extends Controller
     {
         $blockEdit = PageDetails::findOrFail($id);
         $blockDB   = Block::all();
-        $page      = Page::with('projects', 'projects.projectManager', 'projects.projectManager.creator', 'projects.projectManager.creator.publisher')->findOrFail($blockEdit->page_id);
+        $page      = Page::with('projects', 'projects.projectManager')->findOrFail($blockEdit->page_id);
         
         // $pageSec = Page::select('pages.*', 'projects.project_name as project_name', 'project_managers.name as project_manager')
         //                 ->join('projects', 'projects.id', '=', 'pages.project_id')
