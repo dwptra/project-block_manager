@@ -45,8 +45,13 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-4"><b>Sort:</b></div>
-                                <div class="col-md-8"><input type="number" name="sort" class="form-control"
-                                        placeholder="Enter Section Name" value="{{ $blockEdit->sort}}"></div>
+                                <div class="col-md-8">
+                                    <select class="form-select" aria-label="Default select example" name="sort">
+                                        @foreach ($sort as $so)    
+                                        <option value="{{ $so->sort }}" {{ $so->sort == $blockEdit->sort ? 'selected' : '' }}>{{ $so->sort }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>

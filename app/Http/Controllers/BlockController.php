@@ -175,6 +175,7 @@ class BlockController extends Controller
     public function blockEdit($id)
     {
         $blockEdit = PageDetails::findOrFail($id);
+        $sort = PageDetails::all();
         $blockDB   = Block::all();
         $page      = Page::with('projects', 'projects.projectManager')->findOrFail($blockEdit->page_id);
         
@@ -183,7 +184,7 @@ class BlockController extends Controller
         //                 ->join('project_managers', 'project_managers.id', '=', 'projects.project_manager')
         //                 ->find($blockEdit->page_id);
         
-        return view('blocks.block_edit', compact('blockDB', 'blockEdit', 'page'));
+        return view('blocks.block_edit', compact('blockDB', 'blockEdit', 'page', 'sort'));
     } 
 
     public function updateBlock(Request $request, $id)
@@ -195,21 +196,49 @@ class BlockController extends Controller
 
         $page = PageDetails::findOrFail($id);
 
+        // Dapatkan project_id dari halaman yang diupdate
+        $page_id = $page->page_id;
+
         // Ubah sort dari item yang sedang diedit menjadi sort yang baru diinputkan
+        $newSort = $request->sort;
+        $oldSort = $page->sort;
         $page->update([
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
-            'sort' => $request->sort,
+            'sort' => $newSort,
         ]);
 
-        // Dapatkan project_id dari halaman yang diupdate
-        $page_id = $page->page_id;
+        // Cek apakah ada item lain dengan sort id yang sama
+        $sameSortItems = PageDetails::where('page_id', $page_id)->where('sort', $newSort)->get();
+        if ($sameSortItems->count() > 1) {
+            // Jika ada, maka tukar sort dengan item yang memiliki nilai sort berbeda
+            foreach ($sameSortItems as $item) {
+                if ($item->id != $id) {
+                    $tempSort = $item->sort;
+                    $item->update(['sort' => $oldSort]);
+                    $page->update(['sort' => $tempSort]);
+                    break;
+                }
+            }
+        } else {
+            // Jika tidak ada, update sort id dari item lain yang berbeda
+            $otherItems = PageDetails::where('page_id', $page_id)->where('id', '<>', $id)->orderBy('sort')->get();
+            $currentSort = 1;
+            foreach ($otherItems as $item) {
+                if ($item->sort == $newSort) {
+                    $currentSort++;
+                    $item->update(['sort' => $currentSort]);
+                } else {
+                    $currentSort = $item->sort + 1;
+                    $item->update(['sort' => $currentSort]);
+                }
+            }
+        }
 
         // Kalau berhasil, arahkan ke halaman proyek dengan pemberitahuan berhasil
         return redirect()->route('block', $page_id)->with('updatePage', 'Berhasil mengubah page!');
     }
-
 
     public function blockCategory()
     {
