@@ -77,13 +77,13 @@
                                     <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 1920 x 1080 )</i></p>
                                 </div>
                             </div>    
-                            <div class="row mt-3" style="display: none" id="preview-container">
+                            <div class="row" style="display: none" id="preview-container">
                                 <div class="col-md-4" for="preview"><b>Main Image Preview <span class="text-danger"></span></b></div>
                                 <div class="col-lg-8 offset-md-4"> 
                                     <img class="text-center" id="preview" src="#" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
                                 </div>
                             </div>   
-                            <div class="row mt-1">
+                            <div class="row mt-3">
                                 <div class="col-md-4"><b>Mobile Image <span class="text-danger">*</span></b></div>
                                 <div class="input-group col-lg-8">   
                                     <div class="custom-file">
@@ -95,13 +95,13 @@
                                     <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 360 x 640 )</i></p>
                                 </div>
                             </div>    
-                            <div class="row mt-3" style="display: none" id="mobile-preview-container">
+                            <div class="row" style="display: none" id="mobile-preview-container">
                                 <div class="col-md-4" for="mobile_preview"><b>Mobile Image Preview <span class="text-danger"></span></b></div>
                                 <div class="col-lg-8 offset-md-4"> 
                                     <img class="text-center" id="mobile_preview" src="#" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
                                 </div>
                             </div>
-                            <div class="row mt-1">
+                            <div class="row mt-3">
                                 <div class="col-md-4"><b>Sample Image 1<span class="text-danger">*</span></b></div>
                                 <div class="input-group col-lg-8">   
                                     <div class="custom-file">
@@ -113,13 +113,13 @@
                                     <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 1920 x 1080 )</i></p>
                                 </div>
                             </div>    
-                            <div class="row mt-3" style="display: none" id="sample1-preview-container">
+                            <div class="row" style="display: none" id="sample1-preview-container">
                                 <div class="col-md-4" for="sample1_preview"><b>Sample Image 1 Preview <span class="text-danger"></span></b></div>
                                 <div class="col-lg-8 offset-md-4"> 
                                     <img class="text-center" id="sample1_preview" src="#" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
                                 </div>
                             </div>     
-                            <div class="row mt-1">
+                            <div class="row mt-3">
                                 <div class="col-md-4"><b>Sample Image 2 <span class="text-danger">*</span></b></div>
                                 <div class="input-group col-lg-8">   
                                     <div class="custom-file">
