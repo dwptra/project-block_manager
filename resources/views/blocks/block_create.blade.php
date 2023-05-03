@@ -85,7 +85,7 @@
                                                     src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}"
                                                     alt="Card image cap">
                                                     <div class="card-body">
-                                                        <input type="radio" class="btn-check btn-check-custom" name="block_id"
+                                                        <input type="radio" class="btn-check" name="block_id"
                                                         id="option{{ $block->id }}" autocomplete="off" value="{{ $block->id }}" />
                                                         <label class="btn btn-light align-center w-100 mb-0"
                                                         for="option{{ $block->id }}">{{ $block->block_name }}</label>
