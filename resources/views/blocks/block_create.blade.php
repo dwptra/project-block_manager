@@ -39,7 +39,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Create Block</h4>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-danger ml-1" href="{{ route('block', $page['id']) }}">Back</a>
+                            <a class="btn btn-danger ml-1" href="{{ route('block', $page->id) }}">Back</a>
                         </div>
                         <hr>
                         <div class="row mt-3">
