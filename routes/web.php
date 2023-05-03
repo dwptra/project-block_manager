@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\BlockController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\PageController;
 
 
 /*
@@ -19,9 +24,9 @@ use App\Http\Controllers\BlockController;
     //     return view('index');
     // });
 Route::middleware('cekAuth')->group(function () {
-    Route::get('/dashboard', [BlockController::class, 'dashboard'])->name('dashboard');
-    Route::get('/error', [BlockController::class, 'error'])->name('error');
-    Route::get('/logout', [BlockController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', [Controller::class, 'dashboard'])->name('dashboard');
+    Route::get('/error', [Controller::class, 'error'])->name('error');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
     // Masterdata
     // Block (M)
@@ -46,35 +51,35 @@ Route::middleware('cekAuth')->group(function () {
 
     // User (M)
     Route::prefix('user')->group(function () {
-        Route::get('/', [BlockController::class, 'user'])->name('user');
+        Route::get('/', [UserController::class, 'user'])->name('user');
         Route::middleware('cekRole:Admin')->group(function () {
-            Route::get('/create', [BlockController::class, 'createUser'])->name('user.create');
-            Route::post('/create', [BlockController::class, 'userPost'])->name('user.post');
-            Route::get('/edit/{id}', [BlockController::class, 'editUser'])->name('user.edit');
-            Route::patch('/update/{id}', [BlockController::class, 'updateUser'])->name('user.update');
-            Route::delete('/delete/{id}', [BlockController::class, 'deleteUser'])->name('user.delete');
+            Route::get('/create', [UserController::class, 'createUser'])->name('user.create');
+            Route::post('/create', [UserController::class, 'userPost'])->name('user.post');
+            Route::get('/edit/{id}', [UserController::class, 'editUser'])->name('user.edit');
+            Route::patch('/update/{id}', [UserController::class, 'updateUser'])->name('user.update');
+            Route::delete('/delete/{id}', [UserController::class, 'deleteUser'])->name('user.delete');
         });
     });
     
 
     //Project
     Route::prefix('project')->group(function () {
-        Route::get('/', [BlockController::class, 'project'])->name('project');
-        Route::get('/create', [BlockController::class, 'createProject'])->name('project.create');
-        Route::post('/create', [BlockController::class, 'projectPost'])->name('project.post');
-        Route::get('/edit/{id}', [BlockController::class, 'editProject'])->name('project.edit');
-        Route::patch('/update/{id}', [BlockController::class, 'updateProject'])->name('project.update');
-        Route::delete('/delete/{id}', [BlockController::class, 'deleteProject'])->name('project.delete');
+        Route::get('/', [ProjectController::class, 'project'])->name('project');
+        Route::get('/create', [ProjectController::class, 'createProject'])->name('project.create');
+        Route::post('/create', [ProjectController::class, 'projectPost'])->name('project.post');
+        Route::get('/edit/{id}', [ProjectController::class, 'editProject'])->name('project.edit');
+        Route::patch('/update/{id}', [ProjectController::class, 'updateProject'])->name('project.update');
+        Route::delete('/delete/{id}', [ProjectController::class, 'deleteProject'])->name('project.delete');
         
 
         //page
         Route::prefix('page')->group(function () {
-            Route::get('/{id}', [BlockController::class, 'page'])->name('page');
-            Route::get('/create/{id}', [BlockController::class, 'createPage'])->name('page.create');
-            Route::post('/create/{id}', [BlockController::class, 'postPage'])->name('page_create.post');
-            Route::get('/edit/{id}', [BlockController::class, 'editPage'])->name('page.edit');
-            Route::patch('/update/{id}', [BlockController::class, 'updatePage'])->name('page.update');
-            Route::delete('/delete/{id}', [BlockController::class, 'deletePage'])->name('page.delete');
+            Route::get('/{id}', [PageController::class, 'page'])->name('page');
+            Route::get('/create/{id}', [PageController::class, 'createPage'])->name('page.create');
+            Route::post('/create/{id}', [PageController::class, 'postPage'])->name('page_create.post');
+            Route::get('/edit/{id}', [PageController::class, 'editPage'])->name('page.edit');
+            Route::patch('/update/{id}', [PageController::class, 'updatePage'])->name('page.update');
+            Route::delete('/delete/{id}', [PageController::class, 'deletePage'])->name('page.delete');
 
         //block
             Route::prefix('block')->group(function () {
@@ -91,6 +96,6 @@ Route::middleware('cekAuth')->group(function () {
 });
 
 Route::middleware('isGuest')->group(function () {
-    Route::get('/', [BlockController::class, 'index'])->name('index');
-    Route::post('/', [BlockController::class, 'auth'])->name('login.auth');
+    Route::get('/', [AuthController::class, 'index'])->name('index');
+    Route::post('/', [AuthController::class, 'auth'])->name('login.auth');
 });

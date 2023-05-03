@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProjectManager;
 use App\Models\Project;
 use App\Models\Block;
 use App\Models\BlockCategory;
 use App\Models\Page;
 use App\Models\PageDetails;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,164 +17,7 @@ class BlockController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function dashboard()
-    {
-        $projectDB = Project::all();
-        return view('dashboard', compact('projectDB'));
-    }
-
-    public function error()
-    {
-        return view('404');
-    }
-
-    public function project()
-    {
-        $projectDB = Project::with('projectManager')->get();
-        return view('project.project', compact('projectDB'));
-    }
-
-    public function createProject()
-    {
-        $user = ProjectManager::all();
-        return view('project.project_create', compact('user'));
-    }
-
-    public function projectPost(Request $request)
-    {
-        $userRole = Auth::user()->role;
-
-        if ($userRole == "admin") {
-            $request->validate([
-                'project_name' => 'required',
-                'project_manager' => 'required',
-            ]);
-
-            $projectManager = $request->project_manager;
-        }else {
-            $request->validate([
-                'project_name' => 'required',
-            ]);
-
-            $projectManager = Auth::user()->id;
-        }
-
-        Project::create([
-            'project_name' => $request->project_name,
-            'project_manager' => $projectManager,
-        ]);
-
-        return redirect()->route('project')->with('createProject', 'Berhasil membuat projek baru!');
-    }
-
-    public function editProject($id)
-    {
-        $project = Project::findOrFail($id);
-        $user = ProjectManager::all();
-        return view('project.project_edit', compact('project', 'user'));
-    }
-
-    public function updateProject(Request $request, $id)
-    {
-        $request->validate([
-            'project_name' => 'required',
-            'project_manager' => 'required'
-        ]);
-
-        Project::find($id)->update([
-            'project_name' => $request->project_name,
-            'project_manager' => $request->project_manager
-        ]);
-
-        return redirect()->route('project')->with('updateProject', 'Berhasil mengubah projek!');
-    }
-
-    public function deleteProject($id)
-    {
-        Project::where('id', '=', $id)->delete();
-        return redirect()->route('project')->with('deleteProject', 'Berhasil menghapus projek!');
-    }
-
-    // Page
-    public function page($id)
-    {
-        // Menggunakan findOrFail() untuk menemukan project berdasarkan id
-        $project = Project::findOrFail($id);
-
-        // Menggunakan eager loading untuk mengambil relasi pages dan projectManager
-        $project->load(['pages', 'projectManager']);
-
-        // Mengambil data pages dari relasi yang sudah dimuat
-        $pageDB = $project->pages;
-
-        return view('pages.page', compact('project', 'pageDB'));
-    }
     
-    public function createPage($id)
-    {
-        $project = Project::findOrFail($id);
-        $pages = Page::with('projects')->find($id);
-        return view('pages.page_create', compact('pages', 'project'));
-    }
-
-    public function postPage(Request $request, $id)
-    {
-        $project = Project::findOrFail($id);
-        $request->validate([
-            'project_id' => 'required',
-            'page_name' => 'required|min:3',
-            'status' => 'required|in:On Progress,On Review,Approved,Declined', // Menambahkan validasi untuk enum status
-        ]);
-
-        // bikin data baru dengan isian dari request
-        Page::create([
-            'project_id' => $request->project_id,
-            'page_name' => $request->page_name,
-            'note' => $request->note,
-            'status' => $request->status,
-        ]);
-        
-        // kalau berhasil, arahin ke halaman /user dengan pemberitahuan berhasil
-        return redirect()->route('page', $id)->with('createPage', 'Berhasil membuat page!');
-    }
-
-    public function editPage($id)
-    {
-        $pageDB = Page::with('projects')->findOrFail($id);
-        return view('pages.page_edit', compact('pageDB'));
-    }
-    
-    public function updatePage(Request $request, $id)
-    {
-        $request->validate([
-            'project_id' => 'required',
-            'page_name' => 'required|min:3',
-            'status' => 'required|in:On Progress,On Review,Approved,Declined', // Menambahkan validasi untuk enum status
-        ]);
-
-        $page = Page::findOrFail($id);
-        $page->update([
-            'project_id' => $request->project_id,
-            'page_name' => $request->page_name,
-            'note' => $request->note,
-            'status' => $request->status,
-        ]);
-
-        // Dapatkan project_id dari halaman yang diupdate
-        $project_id = $page->project_id;
-
-        // kalau berhasil, arahin ke halaman proyek dengan pemberitahuan berhasil
-        return redirect()->route('page', $project_id)->with('updatePage', 'Berhasil mengubah page!');
-    }
-
-    public function deletePage($id)
-    {
-        $page = Page::findOrFail($id); // Menggunakan findOrFail untuk mendapatkan data halaman berdasarkan ID
-        $project_id = $page->project_id; // Mendapatkan project_id dari halaman yang akan dihapus
-        $page->delete(); // Menghapus data halaman dari database
-
-        return redirect()->route('page', $project_id)->with('deletePage', 'Berhasil menghapus data!'); // Mengarahkan pengguna kembali ke halaman proyek dengan ID yang sesuai
-    }
 
     // Blocks
     public function print($pageId)
@@ -400,99 +240,10 @@ class BlockController extends Controller
         return redirect()->route('block.categories')->with('deleteCategory', 'Berhasil menghapus Category.');
     }
 
-    // Login dan Logout
-    public function index()
-    {
-        return view('index');
-    }
 
-    public function auth(Request $request)
-    {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required|min:3',
-        ]);
 
-        $user = ProjectManager::where('email', $request->email)->first();
-        if ($user && Hash::check($request->password, $user->password)) {
-            Auth::login($user);
-            return redirect('/dashboard')->with('successLogin', 'Welcome!');
-        }
-        return redirect('/')->with('fail', 'Periksa Email atau Password!');
-    }
 
-    public function logout(){
-        Auth::logout();
-        return redirect('/')->with('successLogout', 'Berhasil keluar akun.');
-    }
-
-    // User
-    public function user()
-    {
-        $projectMDB = ProjectManager::all();
-        return view('users.user', compact('projectMDB'));
-    }
-
-    public function deleteUser($id)
-    {
-        ProjectManager::where('id', '=', $id)->delete();
-        return redirect()->route('user')->with('deleteUser', 'Berhasil menghapus data');
-    }
-
-    public function createUser()
-    {
-        $project = ProjectManager::all();
-        return view('users.user_create', compact('project'));
-    }
-
-    public function userPost(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'role' => 'required',
-            'password' => 'required|min:3'
-        ]);
-
-        ProjectManager::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'role' => $request->role,
-            'password' => Hash::make($request->password)
-        ]);
-
-        return redirect()->route('user')->with('createUser', 'Berhasil membuat user baru!');
-    }
     
-    public function editUser($id)
-    {
-        $user = ProjectManager::findOrFail($id);
-
-        return view('users.user_edit', compact('user'));
-    }
-
-    public function updateUser(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'role' => 'required'
-        ]);
-
-        $user = ProjectManager::find($id);
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->role = $request->role;
-
-        if (!empty($request->password)) {
-            $user->password = Hash::make($request->password);
-        }
-
-        $user->save();
-
-        return redirect()->route('user')->with('updateUser', 'Berhasil merubah User!');
-    }
 
     /**
      * Show the form for creating a new resource.
