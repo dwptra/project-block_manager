@@ -35,14 +35,13 @@ class PageController extends Controller
     {
         $project = Project::findOrFail($id);
         $request->validate([
-            'project_id' => 'required',
             'page_name' => 'required|min:3',
             'status' => 'required|in:On Progress,On Review,Approved,Declined', // Menambahkan validasi untuk enum status
         ]);
 
         // bikin data baru dengan isian dari request
         Page::create([
-            'project_id' => $request->project_id,
+            'project_id' => $project->id,
             'page_name' => $request->page_name,
             'note' => $request->note,
             'status' => $request->status,
