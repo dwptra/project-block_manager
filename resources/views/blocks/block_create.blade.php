@@ -70,30 +70,55 @@
                                 @foreach ($blockDB->groupBy('categories.category_name') as $categoryName => $blocks)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#{{ Str::slug($categoryName) }}" aria-expanded="true"
                                             aria-controls="{{ Str::slug($categoryName) }}">
                                             {{ $categoryName }}
                                         </button>
                                     </h2>
-                                    <div id="{{ Str::slug($categoryName) }}" class="accordion-collapse collapse show"
+                                    <div id="{{ Str::slug($categoryName) }}" class="accordion-collapse collapse"
                                         aria-labelledby="panelsStayOpen-headingOne">
                                         <div class="accordion-body">
                                             <div class="d-flex justify-content-center">
                                                 @foreach ($blocks as $block)
-                                                <div class="card mx-4" style="width: 18rem;">
-                                                    <img class="card-img-top"
-                                                        src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}"
-                                                        alt="Card image cap">
-                                                    <div class="card-body">
-                                                        <input type="radio" class="btn-check" name="block_id"
-                                                            id="option{{ $block->id }}" autocomplete="off"
-                                                            value="{{ $block->id }}" />
-                                                        <label class="btn btn-light align-center w-100 mb-0"
-                                                            for="option{{ $block->id }}">{{ $block->block_name }}</label>
+                                                    <div class="card mx-4" style="width: 18rem;">
+                                                        <a class="open-fancybox" data-type="image" href="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" data-fancybox="{{ $block->id }}">
+                                                            <img class="card-img-top" src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" alt="Card image cap">
+                                                        </a>
+                                                        
+                                                                                                            
+                                                        <div class="card-body">
+                                                            <input type="radio" class="btn-check" name="block_id"
+                                                                id="option{{ $block->id }}" autocomplete="off"
+                                                                value="{{ $block->id }}" />
+                                                            <label class="btn btn-light align-center w-100 mb-0"
+                                                                for="option{{ $block->id }}">{{ $block->block_name }}</label>
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 @endforeach
+                                                <script>
+                                                    $('.open-fancybox').on('click', function(e) {
+                                                        e.preventDefault();
+                                                        var blockId = $(this).data('fancybox');
+                                                        var images = [
+                                                            {
+                                                                src: $(this).attr('href'),
+                                                                type: 'image'
+                                                            }
+                                                        ];
+                                                        $.fancybox.open(images, {
+                                                            loop: true,
+                                                            buttons: [
+                                                                'zoom',
+                                                                'slideShow',
+                                                                'thumbs',
+                                                                'close'
+                                                            ]
+                                                        });
+                                                    });
+
+
+                                                </script>                                                 
                                             </div>
                                         </div>
                                     </div>
