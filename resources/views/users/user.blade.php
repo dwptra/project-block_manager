@@ -54,9 +54,15 @@
                                         <td>{{ $project->id }}</td>
                                         <td>{{ $project->name }}</td>
                                         <td>{{ $project->email }}</td>
-                                        <td>{{ $project->role }}</td>
-                                        <td>{{ $project->created_at->format('Y-m-d H:i:s') }}</td>
-                                        <td>{{ $project->updated_at->format('Y-m-d H:i:s') }}</td>
+                                        <td>
+                                            @if($project->role == 'Admin')
+                                                <span class="badge badge-danger px-2">{{ $project->role }}</span>
+                                            @else
+                                                <span class="badge badge-primary px-2">{{ $project->role }}</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $project->created_at->format('Y-m-d') }}</td>
+                                        <td>{{ $project->updated_at->format('Y-m-d') }}</td>
                                         @if(Auth::user()->role == 'Admin')
                                         <td>
                                             <div class="d-flex">
