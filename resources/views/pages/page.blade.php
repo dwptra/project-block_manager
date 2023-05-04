@@ -50,18 +50,16 @@
                                     <tr>
                                         <td>{{ $page->page_name }}</td>
                                         <td>
-                                            <td>
-                                                @if ($page->status == 'On Progress')
-                                                    <span class="badge badge-primary px-2">{{ $page->status }}</span>
-                                                @elseif ($page->status == 'On Review')
-                                                    <span class="badge badge-warning px-2">{{ $page->status }}</span>
-                                                @elseif ($page->status == 'Approved')
-                                                    <span class="badge badge-success px-2">{{ $page->status }}</span>
-                                                @else
-                                                    <span class="badge badge-danger px-2">{{ $page->status }}</span>
-                                                @endif
-                                            </td>
-                                        </td>
+                                            @if ($page->status == 'On Progress')
+                                                <span class="badge badge-primary px-2">{{ $page->status }}</span>
+                                            @elseif ($page->status == 'On Review')
+                                                <span class="badge badge-warning px-2">{{ $page->status }}</span>
+                                            @elseif ($page->status == 'Approved')
+                                                <span class="badge badge-success px-2">{{ $page->status }}</span>
+                                            @else
+                                                <span class="badge badge-danger px-2">{{ $page->status }}</span>
+                                            @endif
+                                        </td>                                   
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-warning text-white mr-1" href="{{ route('block', $page['id']) }}">See Blocks</a> 
