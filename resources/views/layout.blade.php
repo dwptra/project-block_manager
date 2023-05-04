@@ -102,7 +102,7 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-        <div class="nk-sidebar" style="overflow-y: auto; position: fixed;">           
+        <div class="nk-sidebar" >           
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
     
