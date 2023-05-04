@@ -62,7 +62,7 @@
                                             @endif
                                         </td>
                                         <td>{{ $project->created_at->format('Y-m-d') }}</td>
-                                        <td>{{ $project->updated_at->format('Y-m-d') }}</td>
+                                        <td>{{ $project->updated_at->format('Y-m-d H:i:s') }}</td>
                                         @if(Auth::user()->role == 'Admin')
                                         <td>
                                             <div class="d-flex">
