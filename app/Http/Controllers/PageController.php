@@ -33,7 +33,7 @@ class PageController extends Controller
 
     public function postPage(Request $request, $id)
     {
-        $page = Page::findOrFail($id);
+        $page = Project::findOrFail($id);
         $request->validate([
             'page_name' => 'required|min:3',
             'status' => 'required|in:On Progress,On Review,Approved,Declined', // Menambahkan validasi untuk enum status
@@ -41,12 +41,13 @@ class PageController extends Controller
 
         // bikin data baru dengan isian dari request
         Page::create([
-            'project_id' => $page->project_id,
+            'project_id' => $page->id,
             'page_name' => $request->page_name,
             'note' => $request->note,
             'status' => $request->status,
         ]);
-        
+
+
         // kalau berhasil, arahin ke halaman /user dengan pemberitahuan berhasil
         return redirect()->route('page', $id)->with('createPage', 'Berhasil membuat page!');
     }
