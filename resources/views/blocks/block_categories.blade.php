@@ -53,8 +53,8 @@
                                     <tr>
                                         <td class="text-center">{{ $category->id }}</td>
                                         <td>{{ $category->category_name }}</td>
-                                        <td>{{ $category->created_at }}</td>
-                                        <td>{{ $category->updated_at }}</td>
+                                        <td>{{ $category->created_at->format('Y-m-d') }}</td>
+                                        <td>{{ $category->updated_at->format('Y-m-d') }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <button class="btn btn-primary mr-1" data-toggle="modal" data-target="#editCategories{{ $category->id }}">Edit</button>
