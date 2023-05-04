@@ -26,7 +26,7 @@ class ProjectController extends Controller
     {
         $userRole = Auth::user()->role;
 
-        if ($userRole == "admin") {
+        if ($userRole == "Admin") {
             $request->validate([ 
                 'project_name' => 'required',
                 'project_manager' => 'required',
