@@ -74,6 +74,15 @@
                                     </tr>
                                     @endforelse
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th style="max-width: 60px;">#</th>
+                                        <th>Category Name</th>
+                                        <th>Created_at</th>
+                                        <th>Updated_at</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
