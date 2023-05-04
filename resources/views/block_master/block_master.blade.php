@@ -82,10 +82,10 @@
                                         <th>Name</th>
                                         <th>Category</th>
                                         <th>Description</th>
-                                        <th>Main Image</th>
-                                        <th>Mobile Image</th>
-                                        <th>Sample Image 1</th>
-                                        <th>Sample Image 2</th>
+                                        <th class="text-center">Main Image</th>
+                                        <th class="text-center">Mobile Image</th>
+                                        <th class="text-center">Sample Image 1</th>
+                                        <th class="text-center">Sample Image 2</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
