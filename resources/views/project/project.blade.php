@@ -60,7 +60,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($projectDB as $project)
+                                    @forelse ($projectDB as $project)
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $project->id }}</td>
@@ -78,7 +78,11 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center">No pages found.</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                                 <tfoot>
                                     <tr>
