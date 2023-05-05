@@ -76,7 +76,7 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td colspan="5" class="text-center">No pages found.</td>
+                                        <td colspan="5" class="text-center">No data found.</td>
                                     </tr>
                                     @endforelse
                                 </tbody>
