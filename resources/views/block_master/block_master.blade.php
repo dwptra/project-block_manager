@@ -51,7 +51,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($blockCategory as $block)
+                                    @forelse ($blockCategory as $block)
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $block->id }}</td>
@@ -73,7 +73,11 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    @empty
+                                    <tr>
+                                        <td colspan="10" class="text-center">No pages found.</td>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                                 <tfoot>
                                     <tr>
