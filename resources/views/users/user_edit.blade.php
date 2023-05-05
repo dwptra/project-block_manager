@@ -7,7 +7,8 @@
                 <div class="card-body">
                     <h4>User Edit</h4>
                     <div class="d-flex justify-content-end">
-                        <a class="btn btn-danger" href="{{ route('user') }}">Back</a>
+                        <a class="btn btn-success text-white" href="{{ route('password.edit', $user->id) }}">Change Password</a>
+                        <a class="btn btn-danger ml-2" href="{{ route('user') }}">Back</a>
                     </div>
                     <hr>
                     <div class="form-validation">
@@ -46,13 +47,6 @@
                                         <option value="Project Manager" {{ $user->role == 'Project Manager' ? 'selected' : '' }}>Project Manager</option>
                                         <option value="Admin" {{ $user->role == 'Admin' ? 'selected' : ''}}>Admin</option>
                                       </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-password">Password</span>
-                                </label>
-                                <div class="col-lg-6">
-                                    <input type="password" name="password" class="form-control" id="val-password" placeholder="Enter a Password">
                                 </div>
                             </div>
                             <div class="form-group row">

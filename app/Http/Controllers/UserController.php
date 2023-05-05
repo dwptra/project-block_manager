@@ -69,12 +69,29 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->role = $request->role;
 
-        if (!empty($request->password)) {
-            $user->password = Hash::make($request->password);
-        }
-
         $user->save();
 
         return redirect()->route('user')->with('updateUser', 'Berhasil merubah User!');
+    }
+
+    public function editPassword($id)
+    {
+        $user = ProjectManager::findOrFail($id);
+
+        return view('users.password_edit', compact('user'));
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required'
+        ]);
+
+        $user = ProjectManager::find($id);
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->route('user')->with('updatePassword', 'Berhasil merubah password!');
     }
 }

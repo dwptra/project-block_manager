@@ -41,7 +41,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="text-muted">Hi, {{Auth()->user()->name}}!</h4>
+                        <h4 class="text-dark">Hi {{Auth()->user()->name}}, Welcome Back!</h4>
                     </div>
                 </div>
             </div>
