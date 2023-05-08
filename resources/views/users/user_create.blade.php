@@ -1,11 +1,16 @@
 @extends('layout')
 @section('content')
-<div class="container-fluid">
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <section class="section">
+            <div class="section-header">
+                <h1>User</h1>
+            </div>
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4>User Create</h4>
+                    <h4 class="text-dark">User Create</h4>
                     <div class="d-flex justify-content-end">
                         <a class="btn btn-danger" href="{{ route('user') }}">Back</a>
                     </div>
@@ -45,7 +50,7 @@
                                 <label class="col-lg-4 col-form-label" for="val-skill">Role <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <select class="form-select" aria-label="Default select example" name="role">
+                                    <select class="form-control selectric" aria-label="Default select example" name="role">
                                         <option value="Project Manager">Project Manager</option>
                                         <option value="Admin">Admin</option>
                                       </select>
@@ -71,8 +76,8 @@
             </div>
         </div>
     </div>
-</div>
-<!-- #/ container -->
+        </section>
+    </div>
 </div>
 <!--**********************************
 Content body end
