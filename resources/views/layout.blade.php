@@ -16,6 +16,7 @@
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/weather-icon/css/weather-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/jquery-selectric/selectric.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/weather-icon/css/weather-icons-wind.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/summernote/summernote-bs4.css') }}">
 
@@ -160,6 +161,7 @@
 
     <!-- General JS Scripts -->
     <script src="{{ asset('assets/dist/modules/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/jquery-selectric/jquery.selectric.min.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/popper.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/tooltip.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/bootstrap/js/bootstrap.min.js') }}"></script>
