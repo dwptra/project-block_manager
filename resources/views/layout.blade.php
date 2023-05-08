@@ -35,8 +35,6 @@
                     <ul class="navbar-nav mr-3">
                         <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
                                     class="fas fa-bars"></i></a></li>
-                        <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
-                                    class="fas fa-search"></i></a></li>
                     </ul>
                     <div class="search-element">
                     </div>
@@ -44,6 +42,7 @@
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src="https://o.remove.bg/downloads/eb624192-57ae-4711-ba39-93cc75d5c050/image-removebg-preview.png">
                             <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth()->User()->name }}</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -65,6 +64,8 @@
                     <ul class="sidebar-menu"> 
                         <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>
                                 <span>Dashboard</span></a></li>
+                        <li class="{{ Request::is('project') ? 'active' : '' }}"><a class="nav-link" href="{{ route('project') }}"><i class="far fa-file-alt"></i>
+                                <span>Project</span></a></li>
                         <li class="menu-header">Master Data</li>
                         <li class="dropdown {{ Request::is('block/blocks*') || Request::is('block/categories*') ? 'active' : '' }}">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
