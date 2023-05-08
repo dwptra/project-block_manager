@@ -1,12 +1,5 @@
 @extends('layout')
 @section('content')
-<style>
-    .gallery-item {
-    width: 100%;
-    height: 800px;
-}
-
-</style>
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
@@ -66,8 +59,6 @@
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>
                             </div>
-
-
                             <div class="accordion" id="accordionPanelsStayOpenExample">
                                 @foreach ($blockDB->groupBy('categories.category_name') as $categoryName => $blocks)
                                 <div class="accordion-item">
@@ -86,7 +77,6 @@
                                                 <div class="card mx-4" style="width: 18rem;">
                                                     <div class="gallery gallery-fw" data-item-height="300">
                                                         <div class="gallery-item card-img-top" data-image="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" data-title="Image 1"></div>
-
                                                         {{-- hide --}}
                                                         <div class="gallery-item gallery-hide" data-image="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" data-title="Image 2"></div>
                                                         <div class="gallery-item gallery-hide" data-image="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" data-title="Image 3"></div>

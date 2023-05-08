@@ -1,12 +1,5 @@
 @extends('layout')
 @section('content')
-<style>
-    .gallery-item {
-    width: 100%;
-    height: 800px;
-}
-
-</style>
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
