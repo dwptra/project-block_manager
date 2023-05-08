@@ -7,8 +7,12 @@
     }
 
 </style>
-<div class="container-fluid mt-3">
-    <div class="container-fluid">
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <section class="section">
+            <div class="section-header">
+                <h1>Block List</h1>     
+            </div>
         <div class="row">
             <div class="col-12">
                 @if (Session::get('createBlock'))
@@ -33,7 +37,6 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Block List</h4>
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-primary" href="{{ route('block.create', $pageDB->id) }}">Create Block</a>
                             <a class="btn btn-warning ml-1 text-white" href="{{ route('blocks.print', $pageDB['id'])}}" target="_blank">Export Block List
@@ -86,6 +89,7 @@
                 </div>
             </div>
         </div>
+        </section>
     </div>
 </div>
 @endsection

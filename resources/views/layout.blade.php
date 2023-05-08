@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Block Generation</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="shortcut icon"
         href="https://o.remove.bg/downloads/eb624192-57ae-4711-ba39-93cc75d5c050/image-removebg-preview.png"
         type="image/x-icon">
@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/weather-icon/css/weather-icons-wind.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/summernote/summernote-bs4.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/dropzonejs/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/chocolat/dist/css/chocolat.css') }}">
+    
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/dist/css/style.css') }}">
@@ -106,6 +108,7 @@
     <script src="{{ asset('assets/dist/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/moment.min.js') }}"></script>
     <script src="{{ asset('assets/dist/js/stisla.js') }}"></script>
+    <script src="{{ asset('assets/js/slide.js') }}"></script>
 
     <!-- JS Libraies -->
     <script src="{{ asset('assets/dist/modules/simple-weather/jquery.simpleWeather.min.js') }}"></script>
@@ -123,6 +126,9 @@
     <!-- Template JS File -->
     <script src="{{ asset('assets/dist/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/dist/js/custom.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 </body>
 
 </html>
