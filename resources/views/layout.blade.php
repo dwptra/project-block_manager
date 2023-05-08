@@ -56,10 +56,10 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="dashboard-ecommerce.html">Block Manager</a>
+                        <a href="{{ route('dashboard') }}">Block Manager</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="dashboard-ecommerce.html">BM</a>
+                        <a href="{{ route('dashboard') }}">BM</a>
                     </div>
                     <ul class="sidebar-menu"> 
                         <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>
