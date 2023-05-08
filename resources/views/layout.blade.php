@@ -125,19 +125,19 @@
                     <div class="sidebar-brand sidebar-brand-sm">
                         <a href="dashboard-ecommerce.html">BM</a>
                     </div>
-                    <ul class="sidebar-menu">
-                        <li><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>
+                    <ul class="sidebar-menu"> 
+                        <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>
                                 <span>Dashboard</span></a></li>
                         <li class="menu-header">Master Data</li>
-                        <li class="dropdown">
+                        <li class="dropdown {{ Request::is('block/blocks*') || Request::is('block/categories*') ? 'active' : '' }}">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                                     class="fas fa-columns"></i> <span>Block</span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="{{ route('block.master') }}">Block</a></li>
-                                <li><a class="nav-link" href="{{ route('block.categories') }}">Block Category</a></li>
+                                <li class="{{ Request::is('block/blocks*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('block.master') }}">Block</a></li>
+                                <li class="{{ Request::is('block/categories*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('block.categories') }}">Block Category</a></li>
                             </ul>
                         </li>
-                        <li><a class="nav-link" href="{{ route('user') }}"><i class="fas fa-user"></i>
+                        <li class="{{ Request::is('user') ? 'active' : '' }}"><a class="nav-link" href="{{ route('user') }}"><i class="fas fa-user"></i>
                                 <span>User</span></a></li>
                     </ul>
                 </aside>
