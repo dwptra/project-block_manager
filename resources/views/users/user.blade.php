@@ -38,7 +38,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title text-dark">User List</h4>
                                 @if(Auth::user()->role == 'Admin')
                                     <div class="d-flex justify-content-end">
                                         <a class="btn btn-primary" href="{{ route('user.create') }}">Create Users</a>

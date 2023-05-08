@@ -10,7 +10,6 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4>Change Password</h4>
                             <div class="d-flex justify-content-end">
                                 <a class="btn btn-danger ml-2" href="{{ route('user.edit', $user->id) }}">Back</a>
                             </div>
