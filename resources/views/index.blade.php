@@ -1,90 +1,128 @@
-
 <!DOCTYPE html>
-<html class="h-100" lang="en">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Block - Login</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/3665/3665896.png">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Login &mdash; Stisla</title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/fontawesome/css/all.min.css') }}">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/bootstrap-social/bootstrap-social.css') }}">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/dist/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/css/components.css') }}">
 </head>
-<body class="h-100">
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-    <div class="login-form-bg h-100">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100">
-                <div class="col-xl-6">
-                    <div class="form-input-content">
-                        <div class="card login-form mb-0">
-                            <div class="card-body pt-5">
-                                @if (Session::get('fail'))
-                                <div class="alert alert-warning alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                                    </button> <strong>Fail</strong> {{ Session::get('fail')}}
-                                </div>
-                                @endif
-                                @if (Session::get('successLogout'))
-                                <div class="alert alert-primary alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                                    </button> <strong>Success</strong> {{ Session::get('successLogout')}}
-                                </div>
-                                @endif
-                                @if (Session::get('cekAuth'))
-                                <div class="alert alert-primary alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                                    </button> <strong>Fail</strong> {{ Session::get('cekAuth')}}
-                                </div>
-                                @endif
-                                @if ($errors->any())
-                                <div class="alert alert-danger alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                                    </button> <strong>Error:</strong>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </div>
-                                @endif
-                                <a class="text-center" href="index.html"> <h4>SIGN IN</h4></a>
-                                <form class="mt-5 mb-5 login-input" method="post" action="{{ route('login.auth') }}">
+
+<body>
+    <div id="app">
+        <section class="section">
+            <div class="container mt-5">
+                <div class="row">
+                    <div
+                        class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                        <div class="login-brand">
+                            <img src="../dist/img/stisla-fill.svg" alt="logo" width="100"
+                                class="shadow-light rounded-circle">
+                        </div>
+
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4>Login</h4>
+                            </div>
+
+                            <div class="card-body">
+                                <form method="POST" action="{{ route('login.auth') }}" class="needs-validation" novalidate="">
                                     @csrf
                                     <div class="form-group">
-                                        <input name="email" type="email" class="form-control" placeholder="Email" required>
+                                        <label for="email">Email</label>
+                                        <input id="email" type="email" class="form-control" name="email" tabindex="1"
+                                            required autofocus>
+                                        <div class="invalid-feedback">
+                                            Please fill in your email
+                                        </div>
                                     </div>
+
                                     <div class="form-group">
-                                        <input name="password" type="password" class="form-control" placeholder="Password" required>
+                                        <div class="d-block">
+                                            <label for="password" class="control-label">Password</label>
+                                            <div class="float-right">
+                                                <a href="auth-forgot-password.html" class="text-small">
+                                                    Forgot Password?
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <input id="password" type="password" class="form-control" name="password"
+                                            tabindex="2" required>
+                                        <div class="invalid-feedback">
+                                            please fill in your password
+                                        </div>
                                     </div>
-                                    <button class="btn login-form__btn submit w-100" type="submit">Sign In</button>
+
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="remember" class="custom-control-input"
+                                                tabindex="3" id="remember-me">
+                                            <label class="custom-control-label" for="remember-me">Remember Me</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                            Login
+                                        </button>
+                                    </div>
                                 </form>
+                                <div class="text-center mt-4 mb-3">
+                                    <div class="text-job text-muted">Login With Social</div>
+                                </div>
+                                <div class="row sm-gutters">
+                                    <div class="col-6">
+                                        <a class="btn btn-block btn-social btn-facebook">
+                                            <span class="fab fa-facebook"></span> Facebook
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a class="btn btn-block btn-social btn-twitter">
+                                            <span class="fab fa-twitter"></span> Twitter
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
+                        </div>
+                        <div class="mt-5 text-muted text-center">
+                            Don't have an account? <a href="auth-register.html">Create One</a>
+                        </div>
+                        <div class="simple-footer">
+                            Copyright &copy; Stisla 2018
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <script src="assets/plugins/common/common.min.js"></script>
-    <script src="assets/js/custom.min.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/gleek.js"></script>
-    <script src="assets/js/styleSwitcher.js"></script>
+
+    <!-- General JS Scripts -->
+    <script src="{{ asset('assets/dist/modules/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/popper.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/tooltip.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/stisla.js') }}"></script>
+
+    <!-- JS Libraies -->
+
+    <!-- Page Specific JS File -->
+
+    <!-- Template JS File -->
+    <script src="{{ asset('assets/dist/js/scripts.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/custom.js') }}"></script>
 </body>
+
 </html>
