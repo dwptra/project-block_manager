@@ -1,8 +1,13 @@
 @extends('layout')
 @section('content')
 
-<div class="container-fluid mt-3">
-    <div class="container-fluid">
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h1>Block List</h1>
+            </div>
         <div class="row">
             <div class="col-12">
                 @if (Session::get('createPage'))
@@ -83,6 +88,22 @@
                                     <img class="text-center" id="preview" src="#" alt="image preview" style="max-width: 400px; max-height: 300px;"> 
                                 </div>
                             </div>   
+                            <div class="row">
+                                <div class="col-12">
+                                  <div class="card">
+                                    <div class="card-header">
+                                      <h4>Multiple Upload</h4>
+                                    </div>
+                                    <div class="card-body">
+                                      <form action="#" class="dropzone" id="mydropzone">
+                                        <div class="fallback">
+                                          <input name="file" type="file" multiple />
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             <div class="row mt-3">
                                 <div class="col-md-4"><b>Mobile Image <span class="text-danger">*</span></b></div>
                                 <div class="input-group col-lg-8">   
