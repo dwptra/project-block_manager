@@ -1,208 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    
-    <!-- theme meta -->
-    <meta name="theme-name" content="quixlab" />
-  
-    <title>Block - Manager</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/3665/3665896.png">
-    <!-- Pignose Calender -->
-    <link href="{{ asset('assets/plugins/pg-calendar/css/pignose.calendar.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <!-- Chartist -->
-    <link rel="stylesheet" href="{{ asset('assets/plugins/chartist/css/chartist.min.css') }}">
-    <link href="{{ asset('assets/plugins/toastr/css/toastr.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css') }}">
-    <!-- Custom Stylesheet -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Block Generation</title>
 
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{{ asset('assets/dist/modules/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/dist/modules/fontawesome/css/all.min.css') }}">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="{{ asset('assets/dist/modules/jqvmap/dist/jqvmap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/dist/modules/weather-icon/css/weather-icons.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/dist/modules/weather-icon/css/weather-icons-wind.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/dist/modules/summernote/summernote-bs4.css') }}">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{{ asset('assets/dist/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/dist/css/components.css') }}">
 </head>
 
 <body>
-
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-
-    
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
-    <div id="main-wrapper">
-
-        <!--**********************************
-            Nav header start
-        ***********************************-->
-        <div class="nav-header" style="position: fixed;">
-            <div class="brand-logo">
-                <a href="index.html">
-                    <b class="logo-abbr"><h3 class="text-white">B</h3></b>
-                    <span class="logo-compact"><img src="assets/images/logo-compact.png" alt=""></span>
-                    <span class="brand-title">
-                        <h3 class="text-white">Block Manager</h3>
-                    </span>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+          </ul>
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
+            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            <div class="search-backdrop"></div>
+            <div class="search-result">
+              <div class="search-header">
+                Histories
+              </div>
+              <div class="search-item">
+                <a href="#">How to hack NASA using CSS</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-item">
+                <a href="#">Kodinger.com</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-item">
+                <a href="#">#Stisla</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-header">
+                Result
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <img class="mr-3 rounded" width="30" src="../dist/img/products/product-3-50.png" alt="product">
+                  oPhone S9 Limited Edition
                 </a>
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <img class="mr-3 rounded" width="30" src="../dist/img/products/product-2-50.png" alt="product">
+                  Drone X2 New Gen-7
+                </a>
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <img class="mr-3 rounded" width="30" src="../dist/img/products/product-1-50.png" alt="product">
+                  Headphone Blitz
+                </a>
+              </div>
+              <div class="search-header">
+                Projects
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <div class="search-icon bg-danger text-white mr-3">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  Stisla Admin Template
+                </a>
+              </div>
+              <div class="search-item">
+                <a href="#">
+                  <div class="search-icon bg-primary text-white mr-3">
+                    <i class="fas fa-laptop"></i>
+                  </div>
+                  Create a new Homepage Design
+                </a>
+              </div>
             </div>
-        </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
-
-        <!--**********************************
-            Header start
-        ***********************************-->
-        <div class="header">    
-            <div class="header-content clearfix">
-                
-                <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
+          </div>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Messages
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
                 </div>
-                <div class="header-right">
-                    <ul class="clearfix">
-                        <li class="icons dropdown">
-                            <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
-                                <span>{{ Auth::user()->name }}</span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
-                            </a>
-                            <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+              </div>
+              <div class="dropdown-list-content dropdown-list-message">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../dist/img/avatar/avatar-1.png" class="rounded-circle">
+                    <div class="is-online"></div>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b>
+                    <p>Hello, Bro!</p>
+                    <div class="time">10 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../dist/img/avatar/avatar-2.png" class="rounded-circle">
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Dedik Sugiharto</b>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../dist/img/avatar/avatar-3.png" class="rounded-circle">
+                    <div class="is-online"></div>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Agung Ardiansyah</b>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../dist/img/avatar/avatar-4.png" class="rounded-circle">
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Ardian Rahardiansyah</b>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
+                    <div class="time">16 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-avatar">
+                    <img alt="image" src="../dist/img/avatar/avatar-5.png" class="rounded-circle">
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Alfa Zulkarnain</b>
+                    <p>Exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+                    <div class="time">Yesterday</div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Notifications
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
                 </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-icons">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-icon bg-primary text-white">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    Template update is available now!
+                    <div class="time text-primary">2 Min Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-info text-white">
+                    <i class="far fa-user"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>You</b> and <b>Dedik Sugiharto</b> are now friends
+                    <div class="time">10 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-success text-white">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-danger text-white">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    Low disk space. Let's clean it!
+                    <div class="time">17 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-info text-white">
+                    <i class="fas fa-bell"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    Welcome to Stisla template!
+                    <div class="time">Yesterday</div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
             </div>
-        </div>
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
-        <div class="nk-sidebar" >           
-            <div class="nk-nav-scroll">
-                <ul class="metismenu" id="menu">
-    
-                    <li>
-                        <a href="/dashboard" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-label">Project</li>
-                    <li>
-                        <a href="{{ route('project') }}" aria-expanded="false">
-                            <i class="icon-list menu-icon"></i><span class="nav-text">Project</span>
-                        </a>
-                    </li>
-                    <li class="nav-label">Master Data</li>
-                    <li>
-                        <a href="/user" aria-expanded="false">
-                            <i class="icon-user menu-icon"></i><span class="nav-text">User</span>
-                        </a>
-                    </li>
-
-                    {{-- Block Dropdown --}}
-                    <li>
-                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                            <i class="icon-grid menu-icon"></i><span class="nav-text">Block</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ route('block.master') }}">Blocks</a></li>
-                        </ul>
-                        <ul aria-expanded="false">
-                            <li><a href="{{ route('block.categories') }}">Block Categories</a></li>
-                        </ul>
-                    </li>
-                </ul>
+          </li>
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <img alt="image" src="../dist/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth()->User()->name }}</div></a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-title">Logged in 5 min ago</div>
+              <a href="features-profile.html" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+              <a href="features-activities.html" class="dropdown-item has-icon">
+                <i class="fas fa-bolt"></i> Activities
+              </a>
+              <a href="features-settings.html" class="dropdown-item has-icon">
+                <i class="fas fa-cog"></i> Settings
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
             </div>
-        </div>
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="dashboard-ecommerce.html">Stisla</a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a href="dashboard-ecommerce.html">St</a>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li class="dropdown active">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+              <ul class="dropdown-menu">
+                <li class=active><a class="nav-link" href="dashboard-general.html">General Dashboard</a></li>
+                <li><a class="nav-link" href="dashboard-ecommerce.html">Ecommerce Dashboard</a></li>
+              </ul>
+            </li>
+            <li class="menu-header">Starter</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
+                <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
+                <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="bootstrap-alert.html">Alert</a></li>
+                <li><a class="nav-link" href="bootstrap-badge.html">Badge</a></li>
+                <li><a class="nav-link" href="bootstrap-breadcrumb.html">Breadcrumb</a></li>
+                <li><a class="nav-link" href="bootstrap-buttons.html">Buttons</a></li>
+                <li><a class="nav-link" href="bootstrap-card.html">Card</a></li>
+                <li><a class="nav-link" href="bootstrap-carousel.html">Carousel</a></li>
+                <li><a class="nav-link" href="bootstrap-collapse.html">Collapse</a></li>
+                <li><a class="nav-link" href="bootstrap-dropdown.html">Dropdown</a></li>
+                <li><a class="nav-link" href="bootstrap-form.html">Form</a></li>
+                <li><a class="nav-link" href="bootstrap-list-group.html">List Group</a></li>
+                <li><a class="nav-link" href="bootstrap-media-object.html">Media Object</a></li>
+                <li><a class="nav-link" href="bootstrap-modal.html">Modal</a></li>
+                <li><a class="nav-link" href="bootstrap-nav.html">Nav</a></li>
+                <li><a class="nav-link" href="bootstrap-navbar.html">Navbar</a></li>
+                <li><a class="nav-link" href="bootstrap-pagination.html">Pagination</a></li>
+                <li><a class="nav-link" href="bootstrap-popover.html">Popover</a></li>
+                <li><a class="nav-link" href="bootstrap-progress.html">Progress</a></li>
+                <li><a class="nav-link" href="bootstrap-table.html">Table</a></li>
+                <li><a class="nav-link" href="bootstrap-tooltip.html">Tooltip</a></li>
+                <li><a class="nav-link" href="bootstrap-typography.html">Typography</a></li>
+              </ul>
+            </li>
+            <li class="menu-header">Stisla</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Components</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="components-gallery.html">Gallery</a></li>
+                <li><a class="nav-link" href="components-multiple-upload.html">Multiple Upload</a></li>
+                <li><a class="nav-link" href="components-tab.html">Tab</a></li>
+                <li><a class="nav-link" href="components-table.html">Table</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Forms</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="forms-advanced-form.html">Advanced Form</a></li>
+                <li><a class="nav-link" href="forms-editor.html">Editor</a></li>
+                <li><a class="nav-link" href="forms-validation.html">Validation</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-plug"></i> <span>Modules</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="modules-calendar.html">Calendar</a></li>
+                <li><a class="nav-link" href="modules-chartjs.html">ChartJS</a></li>
+                <li><a class="nav-link" href="modules-datatables.html">DataTables</a></li>
+                <li><a class="nav-link" href="modules-flag.html">Flag</a></li>
+                <li><a class="nav-link" href="modules-font-awesome.html">Font Awesome</a></li>
+                <li><a class="nav-link" href="modules-ion-icons.html">Ion Icons</a></li>
+                <li><a class="nav-link" href="modules-owl-carousel.html">Owl Carousel</a></li>
+                <li><a class="nav-link" href="modules-sparkline.html">Sparkline</a></li>
+                <li><a class="nav-link" href="modules-sweet-alert.html">Sweet Alert</a></li>
+                <li><a class="nav-link" href="modules-toastr.html">Toastr</a></li>
+                <li><a class="nav-link" href="modules-vector-map.html">Vector Map</a></li>
+                <li><a class="nav-link" href="modules-weather-icon.html">Weather Icon</a></li>
+              </ul>
+            </li>
+            <li class="menu-header">Pages</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Auth</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="auth-forgot-password.html">Forgot Password</a></li> 
+                <li><a href="auth-login.html">Login</a></li> 
+                <li><a href="auth-register.html">Register</a></li> 
+                <li><a href="auth-reset-password.html">Reset Password</a></li> 
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-exclamation"></i> <span>Errors</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="errors-503.html">503</a></li> 
+                <li><a class="nav-link" href="errors-403.html">403</a></li> 
+                <li><a class="nav-link" href="errors-404.html">404</a></li> 
+                <li><a class="nav-link" href="errors-500.html">500</a></li> 
+              </ul>
+            </li>
+            <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Credits</span></a></li>
+          </ul>
 
-        <!--**********************************
-            Content body start
-        ***********************************-->
-        <div class="content-body">
+          <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+            <a href="https://getstisla.com" class="btn btn-primary btn-lg btn-block btn-icon-split">
+              <i class="fas fa-rocket"></i> Buy Pro
+            </a>
+          </div>        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
         @yield('content')
+      </div>
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-        
-        
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <div class="footer">
-            <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <b>Block Manager</b> 2023</p>
-            </div>
+        <div class="footer-right">
+          
         </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
+      </footer>
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <script src="{{ asset('assets/plugins/common/common.min.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.min.js') }}"></script>
-    <script src="{{ asset('assets/js/settings.js') }}"></script>
-    <script src="{{ asset('assets/js/gleek.js') }}"></script>
-    <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script>
-    <!-- Chartjs -->
-    <script src="{{ asset('assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
-    <!-- Circle progress -->
-    <script src="{{ asset('assets/plugins/circle-progress/circle-progress.min.js') }}"></script>
-    <!-- Datamap -->
-    <script src="{{ asset('assets/plugins/d3v3/index.js') }}"></script>
-    <script src="{{ asset('assets/plugins/topojson/topojson.min.js') }}"></script>
-    {{-- <script src="{{ asset('') }}/plugins/datamaps/datamaps.world.min.js"></script> --}}
-    <!-- Morrisjs -->
-    <script src="{{ asset('assets/plugins/raphael/raphael.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/morris/morris.min.js') }}"></script>
-    <!-- Pignose Calender -->
-    <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/pg-calendar/js/pignose.calendar.min.js') }}"></script>
-    <!-- ChartistJS -->
-    <script src="{{ asset('assets/plugins/chartist/js/chartist.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js') }}"></script>
-    {{-- <script src="{{ asset('') }}/js/dashboard/dashboard-1.js"></script> --}}
-    <!-- TableJS -->
-    <script src="{{ asset('assets/plugins/tables/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/tables/js/datatable-init/datatable-basic.min.js') }}"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+  </div>
+
+  <!-- General JS Scripts -->
+  <script src="{{ asset('assets/dist/modules/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/popper.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/tooltip.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/bootstrap/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/moment.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/js/stisla.js') }}"></script>
+  
+  <!-- JS Libraies -->
+  <script src="{{ asset('assets/dist/modules/simple-weather/jquery.simpleWeather.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/chart.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/jqvmap/dist/jquery.vmap.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/summernote/summernote-bs4.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+
+  <!-- Page Specific JS File -->
+  <script src="{{ asset('assets/dist/js/page/dashboard-general.js') }}"></script>
+  
+  <!-- Template JS File -->
+  <script src="{{ asset('assets/dist/js/scripts.js') }}"></script>
+  <script src="{{ asset('assets/dist/js/custom.js') }}"></script>
 </body>
 </html>

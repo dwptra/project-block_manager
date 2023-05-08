@@ -42,7 +42,7 @@
                                 @if (Session::get('successLogout'))
                                 <div class="alert alert-primary alert-dismissible fade show">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                                    </button> <strong>Fail</strong> {{ Session::get('successLogout')}}
+                                    </button> <strong>Success</strong> {{ Session::get('successLogout')}}
                                 </div>
                                 @endif
                                 @if (Session::get('cekAuth'))

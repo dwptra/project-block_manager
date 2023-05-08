@@ -36,17 +36,11 @@
         </button> <strong>Success!</strong> {{ Session::get('successLogin')}}
     </div>
     @endif
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="text-dark">Hi {{Auth()->user()->name}}, Welcome Back!</h4>
-                    </div>
-                </div>
-            </div>
+    <section class="section">
+        <div class="section-header">
+          <h1>Dashboard</h1>
         </div>
-    </div>
+      </section>
     <!-- #/ container -->
 </div>
 @endsection
