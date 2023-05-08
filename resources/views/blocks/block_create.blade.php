@@ -1,10 +1,5 @@
 @extends('layout')
 @section('content')
-<style>
-    .gallery-item:not(:first-child) {
-    display: none;
-}
-</style>
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
@@ -90,25 +85,13 @@
                                             <div class="d-flex justify-content-center">
                                                 @foreach ($blocks as $block)
                                                     <div class="card mx-4" style="width: 18rem;">
-                                                        <div class="gallery">
+                                                        <div class="gallery gallery-fw" data-item-height="300">
                                                             <div class="gallery-item" data-image="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" data-title="Image 1"></div>
-
                                                             {{-- hide --}}
-                                                            <div class="gallery-item" data-image="{{ asset('storage/images/main_image/' . basename($block->mobile_image)) }}" data-title="Image 2"></div>
-                                                            <div class="gallery-item" data-image="{{ asset('storage/images/main_image/' . basename($block->sample_image_1)) }}" data-title="Image 3"></div>
-                                                            <div class="gallery-item" data-image="{{ asset('storage/images/main_image/' . basename($block->sample_image_2)) }}" data-title="Image 4"></div>
-                                                        </div>
-                                                          <div style="display: none;">
-                                                            <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" title="mobile_image">
-                                                              <img src="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" alt="mobile_image" />
-                                                            </a>p
-                                                            <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" title="samle_image_1">
-                                                              <img src="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" alt="sample_image_1" />
-                                                            </a>
-                                                            <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" title="samle_image_2">
-                                                              <img src="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" alt="sample_image_2" />
-                                                            </a>
-                                                          </div>                                                                                                                                                                   
+                                                            <div class="gallery-item gallery-hide" data-image="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" data-title="Image 2"></div>
+                                                            <div class="gallery-item gallery-hide" data-image="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" data-title="Image 3"></div>
+                                                            <div class="gallery-item gallery-hide" data-image="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" data-title="Image 4"></div>
+                                                        </div>                                                                                                                                                                  
                                                         <div class="card-body">
                                                             <input type="radio" class="btn-check btn-check-custom" name="block_id"
                                                                 id="option{{ $block->id }}" autocomplete="off"
@@ -132,5 +115,4 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('assets/js/slide.js')}}"></script>
 @endsection
