@@ -55,7 +55,7 @@
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Category <span class="text-danger">*</span></b></div>
                                     <div class="col-lg-8">
-                                        <select class="form-select" aria-label="Default select example"
+                                        <select class="form-control selectric" aria-label="Default select example"
                                             name="category_id">
                                             <option value="" selected disabled>Select Category Block</option>
                                             @foreach($blockCategoryCreate as $category)
