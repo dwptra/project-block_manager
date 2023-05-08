@@ -4,13 +4,12 @@
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
             <div class="section-header">
-                <h1>User</h1>
+                <h1>User Edit</h1>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="text-dark">User Edit</h4>
                             <div class="d-flex justify-content-end">
                                 <a class="btn btn-success text-white"
                                     href="{{ route('password.edit', $user->id) }}">Change Password</a>
