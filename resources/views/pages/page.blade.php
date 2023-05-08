@@ -1,8 +1,11 @@
 @extends('layout')
 @section('content')
-
-<div class="container-fluid mt-3">
-    <div class="container-fluid">
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <section class="section">
+            <div class="section-header">
+                <h1>Page List</h1>     
+            </div>
         <div class="row">
             <div class="col-12">
                 @if (Session::get('createPage'))
@@ -28,7 +31,6 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Page List</h4>
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-primary" href="{{ route('page.create', $project->id) }}">Create Page</a>
                             <a class="btn btn-danger ml-1" href="{{ route('project') }}">Back</a>
@@ -84,6 +86,7 @@
                 </div>
             </div>
         </div>
+        </section>
     </div>
 </div>
 @endsection
