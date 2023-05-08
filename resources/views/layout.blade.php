@@ -179,6 +179,7 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('assets/dist/js/page/dashboard-general.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/page/components-multiple-upload.js') }}"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('assets/dist/js/scripts.js') }}"></script>
