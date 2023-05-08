@@ -54,16 +54,9 @@
                                                 class="text-danger">*</span>
                                         </label>
                                         <div class="col-lg-6">
-                                            {{-- <select class="form-select" aria-label="Default select example" name="role">
-                                                <option value="Project Manager"
-                                                    {{ $user->role == 'Project Manager' ? 'selected' : '' }}>Project
-                                                    Manager</option>
-                                                <option value="Admin" {{ $user->role == 'Admin' ? 'selected' : ''}}>
-                                                    Admin</option>
-                                            </select> --}}
                                             <select class="form-control selectric">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
+                                                <option value="Project Manager" {{ $user->role == 'Project Manager' ? 'selected' : '' }}>Project Manager</option>
+                                                <option value="Admin" {{ $user->role == 'Admin' ? 'selected' : ''}}>Admin</option>
                                               </select>
                                         </div>
                                     </div>

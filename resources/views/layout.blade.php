@@ -16,7 +16,7 @@
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/jqvmap/dist/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/weather-icon/css/weather-icons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/dist/modules/jquery-selectric/selectric.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/jquery-selectric/selectric.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/weather-icon/css/weather-icons-wind.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/summernote/summernote-bs4.css') }}">
 
