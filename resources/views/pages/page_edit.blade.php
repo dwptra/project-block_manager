@@ -1,12 +1,15 @@
 @extends('layout')
 @section('content')
-<div class="container-fluid">
-    <div class="row justify-content-center">
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <section class="section">
+            <div class="section-header">
+                <h1>Page Edit</h1>     
+            </div>
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
                     <div class="form-validation">
-                        <h4>Page Edit</h4>
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-danger" href="{{ route('page', $pageDB->project_id) }}">Back</a>
                         </div>
@@ -47,7 +50,7 @@
                                         class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <select class="form-select" aria-label="Default select example" name="status">
+                                    <select class="form-control selectric" aria-label="Default select example" name="status">
                                         <option value="On Progress"
                                             {{ $pageDB->status == 'On Progress' ? 'selected' : '' }}>On Progress
                                         </option>
@@ -70,6 +73,7 @@
                 </div>
             </div>
         </div>
+        </section>
     </div>
 </div>
 <!-- #/ container -->

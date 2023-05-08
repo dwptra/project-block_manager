@@ -1,11 +1,14 @@
 @extends('layout')
 @section('content')
-<div class="container-fluid">
-    <div class="row justify-content-center">
+<div class="app">
+    <div class="main-wrapper main-wrapper-1">
+        <section class="section">
+            <div class="section-header">
+                <h1>Project Create</h1>
+            </div>
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4>Project Create</h4>
                     <div class="d-flex justify-content-end">
                         <a class="btn btn-danger" href="{{ route('project') }}">Back</a>
                     </div>
@@ -35,7 +38,7 @@
                                 <label class="col-lg-4 col-form-label" for="val-email">Project Manager <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <select class="form-select" aria-label="Default select example" name="project_manager">
+                                    <select class="form-control selectric" aria-label="Default select example" name="project_manager">
                                         <option value="" selected disabled>Select Project Manager</option>                                                                    
                                         @foreach ($user as $pm)
                                             @if($pm['role'] == 'Project Manager')

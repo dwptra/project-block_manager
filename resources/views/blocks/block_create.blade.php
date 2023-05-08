@@ -1,7 +1,16 @@
 @extends('layout')
 @section('content')
-<div class="container-fluid mt-3">
-    <div class="container-fluid">
+<style>
+    .gallery-item:not(:first-child) {
+    display: none;
+}
+</style>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <section class="section">
+            <div class="section-header">
+                <h1>Block Create</h1>     
+            </div>
         <div class="row">
             <div class="col-12">
                 @if (Session::get('createPage'))
@@ -37,7 +46,6 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Create Block</h4>
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-danger ml-1" href="{{ route('block', $page->id) }}">Back</a>
                         </div>
@@ -82,17 +90,22 @@
                                             <div class="d-flex justify-content-center">
                                                 @foreach ($blocks as $block)
                                                     <div class="card mx-4" style="width: 18rem;">
-                                                        <a class="main-image" href="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" data-fancybox="{{ $block->id }}">
-                                                            <img class="card-img-top" src="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" alt="Card image cap">
-                                                          </a>
+                                                        <div class="gallery">
+                                                            <div class="gallery-item" data-image="{{ asset('storage/images/main_image/' . basename($block->main_image)) }}" data-title="Image 1"></div>
+
+                                                            {{-- hide --}}
+                                                            <div class="gallery-item" data-image="{{ asset('storage/images/main_image/' . basename($block->mobile_image)) }}" data-title="Image 2"></div>
+                                                            <div class="gallery-item" data-image="{{ asset('storage/images/main_image/' . basename($block->sample_image_1)) }}" data-title="Image 3"></div>
+                                                            <div class="gallery-item" data-image="{{ asset('storage/images/main_image/' . basename($block->sample_image_2)) }}" data-title="Image 4"></div>
+                                                        </div>
                                                           <div style="display: none;">
-                                                            <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" title="Mobile Image">
+                                                            <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" title="mobile_image">
                                                               <img src="{{ asset('storage/images/mobile_image/' . basename($block->mobile_image)) }}" alt="mobile_image" />
-                                                            </a>
-                                                            <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" title="Sample Image 1">
+                                                            </a>p
+                                                            <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" title="samle_image_1">
                                                               <img src="{{ asset('storage/images/sample_image_1/' . basename($block->sample_image_1)) }}" alt="sample_image_1" />
                                                             </a>
-                                                            <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" title="Sample Image 2">
+                                                            <a class="fancybox-thumb" data-type="image" href="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" data-fancybox="{{ $block->id }}" data-thumb="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" title="samle_image_2">
                                                               <img src="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" alt="sample_image_2" />
                                                             </a>
                                                           </div>                                                                                                                                                                   
