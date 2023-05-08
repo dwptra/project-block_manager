@@ -26,7 +26,7 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="../dist/img/stisla-fill.svg" alt="logo" width="100"
+                            <img src="https://o.remove.bg/downloads/eb624192-57ae-4711-ba39-93cc75d5c050/image-removebg-preview.png" alt="logo" width="100"
                                 class="shadow-light rounded-circle">
                         </div>
 
@@ -48,14 +48,6 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <div class="d-block">
-                                            <label for="password" class="control-label">Password</label>
-                                            <div class="float-right">
-                                                <a href="auth-forgot-password.html" class="text-small">
-                                                    Forgot Password?
-                                                </a>
-                                            </div>
-                                        </div>
                                         <input id="password" type="password" class="form-control" name="password"
                                             tabindex="2" required>
                                         <div class="invalid-feedback">
@@ -77,29 +69,10 @@
                                         </button>
                                     </div>
                                 </form>
-                                <div class="text-center mt-4 mb-3">
-                                    <div class="text-job text-muted">Login With Social</div>
-                                </div>
-                                <div class="row sm-gutters">
-                                    <div class="col-6">
-                                        <a class="btn btn-block btn-social btn-facebook">
-                                            <span class="fab fa-facebook"></span> Facebook
-                                        </a>
-                                    </div>
-                                    <div class="col-6">
-                                        <a class="btn btn-block btn-social btn-twitter">
-                                            <span class="fab fa-twitter"></span> Twitter
-                                        </a>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-                        <div class="mt-5 text-muted text-center">
-                            Don't have an account? <a href="auth-register.html">Create One</a>
-                        </div>
                         <div class="simple-footer">
-                            Copyright &copy; Stisla 2018
+                            Copyright &copy; Block Manager 2023
                         </div>
                     </div>
                 </div>
