@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/jquery-selectric/selectric.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/weather-icon/css/weather-icons-wind.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/summernote/summernote-bs4.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/dropzonejs/dropzone.css') }}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/dist/css/style.css') }}">
@@ -112,6 +113,7 @@
     <script src="{{ asset('assets/dist/modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/dropzonejs/min/dropzone.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('assets/dist/js/page/dashboard-general.js') }}"></script>
