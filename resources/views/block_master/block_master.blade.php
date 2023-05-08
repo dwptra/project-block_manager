@@ -121,5 +121,8 @@
                     </div>
                 </div>
             </div>
+        </section>
     </div>
-    @endsection
+</div>
+</div>
+@endsection
