@@ -45,31 +45,40 @@
                             <a class="btn btn-danger ml-1" href="{{ route('block', $page->id) }}">Back</a>
                         </div>
                         <hr>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><b>Project Name:</b></div>
-                            <div class="col">{{ $page->projects->project_name }}</div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><b>Project Manager:</b></div>
-                            <div class="col-md-8">{{ $page->projects->projectManager->name }}</div>
-                        </div>
-                        <hr>
                         <form action="{{ route('block.post', $page->id) }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row mt-3">
-                                <div class="col-md-4"><b>Section Name:</b></div>
-                                <div class="col-md-8"><input type="text" name="section_name" class="form-control"
-                                        placeholder="Enter Section Name"></div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-4"><b>Section Note:</b></div>
-                                <div class="col-md-8"><textarea type="text" name="note" class="form-control"
-                                        placeholder="Enter Note"></textarea></div>
-                            </div>
+                        @csrf
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><b>Project Name</b></td>
+                                    <td class="ml-4">&nbsp&nbsp:</td>
+                                    <td style="width: 1035px">{{ $page->projects->project_name }}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Project Manager</b></td>
+                                    <td> &nbsp&nbsp:</td>
+                                    <td>{{ $page->projects->projectManager->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Section Name</b></td>
+                                    <td class="ml-4"> &nbsp&nbsp</td>
+                                    <td>
+                                        <input type="text" name="section_name" class="form-control" placeholder="Enter Section Name">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b> Section Note</b></td>
+                                    <td> &nbsp&nbsp</td>
+                                    <td>
+                                        <textarea name="note" class="form-control" rows="5" cols="50" placeholder="Enter Note"></textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>
                             </div>
-                            <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
                                 @foreach ($blockDB->groupBy('categories.category_name') as $categoryName => $blocks)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">

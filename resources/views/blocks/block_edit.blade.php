@@ -24,19 +24,49 @@
                             <a class="btn btn-danger ml-1" href="{{ route('block', $page->id) }}">Back</a>
                         </div>
                         <hr>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><b>Project Name:</b></div>
-                            <div class="col">{{ $page->projects->project_name }}</div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-4"><b>Project Manager:</b></div>
-                            <div class="col-md-8">{{ $page->projects->projectManager->name }}</div>
-                        </div>
-                        <hr>
                         <form action="{{ route('block.update', $blockEdit['id'])}}" method="post">
                             @csrf
                             @method('PATCH')
-                            <div class="row mt-3">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><b>Project Name</b></td>
+                                        <td class="ml-4">&nbsp&nbsp:</td>
+                                        <td style="width: 1035px">{{ $page->projects->project_name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Project Manager</b></td>
+                                        <td> &nbsp&nbsp:</td>
+                                        <td class="">{{ $page->projects->projectManager->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Section Name</b></td>
+                                        <td> &nbsp&nbsp</td>
+                                        <td>
+                                            <input type="text" name="section_name" class="form-control" placeholder="Enter Section Name" value="{{ $blockEdit->section_name}}">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b> Section Note</b></td>
+                                        <td> &nbsp&nbsp</td>
+                                        <td>
+                                            <textarea type="text" name="note" class="form-control mt-1" placeholder="Enter Note">{{ $blockEdit->note}}</textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><b> Sort</b></td>
+                                        <td> &nbsp&nbsp</td>
+                                        <td>
+                                            <select class="form-select mt-1" aria-label="Default select example" name="sort">
+                                                @foreach ($sort as $so)    
+                                                <option value="{{ $so->sort }}" {{ $so->sort == $blockEdit->sort ? 'selected' : '' }}>{{ $so->sort }}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            {{-- <div class="row mt-3">
                                 <div class="col-md-4"><b>Section Name:</b></div>
                                 <div class="col-md-8"><input type="text" name="section_name" class="form-control"
                                         placeholder="Enter Section Name" value="{{ $blockEdit->section_name}}"></div>
@@ -45,8 +75,8 @@
                                 <div class="col-md-4"><b>Section Note:</b></div>
                                 <div class="col-md-8"><textarea type="text" name="note" class="form-control"
                                         placeholder="Enter Note">{{ $blockEdit->note}}</textarea></div>
-                            </div>
-                            <div class="row mt-3">
+                            </div> --}}
+                            {{-- <div class="row mt-3">
                                 <div class="col-md-4"><b>Sort:</b></div>
                                 <div class="col-md-8">
                                     <select class="form-select" aria-label="Default select example" name="sort">
@@ -55,7 +85,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>
                             </div>

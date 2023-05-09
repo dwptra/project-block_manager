@@ -50,7 +50,7 @@
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Block Name <span class="text-danger">*</span></b></div>
                                     <div class="col-md-8"><input type="text" name="block_name" class="form-control"
-                                            placeholder="Enter Block Name"></div>
+                                            placeholder="Enter Block Name" required></div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Category <span class="text-danger">*</span></b></div>
