@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/summernote/summernote-bs4.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/dropzonejs/dropzone.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/chocolat/dist/css/chocolat.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/prism/prism.css') }}">
     
 
     <!-- Template CSS -->
@@ -108,6 +109,8 @@
     <script src="{{ asset('assets/dist/modules/moment.min.js') }}"></script>
     <script src="{{ asset('assets/dist/js/stisla.js') }}"></script>
     <script src="{{ asset('assets/js/slide.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/prism/prism.js') }}"></script>
+
 
     <!-- JS Libraies -->
     <script src="{{ asset('assets/dist/modules/simple-weather/jquery.simpleWeather.min.js') }}"></script>
@@ -117,6 +120,8 @@
     <script src="{{ asset('assets/dist/modules/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/dropzonejs/min/dropzone.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/page/bootstrap-modal.js') }}"></script>
+
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('assets/dist/js/page/dashboard-general.js') }}"></script>

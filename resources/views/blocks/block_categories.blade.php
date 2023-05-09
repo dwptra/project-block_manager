@@ -120,7 +120,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Category Name:</label>
-                        <input name="category_name" type="text" class="form-control" id="recipient-name">
+                        <input name="category_name" type="text" class="form-control" id="recipient-name" required> 
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -150,7 +150,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Category Name:</label>
-                        <input name="category_name" type="text" class="form-control" id="recipient-name"
+                        <input name="category_name" type="text" class="form-control" id="recipient-name" required  
                             value="{{ $category->category_name }}">
                     </div>
                 </div>
