@@ -6,6 +6,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Login &mdash; Stisla</title>
 
+    <link rel="shortcut icon" href="https://o.remove.bg/downloads/bb41e3bd-874c-4a93-85d4-9cadc83f93b7/image-removebg-preview.png" type="image/x-icon">
+
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/fontawesome/css/all.min.css') }}">
@@ -26,7 +28,7 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="https://o.remove.bg/downloads/eb624192-57ae-4711-ba39-93cc75d5c050/image-removebg-preview.png" alt="logo" width="100"
+                            <img src="https://o.remove.bg/downloads/bb41e3bd-874c-4a93-85d4-9cadc83f93b7/image-removebg-preview.png" alt="logo" width="100"
                                 class="shadow-light rounded-circle">
                         </div>
 

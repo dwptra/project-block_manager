@@ -165,6 +165,8 @@ class BlockController extends Controller
             'block_id' => 'required',
         ]);
 
+        
+
         // Membuat data baru dengan isian dari request
         PageDetails::create([
             'section_name' => $request->section_name,
