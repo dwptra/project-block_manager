@@ -43,9 +43,13 @@
                             </a>
                             <a class="btn btn-danger ml-1" href="{{ route('page', $pageDB->project_id) }}">Back</a>
                         </div>
-                        <p class="col"><b class="">Project Name :</b> {{ $pageDB->projects->project_name }}</p>
-                        <p class="col"><b class="">Page Name :</b>{{ $pageDB->page_name }}</p>
-                        <div class="table-responsive">
+                        <table>
+                            <tbody>
+                                <tr><td><b>Project Name</b></td><td class="ml-4"> :</td><td>{{ $pageDB->projects->project_name }}</td></tr>
+                                <tr><td><b>Project Manager</b></td><td> :</td><td>{{ $pageDB->page_name }}</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="table-responsive mt-3">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>

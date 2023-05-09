@@ -57,7 +57,7 @@ Route::middleware('cekAuth')->group(function () {
             Route::post('/create', [UserController::class, 'userPost'])->name('user.post');
             Route::get('/edit/{id}', [UserController::class, 'editUser'])->name('user.edit');
             Route::patch('/update/{id}', [UserController::class, 'updateUser'])->name('user.update');
-            Route::get('/edit/editpassword/{id}', [UserController::class, 'editPassword'])->name('password.edit');
+            Route::get('/formeditpassword/{id}', [UserController::class, 'editPassword'])->name('password.edit');
             Route::patch('/edit/updatePassword/{id}', [UserController::class, 'updatePassword'])->name('password.update');
             Route::delete('/delete/{id}', [UserController::class, 'deleteUser'])->name('user.delete');
         });

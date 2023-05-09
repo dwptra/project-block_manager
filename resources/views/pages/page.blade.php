@@ -36,9 +36,13 @@
                             <a class="btn btn-danger ml-1" href="{{ route('project') }}">Back</a>
                         </div>
                         <hr>
-                        <p><b class="pr-4">Project Name</b>: {{ $project->project_name }}</p>
-                        <p><b class="pr-2">Project Manager</b>: {{ $project->projectManager->name }}</p>
-                        <div class="table-responsive">
+                        <table>
+                            <tbody>
+                                <tr><td><b>Project Name</b></td><td class="ml-4"> :</td><td>{{ $project->project_name }}</td></tr>
+                                <tr><td><b>Project Manager</b></td><td> :</td><td>{{ $project->projectManager->name }}</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="table-responsive mt-3">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
