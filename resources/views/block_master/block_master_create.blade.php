@@ -79,10 +79,24 @@
                                         </div>
                                     </div>
                                     <div class="col-8 offset-md-4">
-                                        <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 1920 x 1080 )</i>
+                                        <p class="md-2 ml-1">
+                                            <i class="text-danger">( Ukuran gambar 1920 x 1080 )</i><br>
+                                            <i id="mobile-image-error" class="text-danger"></i>
                                         </p>
                                     </div>
                                 </div>
+                                <script>
+                                    function validateMobileImage(event) {
+                                        const file = event.target.files[0];
+                                        const errorElement = document.getElementById("mobile-image-error");
+                                        if (file.size > 1000000) {
+                                            errorElement.textContent = "File size is too large. Maximum file size is 1 MB.";
+                                            event.target.value = null; // Reset the file input
+                                        } else {
+                                            errorElement.textContent = "";
+                                        }
+                                    }
+                                    </script>
                                 <div class="row" style="display: none" id="preview-container">
                                     <div class="col-md-4" for="preview"><b>Main Image Preview <span
                                                 class="text-danger"></span></b></div>
@@ -166,7 +180,6 @@
             </div>
         </section>
     </div>
-</div>
 </div>
 <script src="{{ asset('assets/js/image.js')}}"></script>
 @endsection
