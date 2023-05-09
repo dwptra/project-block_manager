@@ -36,7 +36,7 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="text" name="name" class="form-control" id="val-name"
-                                                placeholder="Enter a Name" value="{{ $user->name }}">
+                                                placeholder="Enter a Name" required value="{{ $user->name }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -45,7 +45,7 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="email" name="email" class="form-control" id="val-email"
-                                                placeholder="Enter a Email" value="{{ $user->email }}">
+                                                placeholder="Enter a Email" required value="{{ $user->email }}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -53,7 +53,7 @@
                                                 class="text-danger">*</span>
                                         </label>
                                         <div class="col-lg-6">
-                                            <select class="form-control selectric">
+                                            <select class="form-control selectric" name="role" required>
                                                 <option value="Project Manager" {{ $user->role == 'Project Manager' ? 'selected' : '' }}>Project Manager</option>
                                                 <option value="Admin" {{ $user->role == 'Admin' ? 'selected' : ''}}>Admin</option>
                                               </select>

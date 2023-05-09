@@ -25,16 +25,15 @@
                                     @endforeach
                                 </div>
                                 @endif
-                                <form class="form-valide" action="{{ route('user.create') }}" method="post">
+                                <form class="form-valide" action="{{ route('user.post') }}" method="post">
                                     @csrf
-                                    
                                     <div class="form-group row">
                                         <label class="col-lg-4 col-form-label" for="val-name">Name <span
                                                 class="text-danger">*</span>
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="text" name="name" class="form-control" id="val-name"
-                                                placeholder="Enter a Name">
+                                                placeholder="Enter a Name" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -43,7 +42,7 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="email" name="email" class="form-control" id="val-email"
-                                                placeholder="Enter a Email">
+                                                placeholder="Enter a Email" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -52,7 +51,7 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <select class="form-control selectric" aria-label="Default select example"
-                                                name="role">
+                                                name="role" required>
                                                 <option value="Project Manager">Project Manager</option>
                                                 <option value="Admin">Admin</option>
                                             </select>
@@ -64,7 +63,7 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="password" name="password" class="form-control"
-                                                id="val-password" placeholder="Enter a Password">
+                                                id="val-password" placeholder="Enter a Password" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
