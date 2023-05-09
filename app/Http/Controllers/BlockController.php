@@ -237,6 +237,7 @@ class BlockController extends Controller
                 if ($item->sort == $newSort) {
                     $item->update(['sort' => $currentSort]);
                 } else {
+                    $currentSort = $item->sort;
                     $item->update(['sort' => $currentSort]);
                 }
             }

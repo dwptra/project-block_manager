@@ -12,7 +12,7 @@
                     <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
                     <div class="alert-body">
                       <div class="alert-title">Warning</div>
-                      Make sure Sort is not the same.
+                      Make sure <b>Sort</b> is not the same.
                     </div>
                   </div>
                 @if (Session::get('createPage'))
@@ -70,21 +70,21 @@
                                     <td><b>Section Name</b></td>
                                     <td class="ml-4"> &nbsp&nbsp</td>
                                     <td>
-                                        <input type="text" name="section_name" class="form-control" placeholder="Enter Section Name">
+                                        <input type="text" name="section_name" class="form-control" placeholder="Enter Section Name" value="{{ old('section_name') }}" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> Section Note</b></td>
                                     <td> &nbsp&nbsp</td>
                                     <td>
-                                        <textarea name="note" class="form-control" rows="5" cols="50" placeholder="Enter Note"></textarea>
+                                        <textarea name="note" class="form-control" rows="5" cols="50" placeholder="Enter Note" value="{{ old('note') }}"></textarea>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td><b> Sort</b></td>
                                     <td> &nbsp&nbsp</td>
                                     <td>
-                                        <input type="text" name="sort" class="form-control" placeholder="Enter Section Sort">
+                                        <input type="text" name="sort" class="form-control" placeholder="Enter Section Sort" value="{{ old('sort') }}" >
                                     </td>
                                 </tr>
                             </tbody>
@@ -118,7 +118,7 @@
                                                         <div class="card-body">
                                                             <input type="radio" class="btn-check btn-check-custom" name="block_id"
                                                                 id="option{{ $block->id }}" autocomplete="off"
-                                                                value="{{ $block->id }}" />
+                                                                value="{{ $block->id }}" required>
                                                             <label class="btn btn-light align-center w-100 mb-0"
                                                                 for="option{{ $block->id }}">{{ $block->block_name }}</label>
                                                         </div>
