@@ -30,7 +30,7 @@
                                 <label class="col-lg-4 col-form-label" for="val-page-name">Page Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input name="page_name" type="text" class="form-control" id="val-page-name" name="val-page-name" placeholder="Enter page-name..">
+                                    <input name="page_name" type="text" class="form-control" id="val-page-name" name="val-page-name" placeholder="Enter page-name.." required>
                                 </div>
                             </div>
                             <div class="form-group row">

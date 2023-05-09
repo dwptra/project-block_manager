@@ -30,7 +30,7 @@
                                 <label class="col-lg-4 col-form-label" for="val-username">Project Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="text" name="project_name" class="form-control" id="val-username" placeholder="Enter a Project Name">
+                                    <input type="text" name="project_name" class="form-control" id="val-username" placeholder="Enter a Project Name" required>
                                 </div>
                             </div>
                             @if(Auth::user()->role == 'Admin')
