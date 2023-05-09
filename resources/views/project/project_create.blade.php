@@ -30,7 +30,7 @@
                                 <label class="col-lg-4 col-form-label" for="val-username">Project Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="text" name="project_name" class="form-control" id="val-username" placeholder="Enter a Project Name" required>
+                                    <input type="text" name="project_name" class="form-control" id="val-username" placeholder="Enter a Project Name"  value="{{ old('project_name') }}" required>
                                 </div>
                             </div>
                             @if(Auth::user()->role == 'Admin')
@@ -39,13 +39,14 @@
                                 </label>
                                 <div class="col-lg-6">
                                     <select class="form-control selectric" aria-label="Default select example" name="project_manager">
-                                        <option value="" selected disabled>Select Project Manager</option>                                                                    
+                                        <option value="" selected disabled>Select Project Manager</option>
                                         @foreach ($user as $pm)
                                             @if($pm['role'] == 'Project Manager')
-                                                <option value="{{ $pm->id }}">{{ $pm->name }}</option>
+                                                <option value="{{ $pm->id }}" {{ old('project_manager') == $pm->id ? 'selected' : '' }}>{{ $pm->name }}</option>
                                             @endif
                                         @endforeach
-                                    </select>       
+                                    </select>
+                                        
                                 </div>
                             </div>
                             @endif

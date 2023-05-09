@@ -33,7 +33,7 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="text" name="name" class="form-control" id="val-name"
-                                                placeholder="Enter a Name" required>
+                                                placeholder="Enter a Name" value="{{ old('name') }}" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -42,7 +42,7 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="email" name="email" class="form-control" id="val-email"
-                                                placeholder="Enter a Email" required>
+                                                placeholder="Enter a Email"  value="{{ old('email') }}" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -51,9 +51,8 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <select class="form-control selectric" aria-label="Default select example"
-                                                name="role" required>
-                                                <option value="Project Manager">Project Manager</option>
-                                                <option value="Admin">Admin</option>
+                                                name="role" value="{{ old('role') }}" required>
+                                                <option value="Project Manager" {{ old('role') == "Project Manager" ? 'selected' : "" }}>Project Manager</option>
                                             </select>
                                         </div>
                                     </div>
@@ -63,7 +62,7 @@
                                         </label>
                                         <div class="col-lg-6">
                                             <input type="password" name="password" class="form-control"
-                                                id="val-password" placeholder="Enter a Password" required>
+                                                id="val-password" placeholder="Enter a Password" value="{{ old('password') }}" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
