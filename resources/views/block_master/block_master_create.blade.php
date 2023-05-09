@@ -81,22 +81,11 @@
                                     <div class="col-8 offset-md-4">
                                         <p class="md-2 ml-1">
                                             <i class="text-danger">( Ukuran gambar 1920 x 1080 )</i><br>
-                                            <i id="mobile-image-error" class="text-danger"></i>
+                                            <p id="main-image-error" class="text-danger"></p>
                                         </p>
                                     </div>
                                 </div>
-                                <script>
-                                    function validateMobileImage(event) {
-                                        const file = event.target.files[0];
-                                        const errorElement = document.getElementById("mobile-image-error");
-                                        if (file.size > 1000000) {
-                                            errorElement.textContent = "File size is too large. Maximum file size is 1 MB.";
-                                            event.target.value = null; // Reset the file input
-                                        } else {
-                                            errorElement.textContent = "";
-                                        }
-                                    }
-                                    </script>
+                                
                                 <div class="row" style="display: none" id="preview-container">
                                     <div class="col-md-4" for="preview"><b>Main Image Preview <span
                                                 class="text-danger"></span></b></div>
@@ -110,12 +99,14 @@
                                     <div class="input-group col-lg-8">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="mobile_image"
-                                                onchange="previewMobileImage(event)">
+                                                onchange="previewMobileImage(event)" >
                                             <label class="custom-file-label">Choose file</label>
                                         </div>
                                     </div>
                                     <div class="col-8 offset-md-4">
                                         <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 360 x 640 )</i></p>
+                                        <p id="mobile-image-error" class="text-danger"></p>
+                                        <p id="error" class="text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="row" style="display: none" id="mobile-preview-container">
@@ -138,6 +129,7 @@
                                     <div class="col-8 offset-md-4">
                                         <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 1920 x 1080 )</i>
                                         </p>
+                                        <p id="sample-image-1-error" class="text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="row" style="display: none" id="sample1-preview-container">
@@ -159,6 +151,7 @@
                                     </div>
                                     <div class="col-8 offset-md-4">
                                         <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 360 x 640 )</i></p>
+                                        <p id="sample-image-2-error" class="text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="row mt-3" style="display: none" id="sample2-preview-container">

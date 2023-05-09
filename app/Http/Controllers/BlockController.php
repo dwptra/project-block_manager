@@ -24,7 +24,7 @@ class BlockController extends Controller
     {
         $pagePrint = Page::findOrFail($pageId);
         $projectPrint = Project::findOrFail($pagePrint->project_id);
-        $blockPrint = PageDetails::with('blocks')->where('page_id', $pageId)->get();
+        $blockPrint = PageDetails::with('blocks')->where('page_id', $pageId)->orderby('sort', 'asc')->get();
     
         return view('print.block_print', compact('pagePrint', 'blockPrint', 'projectPrint'));
     }    
