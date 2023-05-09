@@ -144,10 +144,10 @@ class BlockController extends Controller
 
     public function deleteBlock($id)
     {
-        PageDetails::findOrFail($id)->delete();
-        $page_id = $pageDetailsDelete->page_id;
+        $block_delete = PageDetails::findOrFail($id);
+        $block_delete->delete();
         // Berhasil menghapus data, arahkan kembali ke halaman /block dengan pemberitahuan
-        return redirect()->route('block', $page_id)->with('deleteBlock', 'Berhasil menghapus data!');
+        return redirect()->route('block', $block_delete->page_id)->with('deleteBlock', 'Berhasil menghapus data!');
     }
 
     public function blockCreate($id)
@@ -165,18 +165,13 @@ class BlockController extends Controller
             'block_id' => 'required',
         ]);
 
-        // Menghitung urutan data
-        $lastSort = PageDetails::where('page_id', $page->id)->max('sort');
-        $sort = $lastSort + 1; 
-
-
         // Membuat data baru dengan isian dari request
         PageDetails::create([
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
             'page_id' => $page->id, //mengambil id dari objek page
-            'sort' => $sort++,
+            'sort' => $request->sort,
         ]);
         
         // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
@@ -288,10 +283,6 @@ class BlockController extends Controller
         BlockCategory::where('id', '=', $id)->delete();
         return redirect()->route('block.categories')->with('deleteCategory', 'Berhasil menghapus Category.');
     }
-
-
-
-
     
 
     /**

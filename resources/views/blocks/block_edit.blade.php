@@ -57,11 +57,7 @@
                                         <td><b> Sort</b></td>
                                         <td> &nbsp&nbsp</td>
                                         <td>
-                                            <select class="form-select mt-1" aria-label="Default select example" name="sort">
-                                                @foreach ($sort as $so)    
-                                                <option value="{{ $so->sort }}" {{ $so->sort == $blockEdit->sort ? 'selected' : '' }}>{{ $so->sort }}</option>
-                                                @endforeach
-                                            </select>
+                                            <input type="text" name="sort" class="form-control" placeholder="Enter Section Sort" value="{{ $blockEdit->sort}}">
                                         </td>
                                     </tr>
                                 </tbody>

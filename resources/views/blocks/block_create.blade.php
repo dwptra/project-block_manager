@@ -73,6 +73,13 @@
                                         <textarea name="note" class="form-control" rows="5" cols="50" placeholder="Enter Note"></textarea>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td><b> Sort</b></td>
+                                    <td> &nbsp&nbsp</td>
+                                    <td>
+                                        <input type="text" name="sort" class="form-control" placeholder="Enter Section Sort">
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                             <div class="mt-3 mb-3">
