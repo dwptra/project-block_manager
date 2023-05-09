@@ -19,33 +19,69 @@
             <div class="row">
                 <div class="col-lg-12 mt-4">
                     <h1>{{ $pagePrint->projects->project_name }}</h1>
-                    <div class="mt-4 row">
-                        <p><strong>Project Name : </strong>{{$pagePrint->projects->project_name}}</p>
-                    </div>
-                    <div class="row">
-                        <p><strong>Project Manager : </strong>{{ $projectPrint->projectManager->name }}</p>
-                    </div>
-                    <div class="row">
-                        <p><strong>Page Name : </strong>{{ $pagePrint->page_name }}</p>
-                    </div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><b>Project Name</b></td>
+                                <td class="">&nbsp:</td>
+                                <td style="">{{ $pagePrint->projects->project_name }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Project Manager</b></td>
+                                <td> &nbsp:</td>
+                                <td>{{ $projectPrint->projectManager->name }}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Page Name</b></td>
+                                <td class="ml-4"> &nbsp:</td>
+                                <td>
+                                    {{ $pagePrint->page_name }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 mt-4 ">
                 @forelse($blockPrint as $block)
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card w-100 mb-3 text-start" ">
                     <div class="row g-0">
                         <div class="col">
                             <img src="{{ asset('storage/images/main_image/' . basename($block->blocks->main_image)) }}"
-                                class="img-fluid rounded-start" style="max-width: 313px;">
+                                class="img-fluid rounded-start" style="max-width: 350px;">
                         </div>
-                        <div class="col -ml-6">
+                        <div class="col">
                             <div class="card-body">
-                                <p class="card-text"><strong>Urutan/Sort</strong> : {{ $block->sort }}</p>
-                                <p class="card-text"><strong>Section Name</strong> : {{ $block->section_name }}</p>
-                                <p class="card-text"><strong>Block Name</strong> : {{ $block->blocks->block_name }}</p>
-                                <p class="card-text"><strong>Note</strong> : {{ $block->note }}</p>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><b>Urutan/Sort</b></td>
+                                            <td class="">&nbsp:</td>
+                                            <td style="">{{ $block->sort }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Section Name</b></td>
+                                            <td> &nbsp:</td>
+                                            <td>{{ $block->section_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Block Name</b></td>
+                                            <td class="ml-4"> &nbsp:</td>
+                                            <td>
+                                                {{ $block->blocks->block_name }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b> Section Note</b></td>
+                                            <td> &nbsp:</td>
+                                            <td>
+                                                {{ $block->note }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -65,7 +101,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="text-center">
+              <tr class="text-center align-middle" style="height: 70px;">
                 <td> {{ $projectPrint->projectManager->name }}</td>
                 <td> ... </td>
               </tr>
