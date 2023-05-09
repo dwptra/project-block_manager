@@ -30,21 +30,21 @@
                                 <label class="col-lg-4 col-form-label" for="val-page-name">Page Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input name="page_name" type="text" class="form-control" id="val-page-name" name="val-page-name" placeholder="Enter page-name..">
+                                    <input name="page_name" type="text" class="form-control" id="val-page-name" name="val-page-name" placeholder="Enter page-name.."  value="{{ old('page_name') }}" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-note">Note <span class="text-danger"></span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <textarea name="note" class="form-control" id="val-note" name="val-note" rows="5" placeholder="Not Required"></textarea>
+                                    <textarea name="note" class="form-control" id="val-note" name="val-note" rows="5" placeholder="Not Required">{{ old('note') }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-skill">Status <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <select class="form-control selectric" aria-label="Default select example" name="status">
+                                    <select class="form-control selectric" aria-label="Default select example" name="status"  value="{{ old('status') }}"> 
                                         <option value="On Progress">On Progress</option>
                                         <option value="On Review">On Review</option>
                                         <option value="Approved">Approved</option>

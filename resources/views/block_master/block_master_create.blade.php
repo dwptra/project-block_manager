@@ -50,31 +50,30 @@
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Block Name <span class="text-danger">*</span></b></div>
                                     <div class="col-md-8"><input type="text" name="block_name" class="form-control"
-                                            placeholder="Enter Block Name" required></div>
+                                            placeholder="Enter Block Name" value="{{ old('block_name') }}" required></div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Category <span class="text-danger">*</span></b></div>
                                     <div class="col-lg-8">
-                                        <select class="form-control selectric" aria-label="Default select example"
+                                        <select class="form-control selectric" aria-label="Default select example" required value="{{ old('category_id') }}"
                                             name="category_id">
                                             <option value="" selected disabled>Select Category Block</option>
                                             @foreach($blockCategoryCreate as $category)
-                                            <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                            <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{$category->category_name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Description <span class="text-danger"></span></b></div>
                                     <div class="col-md-8"><textarea name="description" class="form-control"
-                                            id="val-note" rows="5" placeholder="Not Required"></textarea></div>
+                                            id="val-note" rows="5" placeholder="Not Required">{{ old('description') }}</textarea></div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Main Image <span class="text-danger">*</span></b></div>
                                     <div class="input-group col-lg-8">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="main_image"
+                                            <input type="file" class="custom-file-input" name="main_image"  value="{{ old('main_image') }}"
                                                 onchange="previewImage(event)">
                                             <label class="custom-file-label">Choose file</label>
                                         </div>

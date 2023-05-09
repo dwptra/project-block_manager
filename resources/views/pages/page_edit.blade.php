@@ -33,7 +33,7 @@
                                 </label>
                                 <div class="col-lg-6">
                                     <input name="page_name" type="text" class="form-control" id="val-page-name"
-                                        name="val-page-name" placeholder="Enter page-name.."
+                                        name="val-page-name" placeholder="Enter page-name.." required
                                         value="{{ $pageDB->page_name }}">
                                 </div>
                             </div>

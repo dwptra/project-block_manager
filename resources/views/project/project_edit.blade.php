@@ -21,7 +21,7 @@
                                 <label class="col-lg-4 col-form-label" for="val-username">Project Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="text" name="project_name" class="form-control" id="val-username" placeholder="Enter a Project Name" value="{{ $project['project_name'] }}">
+                                    <input type="text" name="project_name" class="form-control" id="val-username" placeholder="Enter a Project Name" required value="{{ $project['project_name'] }}">
                                 </div>
                             </div>
                             @if(Auth::user()->role == 'Admin')

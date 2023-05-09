@@ -30,8 +30,8 @@
                                 @method('PATCH')
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Block Name <span class="text-danger">*</span></b></div>
-                                    <div class="col-md-8"><input type="text" name="block_name" class="form-control"
-                                            placeholder="Enter Block Name" value="{{ $blockEdit->block_name }}"></div>
+                                    <div class="col-md-8"><input type="text" name="block_name" class="form-control" 
+                                            placeholder="Enter Block Name" required value="{{ $blockEdit->block_name }}"></div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Category <span class="text-danger">*</span></b></div>
