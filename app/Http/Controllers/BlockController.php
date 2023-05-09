@@ -144,18 +144,8 @@ class BlockController extends Controller
 
     public function deleteBlock($id)
     {
-        $pageDetailsDelete = PageDetails::findOrFail($id);
+        PageDetails::findOrFail($id)->delete();
         $page_id = $pageDetailsDelete->page_id;
-
-        // Hapus data
-        $pageDetailsDelete->delete(); 
-
-        // Perbarui nomor urutan data
-        $pageDetails = PageDetails::where('page_id', $page_id)->orderBy('sort')->get();
-        foreach ($pageDetails as $key => $detail) {
-            $detail->update(['sort' => $key + 1]);
-        }
-
         // Berhasil menghapus data, arahkan kembali ke halaman /block dengan pemberitahuan
         return redirect()->route('block', $page_id)->with('deleteBlock', 'Berhasil menghapus data!');
     }

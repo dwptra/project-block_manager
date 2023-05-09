@@ -44,7 +44,7 @@
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="https://o.remove.bg/downloads/eb624192-57ae-4711-ba39-93cc75d5c050/image-removebg-preview.png">
+                            <i class="fa fa-user"></i>
                             <div class="d-sm-none d-lg-inline-block">Hi, {{ Auth()->User()->name }}</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
