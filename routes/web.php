@@ -31,20 +31,19 @@ Route::middleware('cekAuth')->group(function () {
     // Masterdata
     // Block (M)
     Route::prefix('block')->group(function () {
-        Route::prefix('blocks')->group(function () {
-            Route::get('/', [BlockController::class, 'blockMaster'])->name('block.master');
-            Route::get('/formcreateblocks', [BlockController::class, 'blockMasterCreate'])->name('blockmaster.create');
-            Route::post('/createblocks', [BlockController::class, 'blockMasterPost'])->name('blockmaster.post');
-            Route::get('/formeditblocks/{id}', [BlockController::class, 'blockMasterEdit'])->name('blockmaster.edit');
-            Route::patch('/updateblocks/{id}', [BlockController::class, 'blockMasterUpdate'])->name('blockmaster.update');
-            Route::delete('/deleteblocks/{id}', [BlockController::class, 'blockMasterDelete'])->name('blockmaster.delete');
-        });
+        Route::get('/', [BlockController::class, 'blockMaster'])->name('block.master');
+        Route::get('/view', [BlockController::class, 'blockMasterView'])->name('blockmaster.view');
+        Route::get('/create', [BlockController::class, 'blockMasterCreate'])->name('blockmaster.create');
+        Route::post('/create/process', [BlockController::class, 'blockMasterPost'])->name('blockmaster.post');
+        Route::get('/edit/{id}', [BlockController::class, 'blockMasterEdit'])->name('blockmaster.edit');
+        Route::patch('/edit/{id}/process', [BlockController::class, 'blockMasterUpdate'])->name('blockmaster.update');
+        Route::delete('/delete/{id}', [BlockController::class, 'blockMasterDelete'])->name('blockmaster.delete');
 
         Route::prefix('categories')->group(function () {
             Route::get('/', [BlockController::class, 'blockCategory'])->name('block.categories');
-            Route::post('/createcategory', [BlockController::class, 'postCategory'])->name('category.post');
-            Route::delete('/deletecategory/{id}', [BlockController::class, 'deleteCategory'])->name('category.delete');
-            Route::patch('/updatecategory/{id}', [BlockController::class, 'updateCategory'])->name('category.update');
+            Route::post('/create/process', [BlockController::class, 'postCategory'])->name('category.post');
+            Route::delete('/delete/{id}', [BlockController::class, 'deleteCategory'])->name('category.delete');
+            Route::patch('/delete/{id}/process', [BlockController::class, 'updateCategory'])->name('category.update');
         });
     });
 
@@ -53,13 +52,13 @@ Route::middleware('cekAuth')->group(function () {
     Route::prefix('user')->group(function () {
         Route::get('/', [UserController::class, 'user'])->name('user');
         Route::middleware('cekRole:Admin')->group(function () {
-            Route::get('/formcreateuser', [UserController::class, 'createUser'])->name('user.create');
-            Route::post('/createuser', [UserController::class, 'userPost'])->name('user.post');
-            Route::get('/formedituser/{id}', [UserController::class, 'editUser'])->name('user.edit');
-            Route::patch('/updateuser/{id}', [UserController::class, 'updateUser'])->name('user.update');
-            Route::get('/formeditpassword/{id}', [UserController::class, 'editPassword'])->name('password.edit');
-            Route::patch('/updatepassword/{id}', [UserController::class, 'updatePassword'])->name('password.update');
-            Route::delete('/deleteuser/{id}', [UserController::class, 'deleteUser'])->name('user.delete');
+            Route::get('/create', [UserController::class, 'createUser'])->name('user.create');
+            Route::post('/create/process', [UserController::class, 'userPost'])->name('user.post');
+            Route::get('/edit/{id}', [UserController::class, 'editUser'])->name('user.edit');
+            Route::patch('/edit/{id}/process', [UserController::class, 'updateUser'])->name('user.update');
+            Route::get('/editpassword/{id}', [UserController::class, 'editPassword'])->name('password.edit');
+            Route::patch('/editpassword/{id}/process', [UserController::class, 'updatePassword'])->name('password.update');
+            Route::delete('/delete/{id}/process', [UserController::class, 'deleteUser'])->name('user.delete');
         });
     });
     
@@ -67,30 +66,30 @@ Route::middleware('cekAuth')->group(function () {
     //Project
     Route::prefix('project')->group(function () {
         Route::get('/', [ProjectController::class, 'project'])->name('project');
-        Route::get('/formcreateproject', [ProjectController::class, 'createProject'])->name('project.create');
-        Route::post('/createproject', [ProjectController::class, 'projectPost'])->name('project.post');
-        Route::get('/formeditproject/{id}', [ProjectController::class, 'editProject'])->name('project.edit');
-        Route::patch('/updateproject/{id}', [ProjectController::class, 'updateProject'])->name('project.update');
-        Route::delete('/deleteproject/{id}', [ProjectController::class, 'deleteProject'])->name('project.delete');
+        Route::get('/create', [ProjectController::class, 'createProject'])->name('project.create');
+        Route::post('/create/process', [ProjectController::class, 'projectPost'])->name('project.post');
+        Route::get('/edit/{id}', [ProjectController::class, 'editProject'])->name('project.edit');
+        Route::patch('/edit/{id}/process', [ProjectController::class, 'updateProject'])->name('project.update');
+        Route::delete('/delete/{id}/process', [ProjectController::class, 'deleteProject'])->name('project.delete');
         
 
         //page
         Route::prefix('page')->group(function () {
             Route::get('/{id}', [PageController::class, 'page'])->name('page');
-            Route::get('/formcreatepage/{id}', [PageController::class, 'createPage'])->name('page.create');
-            Route::post('/createpage/{id}', [PageController::class, 'postPage'])->name('page_create.post');
-            Route::get('/formeditpage/{id}', [PageController::class, 'editPage'])->name('page.edit');
-            Route::patch('/updatepage/{id}', [PageController::class, 'updatePage'])->name('page.update');
-            Route::delete('/deletepage/{id}', [PageController::class, 'deletePage'])->name('page.delete');
+            Route::get('/create/{id}', [PageController::class, 'createPage'])->name('page.create');
+            Route::post('/create/{id}/process', [PageController::class, 'postPage'])->name('page_create.post');
+            Route::get('/edit/{id}', [PageController::class, 'editPage'])->name('page.edit');
+            Route::patch('/edit/{id}/process', [PageController::class, 'updatePage'])->name('page.update');
+            Route::delete('/delete/{id}/process', [PageController::class, 'deletePage'])->name('page.delete');
 
         //block
             Route::prefix('block')->group(function () {
                 Route::get('/{id}', [BlockController::class, 'block'])->name('block');
-                Route::get('/formcreateblock/{id}', [BlockController::class, 'blockCreate'])->name('block.create');
-                Route::post('/createblock/{id}', [BlockController::class, 'postBlock'])->name('block.post');
-                Route::get('/formeditblock/{id}', [BlockController::class, 'blockEdit'])->name('block.edit');
-                Route::patch('/updateblock/{id}', [BlockController::class, 'updateBlock'])->name('block.update');
-                Route::delete('/deleteblock/{id}', [BlockController::class, 'deleteBlock'])->name('block.delete');
+                Route::get('/create/{id}', [BlockController::class, 'blockCreate'])->name('block.create');
+                Route::post('/create/{id}/processs', [BlockController::class, 'postBlock'])->name('block.post');
+                Route::get('/edit/{id}', [BlockController::class, 'blockEdit'])->name('block.edit');
+                Route::patch('/edit/{id}/processs', [BlockController::class, 'updateBlock'])->name('block.update');
+                Route::delete('/delete/{id}/processs', [BlockController::class, 'deleteBlock'])->name('block.delete');
                 Route::get('/blocksprint/{id}', [BlockController::class, 'print'])->name('blocks.print');
             });
         });

@@ -81,15 +81,17 @@
                                                         alt="image"></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a class="btn btn-primary mr-1"
-                                                            href="{{ route('blockmaster.edit', $block->id) }}">Edit</a>
+                                                        <a title="View" class="btn btn-primary mr-1"
+                                                            href="{{ route('blockmaster.view') }}"><i class="fa-solid fa-info"></i></a>
+                                                        <a title="Edit" class="btn btn-success mr-1"
+                                                            href="{{ route('blockmaster.edit', $block->id) }}"><li class="ion-edit" style="list-style: none;" ></li></a>
                                                         <form action="{{ route('blockmaster.delete', $block['id']) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button class="btn btn-danger"
+                                                            <button class="btn btn-danger" title="Delete"
                                                                 onclick="return confirm('Yakin ingin menghapus?')"
-                                                                type="submit">Delete</button>
+                                                                type="submit"><li class="ion-trash-b" style="list-style: none;" ></li></button>
                                                         </form>
                                                     </div>
                                                 </td>
