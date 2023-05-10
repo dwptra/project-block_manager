@@ -63,8 +63,9 @@
                                         </div>
                                     </div>
                                     <div class="col-8 offset-md-4">
-                                        <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 1920 x 1080 )</i>
-                                        </p>
+                                        <p id="main-image-error" class="text-danger md-2 ml-1"></p>
+                                        <p id="tipe-main-image" class="text-danger md-2 ml-1"></p>
+                                        <p id="size-main-image" class="text-danger md-2 ml-1"></p>
                                     </div>
                                 </div>
                                 <div class="row mt-3" id="preview-container">
@@ -87,7 +88,9 @@
                                         </div>
                                     </div>
                                     <div class="col-8 offset-md-4">
-                                        <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 360 x 640 )</i></p>
+                                        <p id="mobile-image-error" class="text-danger md-2 ml-1"></p>
+                                        <p id="tipe-mobile-image" class="text-danger md-2 ml-1"></p>
+                                        <p id="size-mobile-image" class="text-danger md-2 ml-1"></p>
                                     </div>
                                 </div>
                                 <div class="row" id="mobile-preview-container">
@@ -109,8 +112,9 @@
                                         </div>
                                     </div>
                                     <div class="col-8 offset-md-4">
-                                        <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 1920 x 1080 )</i>
-                                        </p>
+                                        <p id="sample-image-1-error" class="text-danger md-2 ml-1"></p>
+                                        <p id="tipe-sample-image-1" class="text-danger md-2 ml-1"></p>
+                                        <p id="size-sample-image-1" class="text-danger md-2 ml-1"></p>
                                     </div>
                                 </div>
                                 <div class="row" id="sample1-preview-container">
@@ -132,7 +136,9 @@
                                         </div>
                                     </div>
                                     <div class="col-8 offset-md-4">
-                                        <p class="md-2 ml-1"><i class="text-danger">( Ukuran gambar 360 x 640 )</i></p>
+                                        <p id="sample-image-2-error" class="text-danger md-2 ml-1"></p>
+                                        <p id="tipe-sample-image-2" class="text-danger md-2 ml-1"></p>
+                                        <p id="size-sample-image-2" class="text-danger md-2 ml-1"></p>
                                     </div>
                                 </div>
                                 <div class="row mt-3" id="sample2-preview-container">

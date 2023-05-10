@@ -72,6 +72,12 @@ class BlockController extends Controller
         return redirect()->route('block.master')->with('createBlockMaster', 'Berhasil membuat block');
     }
 
+    public function blockMasterView()
+    {
+
+        return view('block_master.block_master_view');
+    }
+
     public function blockMasterEdit($id)
     {
         $blockEdit = Block::findOrFail($id);

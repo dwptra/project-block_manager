@@ -81,15 +81,17 @@
                                                         alt="image"></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a class="btn btn-primary mr-1"
-                                                            href="{{ route('blockmaster.edit', $block->id) }}">Edit</a>
+                                                        <a title="View" class="btn btn-primary mr-1"
+                                                            href="{{ route('blockmaster.view') }}"><i class="fa-solid fa-info"></i></a>
+                                                        <a title="Edit" class="btn btn-success mr-1"
+                                                            href="{{ route('blockmaster.edit', $block->id) }}"><i class="fa-solid fa-pen"></i></a>
                                                         <form action="{{ route('blockmaster.delete', $block['id']) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button class="btn btn-danger"
+                                                            <button class="btn btn-danger" title="Delete"
                                                                 onclick="return confirm('Yakin ingin menghapus?')"
-                                                                type="submit">Delete</button>
+                                                                type="submit"><i class="fa-solid fa-trash"></i></button>
                                                         </form>
                                                     </div>
                                                 </td>

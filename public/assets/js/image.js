@@ -60,8 +60,8 @@ function previewMobileImage(event) {
     const errorTipe = document.getElementById("tipe-mobile-image");
     const errorSize = document.getElementById("size-mobile-image");
     const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-    const Width = 1920;
-    const Height = 1080;
+    const Width = 360;
+    const Height = 640;
     var input = event.target;
 
     if (!allowedTypes.includes(file.type)) {
@@ -82,13 +82,13 @@ function previewMobileImage(event) {
             var img = new Image();
             img.onload = function () {
                 if (img.width > Width || img.height > Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 1920 x 1080.";
+                    errorSize.textContent = "Silahkan upload file dengan resolusi 360 x 640.";
                     event.target.value = null; // Reset the file input
                     document.getElementById("mobile-preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }
                 else if (img.width < Width || img.height < Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 1920 x 1080.";
+                    errorSize.textContent = "Silahkan upload file dengan resolusi 360 x 640.";
                     event.target.value = null; // Reset the file input
                     document.getElementById("mobile_preview-container").style.display = "none";
                     errorSize.style.display = "block";
@@ -168,8 +168,8 @@ function previewSample2(event) {
     const errorTipe = document.getElementById("tipe-sample-image-2");
     const errorSize = document.getElementById("size-sample-image-2");
     const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-    const Width = 1920;
-    const Height = 1080;
+    const Width = 360;
+    const Height = 640;
     var input = event.target;
 
     if (!allowedTypes.includes(file.type)) {
@@ -190,13 +190,13 @@ function previewSample2(event) {
             var img = new Image();
             img.onload = function () {
                 if (img.width > Width || img.height > Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 1920 x 1080.";
+                    errorSize.textContent = "Silahkan upload file dengan resolusi 360 x 640.";
                     event.target.value = null; // Reset the file input
                     document.getElementById("sample2-preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }
                 else if (img.width < Width || img.height < Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 1920 x 1080.";
+                    errorSize.textContent = "Silahkan upload file dengan resolusi 360 x 640.";
                     event.target.value = null; // Reset the file input
                     document.getElementById("sample2_preview-container").style.display = "none";
                     errorSize.style.display = "block";

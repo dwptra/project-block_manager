@@ -156,7 +156,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
-                    <a href="{{ route('block.categories') }}" type="button" class="btn btn-secondary">Close</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
                 </div>
             </form>
         </div>
