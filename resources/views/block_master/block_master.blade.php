@@ -84,14 +84,14 @@
                                                         <a title="View" class="btn btn-primary mr-1"
                                                             href="{{ route('blockmaster.view') }}"><i class="fa-solid fa-info"></i></a>
                                                         <a title="Edit" class="btn btn-success mr-1"
-                                                            href="{{ route('blockmaster.edit', $block->id) }}"><li class="ion-edit" style="list-style: none;" ></li></a>
+                                                            href="{{ route('blockmaster.edit', $block->id) }}"><i class="fa-solid fa-pen"></i></a>
                                                         <form action="{{ route('blockmaster.delete', $block['id']) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-danger" title="Delete"
                                                                 onclick="return confirm('Yakin ingin menghapus?')"
-                                                                type="submit"><li class="ion-trash-b" style="list-style: none;" ></li></button>
+                                                                type="submit"><i class="fa-solid fa-trash"></i></button>
                                                         </form>
                                                     </div>
                                                 </td>
