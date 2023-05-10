@@ -1,5 +1,7 @@
 @extends('layout')
 @section('content')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
@@ -62,26 +64,6 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            {{-- <div class="row mt-3">
-                                <div class="col-md-4"><b>Section Name:</b></div>
-                                <div class="col-md-8"><input type="text" name="section_name" class="form-control"
-                                        placeholder="Enter Section Name" value="{{ $blockEdit->section_name}}"></div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-4"><b>Section Note:</b></div>
-                                <div class="col-md-8"><textarea type="text" name="note" class="form-control"
-                                        placeholder="Enter Note">{{ $blockEdit->note}}</textarea></div>
-                            </div> --}}
-                            {{-- <div class="row mt-3">
-                                <div class="col-md-4"><b>Sort:</b></div>
-                                <div class="col-md-8">
-                                    <select class="form-select" aria-label="Default select example" name="sort">
-                                        @foreach ($sort as $so)    
-                                        <option value="{{ $so->sort }}" {{ $so->sort == $blockEdit->sort ? 'selected' : '' }}>{{ $so->sort }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div> --}}
                             <div class="mt-3 mb-3">
                                 <button type="submit" class="btn btn-primary">Save Block</button>
                             </div>
@@ -132,4 +114,6 @@
     </div>
 </div>
 <script src="{{ asset('assets/js/slide.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
 @endsection
