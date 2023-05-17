@@ -171,7 +171,7 @@ class BlockController extends Controller
             'block_id' => 'required',
         ]);
 
-        
+
 
         // Membuat data baru dengan isian dari request
         PageDetails::create([
@@ -241,10 +241,9 @@ class BlockController extends Controller
             $currentSort = 1;
             foreach ($otherItems as $item) {
                 if ($item->sort == $newSort) {
-                    $currentSort++;
                     $item->update(['sort' => $currentSort]);
                 } else {
-                    $currentSort = $item->sort + 1;
+                    $currentSort = $item->sort;
                     $item->update(['sort' => $currentSort]);
                 }
             }
