@@ -71,22 +71,15 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a title="View" class="btn btn-primary mr-1 text-white"
+                                                        <a title="View" class="btn btn-primary mr-1 text-white" style="width: 40px;"
                                                         data-toggle="modal" data-target="#viewBlock{{ $block->id }}"><i class="fa-solid fa-info"></i></a>
-                                                        <a title="Edit" class="btn btn-success mr-1"
+                                                        <a title="Edit" class="btn btn-success mr-1" style="width: 40px;"
                                                             href="{{ route('blockmaster.edit', $block->id) }}"><i class="fa-solid fa-pen"></i></a>
-                                                        <form action="{{ route('blockmaster.delete', $block['id']) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger" title="Delete"
-                                                                onclick="return confirm('Yakin ingin menghapus?')"
-                                                                type="submit"><i class="fa-solid fa-trash"></i></button>
-                                                        </form>
+                                                        <a title="View" class="btn btn-danger mr-1 text-white" style="width: 40px;"
+                                                            data-toggle="modal" data-target="#deleteBlock{{ $block->id }}"><i class="fa-solid fa-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
-
                                             @empty
                                             <tr>
                                                 <td colspan="10" class="text-center">No data found.</td>
@@ -104,7 +97,6 @@
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -116,8 +108,9 @@
 </div>
 </div>
 
+{{-- Modal View --}}
+
 @foreach ($blockCategory as $block)
-    {{-- Modal View --}}
     <div class="modal fade" id="viewBlock{{ $block->id }}" tabindex="-1" role="dialog" aria-labelledby="createCategoriesLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -198,6 +191,35 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
                     </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal Delete --}}
+
+    <div class="modal fade" id="deleteBlock{{ $block->id }}" tabindex="-1" role="dialog" aria-labelledby="createCategoriesLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createCategoriesLabel">Delete Block</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('blockmaster.delete', $block['id']) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <div class="modal-body">
+                    <div class="form-group">
+                        <span>Are you sure?, Once deleted, you will not be able to recover this block!?</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
+                </div>
+                </div>
+                </form>
             </div>
         </div>
     </div>
