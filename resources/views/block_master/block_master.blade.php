@@ -58,7 +58,17 @@
                                                 <td>{{ $block->id }}</td>
                                                 <td>{{ $block->block_name }}</td>
                                                 <td>{{ $block->categories->category_name }}</td>
-                                                <td class="text-center">{{ $block->description ?? '-' }}</td>
+                                                <td @if ($block->description) class="" @else class="text-center" @endif>
+                                                    @if ($block->description)
+                                                        <ul style="padding-left: 0; list-style: none;">
+                                                            @foreach(explode(PHP_EOL, $block->description) as $line)
+                                                                <li>{{ $line }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                        -
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a title="View" class="btn btn-primary mr-1 text-white"
@@ -132,7 +142,15 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="inputEmail4">Note</label>
-                                <span class="d-block">{{$block->note ?? '-'}}</span>
+                                <span class="d-block">@if ($block->description)
+                                    <ul style="padding-left: 0; list-style: none;">
+                                        @foreach(explode(PHP_EOL, $block->description) as $line)
+                                            <li>{{ $line }}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    -
+                                @endif</span>
                             </div>
                         </div>
                         <hr>
