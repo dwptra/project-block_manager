@@ -118,7 +118,7 @@
                                                         <div class="gallery-item gallery-hide" data-image="{{ asset('storage/images/sample_image_2/' . basename($block->sample_image_2)) }}" data-title="Image 4"></div>
                                                     </div>
                                                     <div class="card-body">
-                                                        <input type="radio" class="selectgroup-input"  name="block_id" id="option{{ $block->id }}" autocomplete="off" value="{{ $block->id }}" checked="">
+                                                        <input type="radio" class="selectgroup-input"  name="block_id" id="option{{ $block->id }}" autocomplete="off" value="{{ $block->id }}">
                                                         <label class="selectgroup-button btn btn-light align-center w-100 mb-0" for="option{{ $block->id }}">{{ $block->block_name }}</label>
                                                     </div>
                                                 </div>
