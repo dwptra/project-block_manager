@@ -49,6 +49,7 @@
                                 <div class="d-flex justify-content-end">
                                     <a class="btn btn-primary" href="{{ route('project.create') }}">Create New Project</a>
                                 </div>
+                                <hr>
                                 <div class="table-responsive mt-3">
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>

@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group row mb-2">
                             <div class="col-sm-10">
-                                <label class="col-sm-2"><b>Project Manager</b></label>
+                                <label class="col-sm-2"><b>Page Name</b></label>
                                 <span style="font-size: 14px;">: {{ $pageDB->page_name }}</span>
                             </div>
                         </div>

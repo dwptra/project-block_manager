@@ -54,8 +54,9 @@ class PageController extends Controller
 
     public function editPage($id)
     {
+        $project = Project::findOrFail($id);
         $pageDB = Page::with('projects')->findOrFail($id);
-        return view('pages.page_edit', compact('pageDB'));
+        return view('pages.page_edit', compact('pageDB', 'project'));
     }
     
     public function updatePage(Request $request, $id)

@@ -56,19 +56,19 @@
                         <hr>
                         @csrf
                         <div class="form-group row mb-1">
-                            <label class="col-sm-2 col-form-label"><b>Project Name</b><span class="text-danger">*</span></label>
+                            <label class="col-sm-2 col-form-label"><b>Project Name</b></label>
                             <div class="col-sm-10">
-                                <span style="font-size: 14px;">: {{ $page->projects->project_name }}</span>
+                                <span>: {{ $page->projects->project_name }}</span>
                             </div>
                         </div>
                         <div class="form-group row mb-2">
-                            <label class="col-sm-2 col-form-label"><b>Project Manager</b><span class="text-danger">*</span></label>
+                            <label class="col-sm-2 col-form-label"><b>Page Name</b></label>
                             <div class="col-sm-10">
-                                <span style="font-size: 14px;">: {{ $page->projects->projectManager->name }}</span>
+                                <span>: {{ $page->page_name }}</span>
                             </div>
                         </div>
                         <div class="form-group row mb-2">
-                            <label class="col-sm-2"><b>Section Name</b><span class="text-danger">*</span></label>
+                            <label class="col-sm-2"><b>Section Name </b><span class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="text" name="section_name" class="form-control" placeholder="Enter Section Name" value="{{ old('section_name') }}" required>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label"><b>Sort</b><span class="text-danger">*</span></label>
+                            <label class="col-sm-2 col-form-label"><b>Sort </b><span class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <input type="text" name="sort" class="form-control" placeholder="Enter Section Sort" value="{{ old('sort') }}" required>
