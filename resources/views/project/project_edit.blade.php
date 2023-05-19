@@ -9,12 +9,13 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
+                    <form class="form-valide" action="{{ route('project.update', $project['id']) }}" method="post">
                     <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary mr-1">Update Project</button>
                         <a class="btn btn-danger" href="{{ route('project') }}">Back</a>
                     </div>
                     <hr>
                     <div class="form-validation">
-                        <form class="form-valide" action="{{ route('project.update', $project['id']) }}" method="post">
                             @csrf
                             @method('PATCH')
                             <div class="form-group row">
@@ -48,13 +49,6 @@
                                 </div>
                             </div>
                             @endif
-                            
-                            
-                            <div class="form-group row">
-                                <div class="col-lg-8 ml-auto">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>

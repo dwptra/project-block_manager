@@ -10,11 +10,12 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-validation">
+                        <form class="form-valide" action="{{ route('page.update', $pageDB['id']) }}" method="post">
                         <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary mr-1">Update Page</button>
                             <a class="btn btn-danger" href="{{ route('page', $pageDB->project_id) }}">Back</a>
                         </div>
                         <hr>
-                        <form class="form-valide" action="{{ route('page.update', $pageDB['id']) }}" method="post">
                             @csrf
                             @method('PATCH')
                             @if ($errors->any())
@@ -61,11 +62,6 @@
                                         <option value="Declined" {{ $pageDB->status == 'Declined' ? 'selected' : '' }}>
                                             Declined</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-lg-8 ml-auto">
-                                    <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                         </form>
