@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/dropzonejs/dropzone.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/chocolat/dist/css/chocolat.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/prism/prism.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/dist/m    odules/ionicons/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/ionicons/css/ionicons.min.css') }}">
     
 
     <!-- Template CSS -->
