@@ -47,7 +47,7 @@
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th class="text-center" style="max-width: 60px;">#</th>
+                                                <th class="text-center" style="max-width: 60px;">No</th>
                                                 <th>Category Name</th>
                                                 <th>Created_at</th>
                                                 <th>Updated_at</th>
@@ -55,9 +55,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                            $i = 1;
+                                            ?>
                                             @forelse ($categoriesDB as $category)
                                             <tr>
-                                                <td class="text-center">{{ $category->id }}</td>
+                                                <td class="text-center">{{ $i++ }}</td>
                                                 <td>{{ $category->category_name }}</td>
                                                 <td>{{ $category->created_at->format('Y-m-d') }}</td>
                                                 <td>{{ $category->updated_at->format('Y-m-d') }}</td>
@@ -84,7 +87,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th class="text-center" style="max-width: 60px;">#</th>
+                                                <th class="text-center" style="max-width: 60px;">No</th>
                                                 <th>Category Name</th>
                                                 <th>Created_at</th>
                                                 <th>Updated_at</th>

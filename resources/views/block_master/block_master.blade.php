@@ -44,7 +44,6 @@
                                     ?>
                                             <tr>
                                                 <th style="max-width: 70px;">NO</th>
-                                                <th>ID</th>
                                                 <th>Name</th>
                                                 <th>Category</th>
                                                 <th>Description</th>
@@ -55,7 +54,6 @@
                                             @forelse ($blockCategory as $block)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>{{ $block->id }}</td>
                                                 <td>{{ $block->block_name }}</td>
                                                 <td>{{ $block->categories->category_name }}</td>
                                                 <td @if ($block->description) class="" @else class="text-center" @endif>
@@ -65,7 +63,7 @@
                                                                 <li>{{ $line }}</li>
                                                             @endforeach
                                                         </ul>
-                                                        
+
                                                     @else
                                                         -
                                                     @endif
@@ -90,7 +88,6 @@
                                         <tfoot>
                                             <tr>
                                                 <th>NO</th>
-                                                <th>ID</th>
                                                 <th>Name</th>
                                                 <th>Category</th>
                                                 <th>Description</th>

@@ -52,14 +52,19 @@
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Page Name</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                        $i = 1;
+                                    ?>
                                     @forelse ($pageDB as $page)
                                     <tr>
+                                        <td>{{ $i++ }}</td>
                                         <td>{{ $page->page_name }}</td>
                                         <td>
                                             @if ($page->status == 'On Progress')
