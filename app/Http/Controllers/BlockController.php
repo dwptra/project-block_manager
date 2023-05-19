@@ -169,6 +169,7 @@ class BlockController extends Controller
         $request->validate([
             'section_name' => 'required|min:3',
             'block_id' => 'required',
+            'sort' => 'required',
         ]);
 
 

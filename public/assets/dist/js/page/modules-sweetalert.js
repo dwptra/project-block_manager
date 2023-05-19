@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+
 "use strict";
 
 $("#swal-1").click(function() {

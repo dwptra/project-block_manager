@@ -47,7 +47,7 @@
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th style="max-width: 60px;">#</th>
+                                                <th class="text-center" style="max-width: 60px;">#</th>
                                                 <th>Category Name</th>
                                                 <th>Created_at</th>
                                                 <th>Updated_at</th>
@@ -84,7 +84,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th style="max-width: 60px;">#</th>
+                                                <th class="text-center" style="max-width: 60px;">#</th>
                                                 <th>Category Name</th>
                                                 <th>Created_at</th>
                                                 <th>Updated_at</th>

@@ -43,12 +43,18 @@
                             </a>
                             <a class="btn btn-danger ml-1" href="{{ route('page', $pageDB->project_id) }}">Back</a>
                         </div>
-                        <table>
-                            <tbody>
-                                <tr><td><b>Project Name</b></td><td class="ml-4"> :</td><td>{{ $pageDB->projects->project_name }}</td></tr>
-                                <tr><td><b>Project Manager</b></td><td> :</td><td>{{ $pageDB->page_name }}</td></tr>
-                            </tbody>
-                        </table>
+                        <div class="form-group row mb-1">
+                            <label class="col-sm-2 col-form-label"><b>Project Name</b></label>
+                            <div class="">
+                                <span style="font-size: 14px;">: {{ $pageDB->projects->project_name }}</span>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-2">
+                            <label class="col-sm-2 col-form-label"><b>Project Manager</b></label>
+                            <div class="">
+                                <span style="font-size: 14px;">: {{ $pageDB->page_name }}</span>
+                            </div>
+                        </div>
                         <div class="table-responsive mt-3">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
@@ -67,7 +73,7 @@
                                         <td class="text-center">{{ $block->sort }}</td>
                                         <td>{{ $block->blocks->block_name }}</td>
                                         <td>{{ $block->section_name }}</td>
-                                        <td>{{ $block->note }}</td>
+                                        <td style="max-width: 300px;"><?= substr($block->note, 0, 97) . '<a href="##">dawwd</a>' ?></td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-primary mr-1" href="{{ route('block.edit', $block->id) }}">Edit</a>
