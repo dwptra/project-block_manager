@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <form class="form-valide" action="{{ route('project.update', $project['id']) }}" method="post">
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary mr-1">Update Project</button>
+                        <button type="submit" class="btn btn-primary mr-1">Save Project</button>
                         <a class="btn btn-danger" href="{{ route('project') }}">Back</a>
                     </div>
                     <hr>

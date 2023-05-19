@@ -12,7 +12,7 @@
                     <div class="form-validation">
                         <form class="form-valide" action="{{ route('page.update', $pageDB['id']) }}" method="post">
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary mr-1">Update Page</button>
+                            <button type="submit" class="btn btn-primary mr-1">Save Page</button>
                             <a class="btn btn-danger" href="{{ route('page', $pageDB->project_id) }}">Back</a>
                         </div>
                         <hr>

@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <form action="{{ route('block.update', $blockEdit['id'])}}" method="post">
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary mr-1">Update Block</button>
+                            <button type="submit" class="btn btn-primary mr-1">Save Block</button>
                             <a class="btn btn-danger ml-1" href="{{ route('block', $page->id) }}">Back</a>
                         </div>
                         <hr>
