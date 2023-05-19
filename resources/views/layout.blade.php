@@ -66,7 +66,7 @@
                     <ul class="sidebar-menu"> 
                         <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>
                                 <span>Dashboard</span></a></li>
-                        <li class="{{ Request::is('project') ? 'active' : '' }}"><a class="nav-link" href="{{ route('project') }}"><i class="far fa-file-alt"></i>
+                        <li class="{{ Request::is('project*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('project') }}"><i class="far fa-file-alt"></i>
                                 <span>Project</span></a></li>
                         <li class="menu-header">Master Data</li>
                         <li class="dropdown {{ Request::is('block') || Request::is('block/categories*') ? 'active' : '' }}">
