@@ -43,8 +43,9 @@
                                     <button class="btn btn-primary" data-toggle="modal" data-target="#createCategories">Create
                                         Category</button>
                                 </div>
+                                <hr>
                                 <div class="table-responsive mt-3">
-                                    <table class="table table-striped table-bordered zero-configuration">
+                                    <table class="table table-striped" id="table-2">
                                         <thead>
                                             <tr>
                                                 <th class="text-center" style="max-width: 60px;">No</th>
@@ -85,15 +86,6 @@
                                             </tr>
                                             @endforelse
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th class="text-center" style="max-width: 60px;">No</th>
-                                                <th>Category Name</th>
-                                                <th>Created_at</th>
-                                                <th>Updated_at</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
