@@ -20,11 +20,12 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
+                        <form action="{{ route('block.update', $blockEdit['id'])}}" method="post">
                         <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary mr-1">Update Block</button>
                             <a class="btn btn-danger ml-1" href="{{ route('block', $page->id) }}">Back</a>
                         </div>
                         <hr>
-                        <form action="{{ route('block.update', $blockEdit['id'])}}" method="post">
                             @csrf
                             @method('PATCH')
                             <div class="form-group row mb-1">
@@ -62,9 +63,6 @@
                                         <input type="text" name="sort" class="form-control" placeholder="Enter Section Sort" value="{{ $blockEdit->sort}}" required>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mt-3 mb-3">
-                                <button type="submit" class="btn btn-primary">Save Block</button>
                             </div>
                             <div id="accordion">
                                 <div class="accordion">
