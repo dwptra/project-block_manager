@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Save Category</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
                 </div>
             </form>
@@ -158,7 +158,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">Save Category</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
                 </div>
             </form>

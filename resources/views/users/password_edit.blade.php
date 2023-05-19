@@ -10,7 +10,10 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+                            <form class="form-valide" action="{{ route('password.update', $user->id) }}"
+                                method="post">
                             <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary mr-1">Save Password</button>
                                 <a class="btn btn-danger ml-2" href="{{ route('user.edit', $user->id) }}">Back</a>
                             </div>
                             <hr>
@@ -25,8 +28,6 @@
                                     @endforeach
                                 </div>
                                 @endif
-                                <form class="form-valide" action="{{ route('password.update', $user->id) }}"
-                                    method="post">
                                     @csrf
                                     @method('PATCH')
                                     <div class="form-group row">
@@ -36,11 +37,6 @@
                                         <div class="col-lg-6">
                                             <input type="password" name="password" class="form-control"
                                                 id="val-password" placeholder="Enter a Password" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-8 ml-auto">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
                                     </div>
                                 </form>

@@ -13,19 +13,20 @@
                             @if ($errors->any())
                             <div class="alert alert-danger alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                        aria-hidden="true">&times;</span>
+                                    aria-hidden="true">&times;</span>
                                 </button> <strong>Error:</strong>
                                 @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                                 @endforeach
                             </div>
                             @endif
+                            <form action="{{ route('blockmaster.update', $blockEdit['id']) }}" method="post"
+                            enctype="multipart/form-data">
                             <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary mr-1">Save Block</button>
                                 <a class="btn btn-danger ml-1" href="{{ route('block.master') }}">Back</a>
                             </div>
                             <hr>
-                            <form action="{{ route('blockmaster.update', $blockEdit['id']) }}" method="post"
-                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
                                 <div class="row mt-3">
@@ -149,9 +150,6 @@
                                             src="{{ asset('storage/images/sample_image_2/' . basename($blockEdit->sample_image_2)) }}"
                                             alt="image preview" style="max-width: 400px; max-height: 300px;">
                                     </div>
-                                </div>
-                                <div class="mt-3 mb-3">
-                                    <button type="submit" class="btn btn-primary">Save Block</button>
                                 </div>
                             </form>
                             <hr>

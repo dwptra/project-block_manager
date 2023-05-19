@@ -10,7 +10,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+                            <form class="form-valide" action="{{ route('user.post') }}" method="post">
                             <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary mr-1">Save User</button>
                                 <a class="btn btn-danger" href="{{ route('user') }}">Back</a>
                             </div>
                             <hr>
@@ -25,7 +27,6 @@
                                     @endforeach
                                 </div>
                                 @endif
-                                <form class="form-valide" action="{{ route('user.post') }}" method="post">
                                     @csrf
                                     <div class="form-group row">
                                         <label class="col-lg-4 col-form-label" for="val-name">Name <span
@@ -63,11 +64,6 @@
                                         <div class="col-lg-6">
                                             <input type="password" name="password" class="form-control"
                                                 id="val-password" placeholder="Enter a Password" value="{{ old('password') }}" >
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-8 ml-auto">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
                                     </div>
                                 </form>

@@ -41,11 +41,12 @@
                     @endif
                     <div class="card">
                         <div class="card-body">
+                            <form action="{{ route('blockmaster.post') }}" method="post" enctype="multipart/form-data">
                             <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary mr-1">Save Block</button>
                                 <a class="btn btn-danger ml-1" href="{{ route('block.master') }}">Back</a>
                             </div>
                             <hr>
-                            <form action="{{ route('blockmaster.post') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Block Name <span class="text-danger">*</span></b></div>
@@ -163,9 +164,6 @@
                                         <img class="text-center" id="sample2_preview" src="#" alt="image preview"
                                             style="max-width: 400px; max-height: 300px;">
                                     </div>
-                                </div>
-                                <div class="mt-3 mb-3">
-                                    <button type="submit" class="btn btn-primary">Save Block</button>
                                 </div>
                             </form>
                             <hr>
