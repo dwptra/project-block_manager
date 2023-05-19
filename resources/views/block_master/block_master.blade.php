@@ -65,6 +65,7 @@
                                                                 <li>{{ $line }}</li>
                                                             @endforeach
                                                         </ul>
+                                                        
                                                     @else
                                                         -
                                                     @endif

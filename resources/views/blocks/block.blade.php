@@ -73,7 +73,7 @@
                                         <td class="text-center">{{ $block->sort }}</td>
                                         <td>{{ $block->blocks->block_name }}</td>
                                         <td>{{ $block->section_name }}</td>
-                                        <td>{{ $block->note }}</td>
+                                        <td style="max-width: 300px;"><?= substr($block->note, 0, 97) . '<a href="##">dawwd</a>' ?></td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-primary mr-1" href="{{ route('block.edit', $block->id) }}">Edit</a>
