@@ -50,8 +50,8 @@
                                     <a class="btn btn-primary" href="{{ route('project.create') }}">Create New Project</a>
                                 </div>
                                 <hr>
-                                <div class="table-responsive mt-3">
-                                    <table class="table table-striped table-bordered zero-configuration">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="table-2">
                                         <thead>
                                             <?php
                                             $i = 1;
@@ -93,14 +93,6 @@
                                             </tr>
                                             @endforelse
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>NO</th>
-                                                <th>Project Name</th>
-                                                <th>Project Manager</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

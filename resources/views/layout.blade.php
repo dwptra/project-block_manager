@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/chocolat/dist/css/chocolat.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/prism/prism.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/ionicons/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/datatables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/dist/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css') }}">
     
 
     <!-- Template CSS -->
@@ -121,10 +124,15 @@
     <script src="{{ asset('assets/dist/modules/dropzonejs/min/dropzone.min.js') }}"></script>
     <script src="{{ asset('assets/dist/js/page/bootstrap-modal.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/prism/prism.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/datatables/Select-1.2.4/js/dataTables.select.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/jquery-ui/jquery-ui.min.js') }}"></script>
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('assets/dist/js/page/dashboard-general.js') }}"></script>
     <script src="{{ asset('assets/dist/js/page/components-multiple-upload.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/page/modules-datatables.js') }}"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('assets/dist/js/scripts.js') }}"></script>
