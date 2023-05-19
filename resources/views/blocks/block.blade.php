@@ -59,7 +59,7 @@
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
-                                        <th style="max-width: 60px;">Sort</th>
+                                        <th>Sort</th>
                                         <th>Block Name</th>
                                         <th>Section Name</th>
                                         <th>Note</th>
@@ -76,7 +76,7 @@
                                         <td style="max-width: 300px;">
                                             <?php
                                             if(isset($block->note)){
-                                                echo substr($block->note, 0, 97) . '<a href="##">...</a>';
+                                                echo substr($block->note, 0, 97) . '<a href="#">...</a>';
                                             } else {
                                                 echo '-';
                                             }
