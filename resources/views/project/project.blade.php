@@ -57,7 +57,6 @@
                                             ?>
                                             <tr>
                                                 <th>NO</th>
-                                                <th>ID</th>
                                                 <th>Project Name</th>
                                                 <th>Project Manager</th>
                                                 <th>Action</th>
@@ -67,7 +66,6 @@
                                             @forelse ($projectDB as $project)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>{{ $project->id }}</td>
                                                 <td>{{ $project->project_name }}</td>
                                                 <td>{{ $project->projectManager->name }}</td>
                                                 <td>
@@ -97,7 +95,6 @@
                                         <tfoot>
                                             <tr>
                                                 <th>NO</th>
-                                                <th>ID</th>
                                                 <th>Project Name</th>
                                                 <th>Project Manager</th>
                                                 <th>Action</th>
