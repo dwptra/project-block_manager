@@ -10,7 +10,9 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-validation">
+                        <form class="form-valide" action="{{ route('page_create.post', $project->id) }}" method="post">
                         <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary mr-1">Save Page</button>
                             <a class="btn btn-danger" href="{{ route('page', $project->id) }}">Back</a>
                         </div>
                         <hr>
@@ -24,7 +26,6 @@
                                 @endforeach
                             </div>
                             @endif
-                        <form class="form-valide" action="{{ route('page_create.post', $project->id) }}" method="post">
                             @csrf
                             <div class="form-group row">
                                 <label class="col-lg-4 col-form-label" for="val-page-name">Page Name <span class="text-danger">*</span>
@@ -50,11 +51,6 @@
                                         <option value="Approved">Approved</option>
                                         <option value="Declined">Declined</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-lg-8 ml-auto">
-                                    <button type="submit" class="btn btn-primary">Create</button>
                                 </div>
                             </div>
                         </form>
