@@ -43,15 +43,16 @@
                             </a>
                             <a class="btn btn-danger ml-1" href="{{ route('page', $pageDB->project_id) }}">Back</a>
                         </div>
+                        <hr>
                         <div class="form-group row mb-1">
-                            <label class="col-sm-2 col-form-label"><b>Project Name</b></label>
-                            <div class="">
+                            <div class="col-sm-10">
+                                <label class="col-sm-2"><b>Project Name</b></label>
                                 <span style="font-size: 14px;">: {{ $pageDB->projects->project_name }}</span>
                             </div>
                         </div>
                         <div class="form-group row mb-2">
-                            <label class="col-sm-2 col-form-label"><b>Project Manager</b></label>
-                            <div class="">
+                            <div class="col-sm-10">
+                                <label class="col-sm-2"><b>Project Manager</b></label>
                                 <span style="font-size: 14px;">: {{ $pageDB->page_name }}</span>
                             </div>
                         </div>

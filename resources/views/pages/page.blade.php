@@ -37,15 +37,15 @@
                         </div>
                         <hr>
                         <div class="form-group row mb-1">
-                            <label class="col-sm-2 col-form-label"><b>Project Name</b></label>
-                            <div class="">
-                                <span style="font-size: 14px;">: {{ $project->project_name }}</span>
+                            <div class="col-sm-10">
+                                <label class="col-sm-2"><b>Project Name</b></label>
+                                <span>: {{ $project->project_name }}</span>
                             </div>
                         </div>
                         <div class="form-group row mb-2">
-                            <label class="col-sm-2 col-form-label"><b>Project Manager</b></label>
-                            <div class="">
-                                <span style="font-size: 14px;">: {{ $project->projectManager->name }}</span>
+                            <div class="col-sm-10">
+                                <label class="col-sm-2"><b>Project Manager</b></label>
+                                <span>: {{ $project->projectManager->name }}</span>
                             </div>
                         </div>
                         <div class="table-responsive mt-3">
