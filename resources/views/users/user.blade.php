@@ -47,7 +47,7 @@
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+                                                <th>No</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Role</th>
@@ -59,9 +59,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                            $i = 1;
+                                            ?>
                                             @foreach ($projectMDB as $project)
                                             <tr>
-                                                <td>{{ $project->id }}</td>
+                                                <td>{{ $i++ }}</td>
                                                 <td>{{ $project->name }}</td>
                                                 <td>{{ $project->email }}</td>
                                                 <td>
@@ -93,7 +96,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>#</th>
+                                                <th>No</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Role</th>
