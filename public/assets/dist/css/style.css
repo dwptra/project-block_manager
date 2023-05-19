@@ -1517,7 +1517,6 @@ h6 .badge {
 }
 
 .btn-secondary, .btn-secondary.disabled {
-  box-shadow: 0 2px 6px #e1e5e8;
   background-color: #cdd3d8;
   border-color: #cdd3d8;
   color: #fff;
@@ -1533,7 +1532,6 @@ h6 .badge {
 }
 
 .btn-success, .btn-success.disabled {
-  box-shadow: 0 2px 6px #a8f5b4;
   background-color: #63ed7a;
   border-color: #63ed7a;
   color: #fff;
@@ -1549,7 +1547,6 @@ h6 .badge {
 }
 
 .btn-danger, .btn-danger.disabled {
-  box-shadow: 0 2px 6px #fd9b96;
   background-color: #fc544b;
   border-color: #fc544b;
   color: #fff;
@@ -1564,7 +1561,6 @@ h6 .badge {
 }
 
 .btn-dark, .btn-dark.disabled {
-  box-shadow: 0 2px 6px #728394;
   background-color: #191d21;
   border-color: #191d21;
   color: #fff;
@@ -1579,7 +1575,6 @@ h6 .badge {
 }
 
 .btn-light, .btn-light.disabled {
-  box-shadow: 0 2px 6px #e6ecf1;
   background-color: #e3eaef;
   border-color: #e3eaef;
   color: #191d21;
@@ -1598,7 +1593,6 @@ h6 .badge {
 }
 
 .btn-warning, .btn-warning.disabled {
-  box-shadow: 0 2px 6px #ffc473;
   background-color: #ffa426;
   border-color: #ffa426;
   color: #fff;
@@ -1614,7 +1608,6 @@ h6 .badge {
 }
 
 .btn-info, .btn-info.disabled {
-  box-shadow: 0 2px 6px #82d3f8;
   background-color: #3abaf4;
   border-color: #3abaf4;
   color: #fff;
@@ -1629,7 +1622,6 @@ h6 .badge {
 }
 
 .btn-primary, .btn-primary.disabled {
-  box-shadow: 0 2px 6px #acb5f6;
   background-color: #6777ef;
   border-color: #6777ef;
 }

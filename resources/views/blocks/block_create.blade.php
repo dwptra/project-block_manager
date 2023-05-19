@@ -6,39 +6,39 @@
             <div class="section-header">
                 <h1>Block Create</h1>     
             </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="alert alert-warning alert-has-icon">
-                    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
-                    <div class="alert-body">
-                      <div class="alert-title">Warning</div>
-                      Make sure <b>Sort</b> is not the same.
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-warning alert-has-icon">
+                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                        <div class="alert-body">
+                            <div class="alert-title">Warning</div>
+                            Make sure <b>Sort</b> is not the same.
+                        </div>
                     </div>
-                  </div>
-                @if (Session::get('createPage'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    @if (Session::get('createPage'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('createPage')}}
-                </div>
-                @endif
-                @if (Session::get('updatePage'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        </button> <strong>Success!</strong> {{ Session::get('createPage')}}
+                    </div>
+                    @endif
+                    @if (Session::get('updatePage'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('updatePage')}}
-                </div>
-                @endif
-                @if (Session::get('deletePage'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        </button> <strong>Success!</strong> {{ Session::get('updatePage')}}
+                    </div>
+                    @endif
+                    @if (Session::get('deletePage'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
-                    </button> <strong>Success!</strong> {{ Session::get('deletePage')}}
-                </div>
-                @endif
-                @if ($errors->any())
-                <div class="alert alert-danger alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        </button> <strong>Success!</strong> {{ Session::get('deletePage')}}
+                    </div>
+                    @endif
+                    @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
                             aria-hidden="true">&times;</span>
                     </button> <strong>Error:</strong>
                     @foreach ($errors->all() as $error)
@@ -48,11 +48,12 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
+                        <form action="{{ route('block.post', $page->id) }}" method="post" enctype="multipart/form-data">
                         <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary mr-1">Save Block</button>
                             <a class="btn btn-danger ml-1" href="{{ route('block', $page->id) }}">Back</a>
                         </div>
                         <hr>
-                        <form action="{{ route('block.post', $page->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row mb-1">
                             <label class="col-sm-2 col-form-label"><b>Project Name</b><span class="text-danger">*</span></label>
@@ -89,9 +90,6 @@
                                     <input type="text" name="sort" class="form-control" placeholder="Enter Section Sort" value="{{ old('sort') }}" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mt-3 mb-3">
-                            <button type="submit" class="btn btn-primary">Save Block</button>
                         </div>
                         <div id="accordion">
                             <div class="accordion">
