@@ -45,7 +45,7 @@
                                 </div>
                                 <hr>
                                 <div class="table-responsive mt-3">
-                                    <table class="table table-striped table-bordered zero-configuration" id="table-2">
+                                    <table class="table table-striped table-bordered zero-configuration" id="table-1">
                                         <thead>
                                             <tr>
                                                 <th class="text-center" style="max-width: 60px;">No</th>
