@@ -19,34 +19,27 @@
             <div class="row">
                 <div class="col-lg-12 mt-4">
                     <h1>{{ $pagePrint->projects->project_name }}</h1>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td><b>Project Name</b></td>
-                                <td class="">&nbsp:</td>
-                                <td style="">{{ $pagePrint->projects->project_name }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Project Manager</b></td>
-                                <td> &nbsp:</td>
-                                <td>{{ $projectPrint->projectManager->name }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Page Name</b></td>
-                                <td class="ml-4"> &nbsp:</td>
-                                <td>
-                                    {{ $pagePrint->page_name }}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div>
+                        <div class="row">
+                            <div class="col-3"><b>Project Name</b></div>
+                            <div class="col-8">: {{ $pagePrint->projects->project_name }}</div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-3"><b>Project Manager</b></div>
+                            <div class="col-8">: {{ $projectPrint->projectManager->name }}</div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-3"><b>Page Name</b></div>
+                            <div class="col-8">: {{ $pagePrint->page_name }}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 mt-4 ">
+            <div class="col-lg-12 mt-4">
                 @forelse($blockPrint as $block)
-                <div class="card w-100 mb-3 text-start" ">
+                <div class="card w-100 mb-3 text-start">
                     <div class="row g-0">
                         <div class="col">
                             <img src="{{ asset('storage/images/main_image/' . basename($block->blocks->main_image)) }}"
@@ -54,34 +47,38 @@
                         </div>
                         <div class="col">
                             <div class="card-body">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td><b>Urutan/Sort</b></td>
-                                            <td class="">&nbsp:</td>
-                                            <td style="">{{ $block->sort }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><b>Section Name</b></td>
-                                            <td> &nbsp:</td>
-                                            <td>{{ $block->section_name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><b>Block Name</b></td>
-                                            <td class="ml-4"> &nbsp:</td>
-                                            <td>
-                                                {{ $block->blocks->block_name }}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><b> Section Note</b></td>
-                                            <td> &nbsp:</td>
-                                            <td>
-                                                {{ $block->note }}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div>
+                                    <div class="row">
+                                        <div class="col"><b>Urutan/Sort</b></div>
+                                        <div class="col-7">: {{ $block->sort }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col"><b>Section Name</b></div>
+                                        <div class="col-7">: {{ $block->section_name }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col"><b>Block Name</b></div>
+                                        <div class="col-7">: {{ $block->blocks->block_name }}</div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col"><b>Section Note</b></div>
+                                        <div class="col-7">
+                                            @if ($block->note)
+                                                @foreach(explode(PHP_EOL, $block->note) as $key => $value)
+                                                    <div>
+                                                        @if ($key === 0)
+                                                           : {{ $value }} 
+                                                        @else
+                                                            &nbsp {{ $value }}
+                                                        @endif
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <div>-</div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -108,6 +105,7 @@
             </tbody>
           </table>
     </div>
+    
     <!-- #/ container -->
     </div>
     <!--**********************************

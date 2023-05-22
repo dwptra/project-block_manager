@@ -79,13 +79,13 @@
                                         </td>                                   
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-warning text-white mr-1" href="{{ route('block', $page['id']) }}">See Blocks</a> 
-                                                <a class="btn btn-primary mr-1" href="{{ route('page.edit', $page['id']) }}">Edit</a>
-                                                <form action="{{ route('page.delete', $page['id']) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
-                                                </form>
+                                                <a class="btn btn-info text-white mr-1" href="{{ route('block', $page['id']) }}">See Blocks</a> 
+                                                <a title="View" class="btn btn-primary mr-1 text-white" style="width: 40px;" data-toggle="modal"  data-target="#viewBlock{{ $page->id }}"><i
+                                                    class="fa-solid fa-info"></i></a>
+                                                <a class="btn btn-success mr-1" href="{{ route('page.edit', $page['id']) }}"><i
+                                                    class="fa-solid fa-pen"></i></a>
+                                                <a title="View" class="btn btn-danger mr-1 text-white" style="width: 40px;" data-toggle="modal" data-target="#deleteBlock{{ $page->id }}"><i
+                                                    class="fa-solid fa-trash"></i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -104,4 +104,80 @@
         </section>
     </div>
 </div>
+
+
+@foreach ($pageDB as $page)
+<div class="modal fade" id="viewBlock{{ $page->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="createCategoriesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createCategoriesLabel">View Page</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Page Name</label>
+                        <span class="d-block">{{$page->page_name}}</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Status</label>
+                        <span class="d-block">{{$page->status}}</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputEmail4">Note</label>
+                        <span class="d-block">@if ($page->note)
+                            <ul style="padding-left: 0; list-style: none;">
+                                @foreach(explode(PHP_EOL, $page->note) as $line)
+                                <li>{{ $line }}</li>
+                                @endforeach
+                            </ul>
+                            @else
+                            -
+                            @endif</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- Modal Delete --}}
+
+<div class="modal fade" id="deleteBlock{{ $page->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="createCategoriesLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createCategoriesLabel">Delete Page</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('page.delete', $page['id']) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <div class="modal-body">
+                    <div class="form-group">
+                        <span>Are you sure?, Once deleted, you will not be able to recover this page!?</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        aria-label="Close">Cancel</button>
+                </div>
+        </div>
+        </form>
+    </div>
+</div>
+@endforeach
 @endsection

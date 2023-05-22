@@ -73,7 +73,7 @@
                     </div>
                     <div class="card-wrap">
                       <div class="card-header">
-                        <h4>Reports</h4>
+                        <h4>Projects</h4>
                       </div>
                       <div class="card-body">
                         {{$totalProject}}
