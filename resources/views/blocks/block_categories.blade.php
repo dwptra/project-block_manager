@@ -67,16 +67,11 @@
                                                 <td>{{ $category->updated_at->format('Y-m-d') }}</td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <button class="btn btn-primary mr-1" data-toggle="modal"
-                                                            data-target="#editCategories{{ $category->id }}">Edit</button>
-                                                        <form action="{{ route('category.delete', $category->id) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger"
-                                                                onclick="return confirm('Yakin ingin menghapus?')"
-                                                                type="submit">Delete</button>
-                                                        </form>
+                                                        <button class="btn btn-success mr-1" data-toggle="modal"
+                                                            data-target="#editCategories{{ $category->id }}"><i
+                                                            class="fa-solid fa-pen"></i></button>
+                                                        <a title="Delete" class="btn btn-danger mr-1 text-white" style="width: 40px;" data-toggle="modal" data-target="#deleteCategory{{ $category->id }}"><i
+                                                            class="fa-solid fa-trash"></i></a>  
                                                     </div>
                                                 </td>
                                             </tr>
@@ -152,6 +147,35 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save Category</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- Delete --}}
+<div class="modal fade" id="deleteCategory{{ $category->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="createCategoriesLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createCategoriesLabel">Delete Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('category.delete', $category->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <div class="modal-body">
+                    <div class="form-group">
+                        <span>Are you sure?, Once deleted, you will not be able to recover this category!?</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        aria-label="Close">Cancel</button>
                 </div>
             </form>
         </div>

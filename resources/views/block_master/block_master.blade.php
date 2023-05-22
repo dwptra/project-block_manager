@@ -47,7 +47,6 @@
                                                 <th>No</th>
                                                 <th>Name</th>
                                                 <th>Category</th>
-                                                <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -57,19 +56,6 @@
                                                 <td>{{ $i++ }}</td>
                                                 <td>{{ $block->block_name }}</td>
                                                 <td>{{ $block->categories->category_name }}</td>
-                                                <td @if ($block->description) class="" @else class="text-center"
-                                                    @endif>
-                                                    @if ($block->description)
-                                                    <ul style="padding-left: 0; list-style: none;">
-                                                        @foreach(explode(PHP_EOL, $block->description) as $line)
-                                                        <li>{{ $line }}</li>
-                                                        @endforeach
-                                                    </ul>
-
-                                                    @else
-                                                    -
-                                                    @endif
-                                                </td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a title="View" class="btn btn-primary mr-1 text-white"
