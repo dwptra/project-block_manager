@@ -39,7 +39,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-end">
                             <a class="btn btn-primary" href="{{ route('block.create', $pageDB->id) }}">Create Block</a>
-                            <a class="btn btn-warning ml-1 text-white" href="{{ route('blocks.print', $pageDB['id'])}}" target="_blank">Export Block List
+                            <a class="btn btn-success ml-1 text-white" href="{{ route('blocks.print', $pageDB['id'])}}" target="_blank">Export Block List
                             </a>
                             <a class="btn btn-danger ml-1" href="{{ route('page', $pageDB->project_id) }}">Back</a>
                         </div>
