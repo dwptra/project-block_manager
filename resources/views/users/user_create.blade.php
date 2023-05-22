@@ -54,6 +54,7 @@
                                             <select class="form-control selectric" aria-label="Default select example"
                                                 name="role" value="{{ old('role') }}" required>
                                                 <option value="Project Manager" {{ old('role') == "Project Manager" ? 'selected' : "" }}>Project Manager</option>
+                                                <option value="Admin" {{ old('role') == "Admin"  }}>Admin</option>
                                             </select>
                                         </div>
                                     </div>
