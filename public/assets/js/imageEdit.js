@@ -9,14 +9,14 @@ function previewImage(event) {
 
     var input = event.target;
     if (!allowedTypes.includes(file.type)) {
-        errorTipe.textContent = "Silakan upload file dengan ekstensi .jpeg/.jpg/.png";
+        errorTipe.textContent = "Please upload files with the extension .jpeg/.jpg/.png";
         event.target.value = null;
         document.getElementById("preview-container").style.display = "none";
         errorTipe.style.display = "block";
     }
     else if (file.size > 5000000) {
         errorElement.textContent = "File size is too large. Maximum file size is 5 MB.";
-        event.target.value = null; // Reset the file input
+        event.target.value = null;
         var reader = new FileReader();
         document.getElementById("preview-container").style.display = "none";
         errorElement.style.display = "block";
@@ -27,14 +27,14 @@ function previewImage(event) {
             var img = new Image();
             img.onload = function () {
                 if (img.width > Width || img.height > Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 1920 x 1080.";
-                    event.target.value = null; // Reset the file input
+                    errorSize.textContent = "Please upload files with a resolution of 1920 x 1080.";
+                    event.target.value = null;
                     document.getElementById("preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }
                 else if (img.width < Width || img.height < Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 1920 x 1080.";
-                    event.target.value = null; // Reset the file input
+                    errorSize.textContent = "Please upload files with a resolution of 1920 x 1080.";
+                    event.target.value = null;
                     document.getElementById("preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }
@@ -53,6 +53,7 @@ function previewImage(event) {
     }
 }
 
+
 function previewMobileImage(event) {
     const file = event.target.files[0];
     const errorElement = document.getElementById("mobile-image-error");
@@ -64,14 +65,14 @@ function previewMobileImage(event) {
     var input = event.target;
 
     if (!allowedTypes.includes(file.type)) {
-        errorTipe.textContent = "Silakan upload file yang dengan ekstensi .jpeg/.jpg/.png";
+        errorTipe.textContent = "Please upload files with the extension .jpeg/.jpg/.png";
         event.target.value = null;
         document.getElementById("mobile-preview-container").style.display = "none";
         errorTipe.style.display = "block";
     }
     else if (file.size > 5000000) {
         errorElement.textContent = "File size is too large. Maximum file size is 5 MB.";
-        event.target.value = null; // Reset the file input
+        event.target.value = null;
         var reader = new FileReader();
         document.getElementById("mobile-preview-container").style.display = "none";
         errorElement.style.display = "block";
@@ -81,14 +82,14 @@ function previewMobileImage(event) {
             var img = new Image();
             img.onload = function () {
                 if (img.width > Width || img.height > Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 360 x 640.";
-                    event.target.value = null; // Reset the file input
+                    errorSize.textContent = "Please upload files with a resolution of 360 x 640.";
+                    event.target.value = null;
                     document.getElementById("mobile-preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }
                 else if (img.width < Width || img.height < Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 360 x 640.";
-                    event.target.value = null; // Reset the file input
+                    errorSize.textContent = "Please upload files with a resolution of 360 x 640.";
+                    event.target.value = null;
                     document.getElementById("mobile_preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }
@@ -118,14 +119,14 @@ function previewSample1(event) {
     var input = event.target;
 
     if (!allowedTypes.includes(file.type)) {
-        errorTipe.textContent = "Silakan upload file yang dengan ekstensi .jpeg/.jpg/.png";
+        errorTipe.textContent = "Please upload files with the extension .jpeg/.jpg/.png";
         event.target.value = null;
         document.getElementById("sample1-preview-container").style.display = "none";
         errorTipe.style.display = "block";
     }
     else if (file.size > 5000000) {
         errorElement.textContent = "File size is too large. Maximum file size is 5 MB.";
-        event.target.value = null; // Reset the file input
+        event.target.value = null;
         var reader = new FileReader();
         document.getElementById("sample1-preview-container").style.display = "none";
         errorElement.style.display = "block";
@@ -135,14 +136,14 @@ function previewSample1(event) {
             var img = new Image();
             img.onload = function () {
                 if (img.width > Width || img.height > Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 1920 x 1080.";
-                    event.target.value = null; // Reset the file input
+                    errorSize.textContent = "Please upload files with a resolution of 1920 x 1080.";
+                    event.target.value = null;
                     document.getElementById("sample1-preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }
                 else if (img.width < Width || img.height < Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 1920 x 1080.";
-                    event.target.value = null; // Reset the file input
+                    errorSize.textContent = "Please upload files with a resolution of 1920 x 1080.";
+                    event.target.value = null;
                     document.getElementById("sample1_preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }
@@ -172,14 +173,14 @@ function previewSample2(event) {
     var input = event.target;
 
     if (!allowedTypes.includes(file.type)) {
-        errorTipe.textContent = "Silakan upload file yang dengan ekstensi .jpeg/.jpg/.png";
+        errorTipe.textContent = "Please upload files with the extension .jpeg/.jpg/.png";
         event.target.value = null;
         document.getElementById("sample2-preview-container").style.display = "none";
         errorTipe.style.display = "block";
     }
     else if (file.size > 5000000) {
         errorElement.textContent = "File size is too large. Maximum file size is 5 MB.";
-        event.target.value = null; // Reset the file input
+        event.target.value = null;
         var reader = new FileReader();
         document.getElementById("sample2-preview-container").style.display = "none";
         errorElement.style.display = "block";
@@ -189,14 +190,14 @@ function previewSample2(event) {
             var img = new Image();
             img.onload = function () {
                 if (img.width > Width || img.height > Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 360 x 640.";
-                    event.target.value = null; // Reset the file input
+                    errorSize.textContent = "Please upload files with a resolution of 360 x 640.";
+                    event.target.value = null;
                     document.getElementById("sample2-preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }
                 else if (img.width < Width || img.height < Height) {
-                    errorSize.textContent = "Silahkan upload file dengan resolusi 360 x 640.";
-                    event.target.value = null; // Reset the file input
+                    errorSize.textContent = "Please upload files with a resolution of 360 x 640.";
+                    event.target.value = null;
                     document.getElementById("sample2_preview-container").style.display = "none";
                     errorSize.style.display = "block";
                 }

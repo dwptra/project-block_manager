@@ -79,14 +79,12 @@
                                                 @if(Auth::user()->role == 'Admin')
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a class="btn btn-primary mr-1" href="{{ route('user.edit', $project['id']) }}">Edit</a>
+                                                        <a class="btn btn-success mr-1" href="{{ route('user.edit', $project['id']) }}"><i
+                                                            class="fa-solid fa-pen"></i></a>
                                                         @if (Auth::user()->id == $project->id)
                                                         @else
-                                                        <form action="{{ route('user.delete', $project->id) }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')" type="submit">Delete</button>
-                                                        </form>
+                                                        <a title="Delete" class="btn btn-danger mr-1 text-white" style="width: 40px;" data-toggle="modal" data-target="#deleteUser{{ $project->id }}"><i
+                                                            class="fa-solid fa-trash"></i></a>  
                                                         @endif
                                                     </div>
                                                 </td>
@@ -116,5 +114,35 @@
             </section>
         </div>
     </div>
-
+    @foreach ($projectMDB as $project)
+    {{-- Modal Delete --}}
+    
+    <div class="modal fade" id="deleteUser{{ $project->id }}" tabindex="-1" role="dialog"
+        aria-labelledby="createCategoriesLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createCategoriesLabel">Delete Project</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('user.delete', $project->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <span>Are you sure?, Once deleted, you will not be able to recover this account!?</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            aria-label="Close">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endforeach
 @endsection
