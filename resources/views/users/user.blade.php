@@ -1,5 +1,10 @@
 @extends('layout')
 @section('content')
+<style>
+    li{
+        list-style: none;
+    }
+</style>
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
@@ -52,11 +57,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Name</th>
+                                            <th>User Info</th>
                                             <th>Email</th>
-                                            <th>Role</th>
-                                            <th>Created at</th>
-                                            <th>Updated at</th>
+                                            <th>Date</th>
                                             @if(Auth::user()->role == 'Admin')
                                             <th>Action</th>
                                             @endif
@@ -69,17 +72,19 @@
                                         @foreach ($projectMDB as $project)
                                         <tr>
                                             <td>{{ $i++ }}</td>
-                                            <td>{{ $project->name }}</td>
-                                            <td>{{ $project->email }}</td>
                                             <td>
+                                                <li><b>Name :</b> {{ $project->name }}</li>
                                                 @if($project->role == 'Admin')
-                                                <span class="badge badge-danger px-2">{{ $project->role }}</span>
+                                                <li><b>Role :</b> <span class="bg-danger text-light px-2">{{ $project->role }}</span></li>
                                                 @else
-                                                <span class="badge badge-primary px-2">{{ $project->role }}</span>
+                                                <li><b>Role :</b> <span class="bg-primary text-light px-2">{{ $project->role }}</span></li>
                                                 @endif
                                             </td>
-                                            <td>{{ $project->created_at->format('Y-m-d') }}</td>
-                                            <td>{{ $project->updated_at->format('Y-m-d H:i:s') }}</td>
+                                            <td>{{ $project->email }}</td>
+                                            <td>
+                                                <li><b>Created At :</b> {{ $project->created_at->format('Y-m-d H:i') }}</li>
+                                                <li><b>Updated At :</b> {{ $project->created_at->format('Y-m-d') }}</li>
+                                            </td>
                                             @if(Auth::user()->role == 'Admin')
                                             <td>
                                                 <div class="d-flex">

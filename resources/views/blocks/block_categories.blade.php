@@ -5,6 +5,9 @@
         display: inline-block;
         min-width: 125px;
     }
+    li{
+        list-style: none;
+    }
 
 </style>
 <div class="app">
@@ -53,9 +56,8 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center" style="max-width: 60px;">No</th>
-                                                <th>Category Name</th>
-                                                <th>Created_at</th>
-                                                <th>Updated_at</th>
+                                                <th>Category</th>
+                                                <th>Date</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -67,8 +69,10 @@
                                             <tr>
                                                 <td class="text-center">{{ $i++ }}</td>
                                                 <td>{{ $category->category_name }}</td>
-                                                <td>{{ $category->created_at->format('Y-m-d') }}</td>
-                                                <td>{{ $category->updated_at->format('Y-m-d') }}</td>
+                                                <td>
+                                                    <li><b>Created At :</b> {{ $category->created_at->format('Y-m-d H:i') }}</li>
+                                                    <li><b>Updated At :</b> {{ $category->updated_at->format('Y-m-d H:i') }}</li>
+                                                </td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <button class="btn btn-success mr-1" data-toggle="modal"

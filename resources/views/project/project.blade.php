@@ -1,5 +1,10 @@
 @extends('layout')
 @section('content')
+<style>
+    li{
+        list-style: none;
+    }
+</style>
 <div class="app">
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
@@ -62,8 +67,8 @@
                                             ?>
                                             <tr>
                                                 <th>NO</th>
-                                                <th>Project Name</th>
-                                                <th>Project Manager</th>
+                                                <th>Project</th>
+                                                <th>Date</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -71,8 +76,14 @@
                                             @forelse ($projectDB as $project)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>{{ $project->project_name }}</td>
-                                                <td>{{ $project->projectManager->name }}</td>
+                                                <td>
+                                                    <li><b>Project Name :</b> {{ $project->project_name }}</li>
+                                                    <li><b>Project Manager :</b> {{ $project->projectManager->name }}</li>
+                                                </td>
+                                                <td>
+                                                    <li><b>Created At :</b> {{ $project->created_at->format('Y-m-d H:i') }}</li>
+                                                    <li><b>Updated At :</b> {{ $project->updated_at->format('Y-m-d H:i') }}</li>
+                                                </td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a title="See Pages" class="btn btn-info text-white mr-1"
