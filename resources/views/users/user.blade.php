@@ -82,8 +82,8 @@
                                             </td>
                                             <td>{{ $project->email }}</td>
                                             <td>
-                                                <li><b>Created At :</b> {{ $project->created_at->format('Y-m-d H:i') }}</li>
-                                                <li><b>Updated At :</b> {{ $project->created_at->format('Y-m-d') }}</li>
+                                                <li><b>Created At :</b> {{ $project->created_at->format('Y-m-d h:i') }}</li>
+                                                <li><b>Updated At :</b> {{ $project->updated_at->format('Y-m-d h:i') }}</li>
                                             </td>
                                             @if(Auth::user()->role == 'Admin')
                                             <td>
