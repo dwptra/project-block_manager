@@ -39,12 +39,12 @@ Route::middleware('cekAuth')->group(function () {
         Route::patch('/edit/{id}/process', [BlockController::class, 'blockMasterUpdate'])->name('blockmaster.update');
         Route::delete('/delete/{id}', [BlockController::class, 'blockMasterDelete'])->name('blockmaster.delete');
 
-        Route::prefix('categories')->group(function () {
-            Route::get('/', [BlockController::class, 'blockCategory'])->name('block.categories');
-            Route::post('/create/process', [BlockController::class, 'postCategory'])->name('category.post');
-            Route::delete('/delete/{id}', [BlockController::class, 'deleteCategory'])->name('category.delete');
-            Route::patch('/delete/{id}/process', [BlockController::class, 'updateCategory'])->name('category.update');
-        });
+    });
+    Route::prefix('categories')->group(function () {
+        Route::get('/', [BlockController::class, 'blockCategory'])->name('block.categories');
+        Route::post('/create/process', [BlockController::class, 'postCategory'])->name('category.post');
+        Route::delete('/delete/{id}', [BlockController::class, 'deleteCategory'])->name('category.delete');
+        Route::patch('/delete/{id}/process', [BlockController::class, 'updateCategory'])->name('category.update');
     });
 
 
