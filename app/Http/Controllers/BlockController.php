@@ -172,15 +172,24 @@ class BlockController extends Controller
             'sort' => 'required',
         ]);
 
+        // Mencari sort yang sama berdasarkan page_id
+        $newSort = $request->sort;
+        $oldSort = PageDetails::where('page_id', $page->id)->where('sort', $newSort)->first();
 
+        // Jika ada sort yang sama, tambahkan 1 pada sort lama dan isi posisi sort yang baru
+        if ($oldSort !== null) {
+            PageDetails::where('page_id', $page->id)
+                ->where('sort', '>=', $newSort)
+                ->update(['sort' => DB::raw('sort + 1')]);
+        }
 
-        // Membuat data baru dengan isian dari request
+        // Membuat data baru dengan isian dari request dan sort yang baru
         PageDetails::create([
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
-            'page_id' => $page->id, //mengambil id dari objek page
-            'sort' => $request->sort,
+            'page_id' => $page->id,
+            'sort' => $newSort,
         ]);
         
         // Jika berhasil, arahkan ke halaman /page dengan pemberitahuan berhasil
