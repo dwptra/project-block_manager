@@ -92,7 +92,7 @@
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy;Loolin 2023 <div class="bullet"></div>
+                    Copyright &copy; Block Manager 2023 <div class="bullet"></div>
                 </div>
                 <div class="footer-right">
 
