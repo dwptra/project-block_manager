@@ -4,7 +4,12 @@
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
             <div class="section-header">
-                <h1>Block Edit</h1>
+                <h1>Edit Block Master</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><b>Master Data</b></div>
+                    <div class="breadcrumb-item active"><a href="{{ route('block.master') }}">Block Master</a></div>
+                    <div class="breadcrumb-item text-muted">Edit</div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-12">

@@ -1,10 +1,19 @@
 @extends('layout')
 @section('content')
+<style>
+    li{
+        list-style: none;
+    }
+</style>
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
             <div class="section-header">
                 <h1>Block Master List</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><b>Master Data</b></div>
+                    <div class="breadcrumb-item text-muted">Block Master</div>
+                </div>
             </div>
             @if (Session::get('createBlockMaster'))
             <div class="alert alert-success alert-dismissible fade show">
@@ -45,8 +54,7 @@
                                                 ?>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Name</th>
-                                                <th>Category</th>
+                                                <th>Block</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -54,8 +62,10 @@
                                             @forelse ($blockCategory as $block)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>{{ $block->block_name }}</td>
-                                                <td>{{ $block->categories->category_name }}</td>
+                                                <td>
+                                                    <li><b>Name :</b> {{ $block->block_name }}</li>
+                                                    <li><b>Category :</b> {{ $block->categories->category_name }}</li>
+                                                </td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a title="View" class="btn btn-primary mr-1 text-white"

@@ -4,7 +4,12 @@
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
             <div class="section-header">
-                <h1>User Create</h1>
+                <h1>Create User</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><b>Master Data</b></div>
+                    <div class="breadcrumb-item"><a href="{{ route('user') }}">User</a></div>
+                    <div class="breadcrumb-item text-muted">Create</div>
+                </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-12">

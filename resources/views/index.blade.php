@@ -50,6 +50,7 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="email">Password</label>
                                         <input id="password" type="password" class="form-control" name="password"
                                             tabindex="2" required>
                                         <div class="invalid-feedback">

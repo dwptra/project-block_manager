@@ -11,7 +11,13 @@
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
             <div class="section-header">
-                <h1>Block List</h1>     
+                <h1>Block List</h1>   
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><b>Dashboard</b></div>
+                    <div class="breadcrumb-item"><a href="{{ route('project') }}">Project</a></div>
+                    <div class="breadcrumb-item"><a href="{{ route('page', $pageDB->project_id) }}">Page</a></div>
+                    <div class="breadcrumb-item text-muted">Block</div>
+                </div>  
             </div>
         <div class="row">
             <div class="col-12">
