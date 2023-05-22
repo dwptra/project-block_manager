@@ -1,116 +1,77 @@
 <!DOCTYPE html>
-<html class="h-100" lang="en">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Error</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.flaticon.com/512/3665/3665896.png">
-    <link href="{{ asset('assets/css/style.css') }} " rel="stylesheet">
-    
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>404 &mdash; Stisla</title>
+  <link rel="shortcut icon" href="https://o.remove.bg/downloads/bb41e3bd-874c-4a93-85d4-9cadc83f93b7/image-removebg-preview.png" type="image/x-icon">
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{{ asset('assets/dist/modules/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/dist/modules/fontawesome/css/all.min.css') }}">
+
+  <!-- CSS Libraries -->
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{{ asset('assets/dist/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/dist/css/components.css') }}">
 </head>
 
-<body class="h-100">
-    
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-
-
-
-    <div class="login-form-bg h-100">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100">
-                <div class="col-xl-6">
-                    <div class="error-content">
-                        <div class="card mb-0">
-                            <div class="card-body text-center pt-5">
-                                <h1 class="error-text text-primary">404</h1>
-                                <h4 class="mt-4"><i class="fa fa-thumbs-down text-danger"></i> Bad Request</h4>
-                                <p>Your Request resulted in an error.</p>
-                                <form class="mt-5 mb-5">
-                                    
-                                    <div class="text-center mb-4 mt-4"><a href="{{ route('dashboard') }}" class="btn btn-primary">Go to Homepage</a>
-                                    </div>
-                                </form>
-                                <div class="text-center">
-                                    <p>Copyright &copy; Designed & Developed by <b>Block Manager</b> 2023</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<body>
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="page-error">
+          <div class="page-inner">
+            <h1>404</h1>
+            <div class="page-description">
+              The page you were looking for could not be found.
             </div>
-        </div>
-    </div>
-
-
-    
-
-
-
-    <!-- <div class="error-bg h-100">
-        <div class="container h-100">
-            <div class="row justify-content-center h-100">
-                <div class="col-xl-6">
-                    <div class="error-content">
-                        <div class="card mb-0">
-                            <div class="card-body text-center">
-                                <h1 class="error-text text-primary">400</h1>
-                                <h4 class="mt-4"><i class="fa fa-thumbs-down text-danger"></i> Bad Request</h4>
-                                <p>Your Request resulted in an error.</p>
-                                <form class="mt-5 mb-5">
-                                    
-                                    <div class="text-center mb-4 mt-4"><a href="index.html" class="btn btn-primary">Go to Homepage</a>
-                                    </div>
-                                </form>
-                                <div class="text-center">
-                                    <p>Copyright © Designed by <a href="https://themeforest.net/user/digitalheaps">Digitalheaps</a>, Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-facebook"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-twitter"><i class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-linkedin"><i class="fa fa-linkedin"></i></a>
-                                        </li>
-                                        <li class="list-inline-item"><a href="javascript:void()" class="btn btn-google-plus"><i class="fa fa-google-plus"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+            <div class="page-search">
+              <form>
+                <div class="form-group floating-addon floating-addon-not-append">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">                          
+                        <i class="fas fa-search"></i>
+                      </div>
                     </div>
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary btn-lg">
+                        Search
+                      </button>
+                    </div>
+                  </div>
                 </div>
+              </form>
+              <div class="mt-3">
+                <a href="/dashboard">Back to Home</a>
+              </div>
             </div>
+          </div>
         </div>
-    </div> -->
+        <div class="simple-footer mt-5">
+          Copyright &copy; Block Manager 2023
+        </div>
+      </div>
+    </section>
+  </div>
 
-    
+  <!-- General JS Scripts -->
+  <script src="{{ asset('assets/dist/modules/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/popper.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/tooltip.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/bootstrap/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/modules/moment.min.js') }}"></script>
+  <script src="{{ asset('assets/dist/js/stisla.js') }}"></script>
+  
+  <!-- JS Libraies -->
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <script src="{{asset ('assets/plugins/common/common.min.js') }}"></script>
-    <script src="{{asset ('assets/js/custom.min.js') }} "></script>
-    <script src="{{asset ('assets/js/settings.js') }}"></script>
-    <script src="{{asset ('assets/js/gleek.js') }}"></script>
-    <script src="{{asset ('assets/js/styleSwitcher.js') }}"></script>
+  <!-- Page Specific JS File -->
+  
+  <!-- Template JS File -->
+  <script src="{{ asset('assets/dist/js/scripts.js') }}"></script>
+  <script src="{{ asset('assets/dist/js/custom.js') }}"></script>
 </body>
 </html>
-
-
-
-
-
