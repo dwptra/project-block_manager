@@ -72,11 +72,11 @@
                         <li class="{{ Request::is('project*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('project') }}"><i class="far fa-file-alt"></i>
                                 <span>Project</span></a></li>
                         <li class="menu-header">Master Data</li>
-                        <li class="dropdown {{ Request::is('block') || Request::is('block/categories*') ? 'active' : '' }}">
+                        <li class="dropdown {{ Request::is('block*') || Request::is('block/categories*') ? 'active' : '' }}">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                                     class="fas fa-columns"></i> <span>Block</span></a>
                             <ul class="dropdown-menu">
-                                <li class="{{ Request::is('block') ? 'active' : '' }}"><a class="nav-link" href="{{ route('block.master') }}">Block</a></li>
+                                <li class="{{ Request::is('block*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('block.master') }}">Block</a></li>
                                 <li class="{{ Request::is('block/categories*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('block.categories') }}">Block Category</a></li>
                             </ul>
                         </li>

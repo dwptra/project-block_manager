@@ -5,6 +5,12 @@
         <section class="section">
             <div class="section-header">
                 <h1>Change Password</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><b>Master Data</b></div>
+                    <div class="breadcrumb-item"><a href="{{ route('user') }}">User</a></div>
+                    <div class="breadcrumb-item"><a href="{{ route('user.edit', $user->id) }}">Edit</a></div>
+                    <div class="breadcrumb-item text-muted">Password</div>
+                </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-12">

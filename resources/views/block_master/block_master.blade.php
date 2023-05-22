@@ -5,6 +5,10 @@
         <section class="section">
             <div class="section-header">
                 <h1>Block Master List</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><b>Master Data</b></div>
+                    <div class="breadcrumb-item text-muted">Block Master</div>
+                </div>
             </div>
             @if (Session::get('createBlockMaster'))
             <div class="alert alert-success alert-dismissible fade show">

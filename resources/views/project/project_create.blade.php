@@ -4,7 +4,12 @@
     <div class="main-wrapper main-wrapper-1">
         <section class="section">
             <div class="section-header">
-                <h1>Project Create</h1>
+                <h1>Create Project</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><b>Dashboard</b></div>
+                    <div class="breadcrumb-item"><a href="{{ route('project') }}">Project</a></div>
+                    <div class="breadcrumb-item text-muted">Create</div>
+                </div>
             </div>
         <div class="col-lg-12">
             <div class="card">
