@@ -77,9 +77,9 @@
                                             <div class="d-flex">
                                                 <a title="View" class="btn btn-primary mr-1 text-white" style="width: 40px;" data-toggle="modal"  data-target="#viewBlock{{ $block->id }}"><i
                                                     class="fa-solid fa-info"></i></a>
-                                                <a class="btn btn-success mr-1" title="edit" href="{{ route('block.edit', $block->id) }}"><i
+                                                <a class="btn btn-success mr-1" title="Edit" href="{{ route('block.edit', $block->id) }}"><i
                                                     class="fa-solid fa-pen"></i></a>
-                                                <a title="View" class="btn btn-danger mr-1 text-white" style="width: 40px;" data-toggle="modal" data-target="#deleteBlock{{ $block->id }}"><i
+                                                <a title="Delete" class="btn btn-danger mr-1 text-white" style="width: 40px;" data-toggle="modal" data-target="#deleteBlock{{ $block->id }}"><i
                                                     class="fa-solid fa-trash"></i></a>
                                             </div>
                                         </td>

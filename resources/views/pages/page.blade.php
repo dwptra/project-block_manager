@@ -79,12 +79,12 @@
                                         </td>                                   
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-info text-white mr-1" href="{{ route('block', $page['id']) }}">See Blocks</a> 
+                                                <a class="btn btn-info text-white mr-1" title="see blocks" href="{{ route('block', $page['id']) }}">See Blocks</a> 
                                                 <a title="View" class="btn btn-primary mr-1 text-white" style="width: 40px;" data-toggle="modal"  data-target="#viewBlock{{ $page->id }}"><i
                                                     class="fa-solid fa-info"></i></a>
-                                                <a class="btn btn-success mr-1" href="{{ route('page.edit', $page['id']) }}"><i
+                                                <a class="btn btn-success mr-1" title="edit" href="{{ route('page.edit', $page['id']) }}"><i
                                                     class="fa-solid fa-pen"></i></a>
-                                                <a title="View" class="btn btn-danger mr-1 text-white" style="width: 40px;" data-toggle="modal" data-target="#deleteBlock{{ $page->id }}"><i
+                                                <a title="delete" class="btn btn-danger mr-1 text-white" style="width: 40px;" data-toggle="modal" data-target="#deleteBlock{{ $page->id }}"><i
                                                     class="fa-solid fa-trash"></i></a>
                                             </div>
                                         </td>
