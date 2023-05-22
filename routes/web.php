@@ -38,8 +38,9 @@ Route::middleware('cekAuth')->group(function () {
         Route::get('/edit/{id}', [BlockController::class, 'blockMasterEdit'])->name('blockmaster.edit');
         Route::patch('/edit/{id}/process', [BlockController::class, 'blockMasterUpdate'])->name('blockmaster.update');
         Route::delete('/delete/{id}', [BlockController::class, 'blockMasterDelete'])->name('blockmaster.delete');
-
     });
+
+    // Category (M)
     Route::prefix('categories')->group(function () {
         Route::get('/', [BlockController::class, 'blockCategory'])->name('block.categories');
         Route::post('/create/process', [BlockController::class, 'postCategory'])->name('category.post');
