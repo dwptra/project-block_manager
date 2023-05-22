@@ -19,13 +19,13 @@
                                 <div class="form-group row mb-1">
                                     <label class="col-lg-4 col-form-label">Project Name</label>
                                     <div class="col-lg-6">
-                                        <span>: {{ $project->project_name }}</span>
+                                        <span>: {{ $pageDB->projects->project_name }}</span>
                                     </div>
                                 </div>
                                 <div class="form-group row mb-2">
                                     <label class="col-lg-4 col-form-label">Project Manager</label>
                                     <div class="col-lg-6">
-                                        <span>: {{ $project->projectManager->name }}</span>
+                                        <span>: {{ $pageDB->projects->projectManager->name }}</span>
                                     </div>
                                 </div>
                                 @csrf
