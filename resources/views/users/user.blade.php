@@ -44,7 +44,7 @@
                                     </div>
                                 @endif
                                 <div class="table-responsive mt-3">
-                                    <table class="table table-striped table-bordered zero-configuration">
+                                    <table class="table table-striped table-bordered zero-configuration" id="table-2">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
@@ -91,20 +91,6 @@
                                                 @endif
                                             </tr>
                                             @endforeach
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Role</th>
-                                                <th>Created at</th>
-                                                <th>Updated at</th>
-                                                @if(Auth::user()->role == 'Admin')
-                                                <th>Action</th>
-                                                @endif
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

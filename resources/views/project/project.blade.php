@@ -51,7 +51,7 @@
                                 </div>
                                 <hr>
                                 <div class="table-responsive">
-                                    <table class="table table-striped" id="table-2">
+                                    <table class="table table-striped table-bordered zero-configuration" id="table-2">
                                         <thead>
                                             <?php
                                             $i = 1;
