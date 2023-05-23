@@ -226,38 +226,18 @@ class BlockController extends Controller
         // Ubah sort dari item yang sedang diedit menjadi sort yang baru diinputkan
         $newSort = $request->sort;
         $oldSort = $page->sort;
+        // Jika ada sort yang sama, tambahkan 1 pada sort lama dan isi posisi sort yang baru
+        if ($oldSort !== null) {
+            PageDetails::where('page_id', $page_id)
+                ->where('sort', '>=', $newSort)
+                ->update(['sort' => DB::raw('sort + 1')]);
+        }
         $page->update([
             'section_name' => $request->section_name,
             'note' => $request->note,
             'block_id' => $request->block_id,
             'sort' => $newSort,
         ]);
-
-        // Cek apakah ada item lain dengan sort id yang sama
-        $sameSortItems = PageDetails::where('page_id', $page_id)->where('sort', $newSort)->get();
-        if ($sameSortItems->count() > 1) {
-            // Jika ada, maka tukar sort dengan item yang memiliki nilai sort berbeda
-            foreach ($sameSortItems as $item) {
-                if ($item->id != $id) {
-                    $tempSort = $item->sort;
-                    $item->update(['sort' => $oldSort]);
-                    $page->update(['sort' => $tempSort]);
-                    break;
-                }
-            }
-        } else {
-            // Jika tidak ada, update sort id dari item lain yang berbeda
-            $otherItems = PageDetails::where('page_id', $page_id)->where('id', '<>', $id)->orderBy('sort')->get();
-            $currentSort = 1;
-            foreach ($otherItems as $item) {
-                if ($item->sort == $newSort) {
-                    $item->update(['sort' => $currentSort]);
-                } else {
-                    $currentSort = $item->sort;
-                    $item->update(['sort' => $currentSort]);
-                }
-            }
-        }
 
         // Kalau berhasil, arahkan ke halaman proyek dengan pemberitahuan berhasil
         return redirect()->route('block', $page_id)->with('updatePage', 'Berhasil mengubah page!');
