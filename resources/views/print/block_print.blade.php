@@ -74,7 +74,7 @@
                                                     </div>
                                                 @endforeach
                                             @else
-                                                <div>-</div>
+                                                <div>: -</div>
                                             @endif
                                         </div>
                                     </div>
