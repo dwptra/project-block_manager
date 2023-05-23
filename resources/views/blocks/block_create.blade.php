@@ -15,13 +15,6 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="alert alert-warning alert-has-icon">
-                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
-                        <div class="alert-body">
-                            <div class="alert-title">Warning</div>
-                            Make sure <b>Sort</b> is not the same.
-                        </div>
-                    </div>
                     @if (Session::get('createPage'))
                     <div class="alert alert-success alert-dismissible fade show">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
