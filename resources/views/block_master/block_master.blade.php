@@ -54,7 +54,8 @@
                                                 ?>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Block</th>
+                                                <th>Block Name</th>
+                                                <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -62,10 +63,8 @@
                                             @forelse ($blockCategory as $block)
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td>
-                                                    <li><b>Name :</b> {{ $block->block_name }}</li>
-                                                    <li><b>Category :</b> {{ $block->categories->category_name }}</li>
-                                                </td>
+                                                <td>{{ $block->block_name }}</td>
+                                                <td>{{ $block->categories->category_name }}</td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a title="View" class="btn btn-primary mr-1 text-white"
