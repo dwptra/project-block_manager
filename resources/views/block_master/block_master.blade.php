@@ -1,9 +1,10 @@
 @extends('layout')
 @section('content')
 <style>
-    li{
+    li {
         list-style: none;
     }
+
 </style>
 <div id="app">
     <div class="main-wrapper main-wrapper-1">

@@ -41,8 +41,8 @@ class Controller extends BaseController
         return view('dashboard', compact('projectDB', 'user', 'totalAdmin', 'totalPM', 'totalUser', 'totalProject'));
     }
 
-    public function error()
+    public function error_403()
     {
-        return view('404');
+        return view('403');
     }
 }

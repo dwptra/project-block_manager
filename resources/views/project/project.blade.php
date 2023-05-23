@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 <style>
-    li{
+    li {
         list-style: none;
     }
 </style>
@@ -56,7 +56,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-end">
-                                    <a class="btn btn-primary" href="{{ route('project.create') }}">Create New Project</a>
+                                    <a class="btn btn-primary" href="{{ route('project.create') }}">Create New
+                                        Project</a>
                                 </div>
                                 <hr>
                                 <div class="table-responsive">
@@ -78,21 +79,27 @@
                                                 <td>{{ $i++ }}</td>
                                                 <td>
                                                     <li><b>Project Name :</b> {{ $project->project_name }}</li>
-                                                    <li><b>Project Manager :</b> {{ $project->projectManager->name }}</li>
+                                                    <li><b>Project Manager :</b> {{ $project->projectManager->name }}
+                                                    </li>
                                                 </td>
                                                 <td>
-                                                    <li><b>Created At :</b> {{ $project->created_at->format('Y-m-d H:i') }}</li>
-                                                    <li><b>Updated At :</b> {{ $project->updated_at->format('Y-m-d H:i') }}</li>
+                                                    <li><b>Created At :</b>
+                                                        {{ $project->created_at->format('Y-m-d H:i') }}</li>
+                                                    <li><b>Updated At :</b>
+                                                        {{ $project->updated_at->format('Y-m-d H:i') }}</li>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <a title="See Pages" class="btn btn-info text-white mr-1"
                                                             href="{{ route('page', $project->id)  }}">See
                                                             Pages</a>
-                                                        <a title="Edit" class="btn btn-success mr-1" href="{{ route('project.edit', $project['id']) }}"><i
-                                                            class="fa-solid fa-pen"></i></a>
-                                                        <a title="Delete" class="btn btn-danger mr-1 text-white" style="width: 40px;" data-toggle="modal" data-target="#deleteProject{{ $project->id }}"><i
-                                                            class="fa-solid fa-trash"></i></a>
+                                                        <a title="Edit" class="btn btn-success mr-1"
+                                                            href="{{ route('project.edit', $project['id']) }}"><i
+                                                                class="fa-solid fa-pen"></i></a>
+                                                        <a title="Delete" class="btn btn-danger mr-1 text-white"
+                                                            style="width: 40px;" data-toggle="modal"
+                                                            data-target="#deleteProject{{ $project->id }}"><i
+                                                                class="fa-solid fa-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>

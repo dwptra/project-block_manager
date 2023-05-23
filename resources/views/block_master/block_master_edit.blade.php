@@ -18,7 +18,7 @@
                             @if ($errors->any())
                             <div class="alert alert-danger alert-dismissible fade show">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span>
+                                        aria-hidden="true">&times;</span>
                                 </button> <strong>Error:</strong>
                                 @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
@@ -26,18 +26,19 @@
                             </div>
                             @endif
                             <form action="{{ route('blockmaster.update', $blockEdit['id']) }}" method="post"
-                            enctype="multipart/form-data">
-                            <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary mr-1">Save Block</button>
-                                <a class="btn btn-danger ml-1" href="{{ route('block.master') }}">Back</a>
-                            </div>
-                            <hr>
+                                enctype="multipart/form-data">
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary mr-1">Save Block</button>
+                                    <a class="btn btn-danger ml-1" href="{{ route('block.master') }}">Back</a>
+                                </div>
+                                <hr>
                                 @csrf
                                 @method('PATCH')
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Block Name <span class="text-danger">*</span></b></div>
-                                    <div class="col-md-8"><input type="text" name="block_name" class="form-control" 
-                                            placeholder="Enter Block Name" required value="{{ $blockEdit->block_name }}"></div>
+                                    <div class="col-md-8"><input type="text" name="block_name" class="form-control"
+                                            placeholder="Enter Block Name" required
+                                            value="{{ $blockEdit->block_name }}"></div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Category <span class="text-danger">*</span></b></div>
@@ -109,7 +110,7 @@
                                     </div>
                                 </div>
                                 <div class="row mt-3">
-                                    <div class="col-md-4"><b>Sample Image 1<span class="text-danger">*</span></b></div>
+                                    <div class="col-md-4"><b>Sample Image 1<span class="text-danger"> *</span></b></div>
                                     <div class="input-group col-lg-8">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="sample_image_1"

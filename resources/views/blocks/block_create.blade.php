@@ -15,27 +15,6 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    @if (Session::get('createPage'))
-                    <div class="alert alert-success alert-dismissible fade show">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                        </button> <strong>Success!</strong> {{ Session::get('createPage')}}
-                    </div>
-                    @endif
-                    @if (Session::get('updatePage'))
-                    <div class="alert alert-success alert-dismissible fade show">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                        </button> <strong>Success!</strong> {{ Session::get('updatePage')}}
-                    </div>
-                    @endif
-                    @if (Session::get('deletePage'))
-                    <div class="alert alert-success alert-dismissible fade show">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">&times;</span>
-                        </button> <strong>Success!</strong> {{ Session::get('deletePage')}}
-                    </div>
-                    @endif
                     @if ($errors->any())
                     <div class="alert alert-danger alert-dismissible fade show">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span

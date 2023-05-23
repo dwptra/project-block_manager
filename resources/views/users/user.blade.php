@@ -1,9 +1,10 @@
 @extends('layout')
 @section('content')
 <style>
-    li{
+    li {
         list-style: none;
     }
+
 </style>
 <div id="app">
     <div class="main-wrapper main-wrapper-1">
@@ -75,15 +76,21 @@
                                             <td>
                                                 <li><b>Name :</b> {{ $project->name }}</li>
                                                 @if($project->role == 'Admin')
-                                                <li><b>Role :</b> <span class="bg-danger text-light px-2">{{ $project->role }}</span></li>
+                                                <li><b>Role :</b> <span
+                                                        class="bg-danger text-light px-2">{{ $project->role }}</span>
+                                                </li>
                                                 @else
-                                                <li><b>Role :</b> <span class="bg-primary text-light px-2">{{ $project->role }}</span></li>
+                                                <li><b>Role :</b> <span
+                                                        class="bg-primary text-light px-2">{{ $project->role }}</span>
+                                                </li>
                                                 @endif
                                             </td>
                                             <td>{{ $project->email }}</td>
                                             <td>
-                                                <li><b>Created At :</b> {{ $project->created_at->format('Y-m-d h:i') }}</li>
-                                                <li><b>Updated At :</b> {{ $project->updated_at->format('Y-m-d h:i') }}</li>
+                                                <li><b>Created At :</b> {{ $project->created_at->format('Y-m-d h:i') }}
+                                                </li>
+                                                <li><b>Updated At :</b> {{ $project->updated_at->format('Y-m-d h:i') }}
+                                                </li>
                                             </td>
                                             @if(Auth::user()->role == 'Admin')
                                             <td>

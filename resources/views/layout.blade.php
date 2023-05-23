@@ -6,7 +6,9 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Block Generation</title>
     <link rel="shortcut icon" href="{{ asset('assets/img/logo.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/fontawesome/css/all.min.css') }}">
@@ -22,9 +24,11 @@
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/prism/prism.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/ionicons/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dist/modules/datatables/datatables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/dist/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/dist/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css') }}">
-    
+    <link rel="stylesheet"
+        href="{{ asset('assets/dist/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/dist/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css') }}">
+
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/dist/css/style.css') }}">
@@ -66,21 +70,26 @@
                     <div class="sidebar-brand sidebar-brand-sm">
                         <a href="{{ route('dashboard') }}">BM</a>
                     </div>
-                    <ul class="sidebar-menu"> 
-                        <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>
+                    <ul class="sidebar-menu">
+                        <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>
                                 <span>Dashboard</span></a></li>
-                        <li class="{{ Request::is('project*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('project') }}"><i class="far fa-file-alt"></i>
+                        <li class="{{ Request::is('project*') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('project') }}"><i class="far fa-file-alt"></i>
                                 <span>Project</span></a></li>
                         <li class="menu-header">Master Data</li>
                         <li class="dropdown {{ Request::is('block*') || Request::is('categories*') ? 'active' : '' }}">
                             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                                     class="fas fa-columns"></i> <span>Block</span></a>
                             <ul class="dropdown-menu">
-                                <li class="{{ Request::is('block*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('block.master') }}">Block</a></li>
-                                <li class="{{ Request::is('categories*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('block.categories') }}">Block Category</a></li>
+                                <li class="{{ Request::is('block*') ? 'active' : '' }}"><a class="nav-link"
+                                        href="{{ route('block.master') }}">Block</a></li>
+                                <li class="{{ Request::is('categories*') ? 'active' : '' }}"><a class="nav-link"
+                                        href="{{ route('block.categories') }}">Block Category</a></li>
                             </ul>
                         </li>
-                        <li class="{{ Request::is('user*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('user') }}"><i class="fas fa-user"></i>
+                        <li class="{{ Request::is('user*') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('user') }}"><i class="fas fa-user"></i>
                                 <span>User</span></a></li>
                     </ul>
                 </aside>
@@ -125,7 +134,8 @@
     <script src="{{ asset('assets/dist/js/page/bootstrap-modal.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/prism/prism.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/datatables/datatables.min.js') }}"></script>
-    <script src="{{ asset('assets/dist/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/dist/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}">
+    </script>
     <script src="{{ asset('assets/dist/modules/datatables/Select-1.2.4/js/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('assets/dist/modules/jquery-ui/jquery-ui.min.js') }}"></script>
 
@@ -137,7 +147,7 @@
     <!-- Template JS File -->
     <script src="{{ asset('assets/dist/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/dist/js/custom.js') }}"></script>
-    
+
 </body>
 
 </html>

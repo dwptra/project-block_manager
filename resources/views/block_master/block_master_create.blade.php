@@ -47,25 +47,28 @@
                     <div class="card">
                         <div class="card-body">
                             <form action="{{ route('blockmaster.post') }}" method="post" enctype="multipart/form-data">
-                            <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary mr-1">Save Block</button>
-                                <a class="btn btn-danger ml-1" href="{{ route('block.master') }}">Back</a>
-                            </div>
-                            <hr>
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary mr-1">Save Block</button>
+                                    <a class="btn btn-danger ml-1" href="{{ route('block.master') }}">Back</a>
+                                </div>
+                                <hr>
                                 @csrf
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Block Name <span class="text-danger">*</span></b></div>
                                     <div class="col-md-8"><input type="text" name="block_name" class="form-control"
-                                            placeholder="Enter Block Name" value="{{ old('block_name') }}" required></div>
+                                            placeholder="Enter Block Name" value="{{ old('block_name') }}" required>
+                                    </div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Category <span class="text-danger">*</span></b></div>
                                     <div class="col-lg-8">
-                                        <select class="form-control selectric" aria-label="Default select example" required value="{{ old('category_id') }}"
-                                            name="category_id">
+                                        <select class="form-control selectric" aria-label="Default select example"
+                                            required value="{{ old('category_id') }}" name="category_id">
                                             <option value="" selected disabled>Select Category Block</option>
                                             @foreach($blockCategoryCreate as $category)
-                                            <option value="{{$category->id}}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{$category->category_name}}</option>
+                                            <option value="{{$category->id}}"
+                                                {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                                {{$category->category_name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -73,14 +76,15 @@
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Description <span class="text-danger"></span></b></div>
                                     <div class="col-md-8"><textarea name="description" class="form-control"
-                                            id="val-note" rows="5" placeholder="Not Required">{{ old('description') }}</textarea></div>
+                                            id="val-note" rows="5"
+                                            placeholder="Not Required">{{ old('description') }}</textarea></div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4"><b>Main Image <span class="text-danger">*</span></b></div>
                                     <div class="input-group col-lg-8">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="main_image"  value="{{ old('main_image') }}"
-                                                onchange="previewImage(event)">
+                                            <input type="file" class="custom-file-input" name="main_image"
+                                                value="{{ old('main_image') }}" onchange="previewImage(event)">
                                             <label class="custom-file-label">Choose file</label>
                                         </div>
                                     </div>
@@ -92,7 +96,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row" style="display: none" id="preview-container">
                                     <div class="col-md-4" for="preview"><b>Main Image Preview <span
                                                 class="text-danger"></span></b></div>
@@ -106,7 +110,7 @@
                                     <div class="input-group col-lg-8">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="mobile_image"
-                                                onchange="previewMobileImage(event)" >
+                                                onchange="previewMobileImage(event)">
                                             <label class="custom-file-label">Choose file</label>
                                         </div>
                                     </div>
@@ -125,7 +129,7 @@
                                     </div>
                                 </div>
                                 <div class="row mt-3">
-                                    <div class="col-md-4"><b>Sample Image 1<span class="text-danger">*</span></b></div>
+                                    <div class="col-md-4"><b>Sample Image 1<span class="text-danger"> *</span></b></div>
                                     <div class="input-group col-lg-8">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="sample_image_1"

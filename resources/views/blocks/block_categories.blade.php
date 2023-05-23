@@ -5,7 +5,8 @@
         display: inline-block;
         min-width: 125px;
     }
-    li{
+
+    li {
         list-style: none;
     }
 
@@ -47,7 +48,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-end">
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#createCategories">Create
+                                    <button class="btn btn-primary" data-toggle="modal"
+                                        data-target="#createCategories">Create
                                         Category</button>
                                 </div>
                                 <hr>
@@ -70,16 +72,20 @@
                                                 <td class="text-center">{{ $i++ }}</td>
                                                 <td>{{ $category->category_name }}</td>
                                                 <td>
-                                                    <li><b>Created At :</b> {{ $category->created_at->format('Y-m-d H:i') }}</li>
-                                                    <li><b>Updated At :</b> {{ $category->updated_at->format('Y-m-d H:i') }}</li>
+                                                    <li><b>Created At :</b>
+                                                        {{ $category->created_at->format('Y-m-d H:i') }}</li>
+                                                    <li><b>Updated At :</b>
+                                                        {{ $category->updated_at->format('Y-m-d H:i') }}</li>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex">
                                                         <button class="btn btn-success mr-1" data-toggle="modal"
                                                             data-target="#editCategories{{ $category->id }}"><i
-                                                            class="fa-solid fa-pen"></i></button>
-                                                        <a title="Delete" class="btn btn-danger mr-1 text-white" style="width: 40px;" data-toggle="modal" data-target="#deleteCategory{{ $category->id }}"><i
-                                                            class="fa-solid fa-trash"></i></a>  
+                                                                class="fa-solid fa-pen"></i></button>
+                                                        <a title="Delete" class="btn btn-danger mr-1 text-white"
+                                                            style="width: 40px;" data-toggle="modal"
+                                                            data-target="#deleteCategory{{ $category->id }}"><i
+                                                                class="fa-solid fa-trash"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -118,12 +124,13 @@
                     @csrf
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Category Name:</label>
-                        <input name="category_name" type="text" class="form-control" id="recipient-name" required> 
+                        <input name="category_name" type="text" class="form-control" id="recipient-name" required>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save Category</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        aria-label="Close">Close</button>
                 </div>
             </form>
         </div>
@@ -148,13 +155,14 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Category Name:</label>
-                        <input name="category_name" type="text" class="form-control" id="recipient-name" required  
+                        <input name="category_name" type="text" class="form-control" id="recipient-name" required
                             value="{{ $category->category_name }}">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save Category</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        aria-label="Close">Close</button>
                 </div>
             </form>
         </div>

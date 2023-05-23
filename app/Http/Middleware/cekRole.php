@@ -13,6 +13,6 @@ class CekRole
         if (in_array(Auth::user()->role, $roles)){
             return $next($request);
         }
-        return redirect('/error');
+        return redirect()->route('403');
     }
 }

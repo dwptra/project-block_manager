@@ -25,7 +25,7 @@ use App\Http\Controllers\PageController;
     // });
 Route::middleware('cekAuth')->group(function () {
     Route::get('/dashboard', [Controller::class, 'dashboard'])->name('dashboard');
-    Route::get('/error', [Controller::class, 'error'])->name('error');
+    Route::get('/error', [Controller::class, 'error_403'])->name('403');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
     // Masterdata

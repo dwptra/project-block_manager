@@ -16,24 +16,23 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <form class="form-valide" action="{{ route('password.update', $user->id) }}"
-                                method="post">
-                            <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary mr-1">Save Password</button>
-                                <a class="btn btn-danger ml-2" href="{{ route('user.edit', $user->id) }}">Back</a>
-                            </div>
-                            <hr>
-                            <div class="form-validation">
-                                @if ($errors->any())
-                                <div class="alert alert-danger alert-dismissible fade show">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                            aria-hidden="true">&times;</span>
-                                    </button> <strong>Error:</strong>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
+                            <form class="form-valide" action="{{ route('password.update', $user->id) }}" method="post">
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary mr-1">Save Password</button>
+                                    <a class="btn btn-danger ml-2" href="{{ route('user.edit', $user->id) }}">Back</a>
                                 </div>
-                                @endif
+                                <hr>
+                                <div class="form-validation">
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close"><span aria-hidden="true">&times;</span>
+                                        </button> <strong>Error:</strong>
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </div>
+                                    @endif
                                     @csrf
                                     @method('PATCH')
                                     <div class="form-group row">
@@ -45,14 +44,14 @@
                                                 id="val-password" placeholder="Enter a Password" required>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
     </div>
-    <!-- #/ container -->
+</div>
+<!-- #/ container -->
 </div>
 <!--**********************************
 Content body end
